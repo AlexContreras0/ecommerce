@@ -57,7 +57,7 @@ export default function ProductComponent({ product, pic1, pic2, pic3, pic4 }) {
           <h1 className={styles.title}>Titulo producto</h1>
           <p className={styles.price}>25 euros</p>
           <ItemCount />
-          <button className={styles.cartButton}>
+          <button className={styles.cartButton} onClick={addToCart}>
             Añadir al carrito
             <svg
               className={styles.cartIcon}
@@ -83,7 +83,7 @@ export default function ProductComponent({ product, pic1, pic2, pic3, pic4 }) {
             </svg>
           </button>
 
-          <button className={styles.wishButton}>
+          <button className={styles.wishButton} onClick={addToWishList}>
             Lista de deseos
             <svg
               className={styles.wishIcon}
