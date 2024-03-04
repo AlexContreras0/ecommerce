@@ -141,6 +141,17 @@
         color: #fff;
         stroke: #fff;
       }
+
+      .tags {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+
+      .tagIcon {
+        width: 20px;
+        stroke: #2d3748;
+      }
     }
 
     .descriptionContainer {
