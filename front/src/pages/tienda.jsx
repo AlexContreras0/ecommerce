@@ -14,7 +14,7 @@ export default function tienda() {
     getAllProductsAux();
   }, []);
 
-  console.log("Productos")
+  console.log(products)
 
   return (
     <div>
@@ -23,7 +23,7 @@ export default function tienda() {
       {products.map((product, index) => {
         return (
           <div key={index}>
-            <ListProductComponent idParam={product.id} nombreParam={product.nombre} />
+            <ListProductComponent idParam={product.id} nombreParam={product.nombre} priceParam={product.precio} tipoParam={product.tipo} descriptionParam={product.description} stockParam={product.stock} ratingParam={product.rating} imagenParam={product.imagen}/>
           </div>
         );
       })}

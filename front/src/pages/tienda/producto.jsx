@@ -1,12 +1,26 @@
 import NavMenu from "@/components/NavMenu/NavMenu";
 import ProductComponent from "@/components/ProductComponent/ProductComponent";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { getProduct } from "../../../api/productFetch";
+import { useRouter } from "next/router";
 
-export default function page() {
+export default function producto() {
+  const router = useRouter()
+  const [product, setProducts] = useState("")
+  const { id } = router.query
+
+    useEffect(() => {
+      const loadProduct = async () => {
+      const productAux = await getProduct(id)
+      setProducts(productAux)
+      }
+      loadProduct()
+    }, [id])
+
   return (
     <>
       <NavMenu />
-      <ProductComponent />
+      <ProductComponent id={id} product={product}/>
     </>
   );
 }

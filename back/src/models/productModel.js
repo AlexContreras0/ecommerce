@@ -20,10 +20,10 @@ const productSchema = new Schema({
         type: String,
         required: true
     },
-    productImage: {
+    productImage: [{
         type: String,
         required: true
-    },
+    }],
     productCategory: {
         type: String,
         required: true,

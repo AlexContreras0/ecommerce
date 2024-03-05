@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import styles from "./ProductComponent.module.css";
 import ItemCount from "../ItemCount/ItemCount";
 
-export default function ProductComponent({ product, pic1, pic2, pic3, pic4 }) {
+export default function ProductComponent(id, product) {
   const [image, setImage] = useState();
+
+  const { idParam, nombreParam, priceParam, tipoParam, descriptionParam, stockParam, ratingParam, imagenParam } = product;
 
   const selectImage = (img) => {
     setImage(img);
