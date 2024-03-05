@@ -10,7 +10,7 @@ const app = express()
 const port = 9000
 
 //Mongo Alex
-const url_mongo = 'mongodb+srv://alexcontrerasg98:bbVNZcJHIv0dP1rW@donut.wpe2e45.mongodb.net/?retryWrites=true&w=majority&appName=Donut'
+const url_mongo = 'mongodb+srv://alexcontrerasg98:bbVNZcJHIv0dP1rW@donut.wpe2e45.mongodb.net/?retryWrites=true&w=majority'
 
 //Mongo Sara
 // const url_mongo = 'mongodb+srv://saramalagamba:fU22UMs!9dhLtDQ@cluster0.9bckfo4.mongodb.net/?retryWrites=true&w=majority'

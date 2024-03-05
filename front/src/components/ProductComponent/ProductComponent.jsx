@@ -4,6 +4,7 @@ import ItemCount from "../ItemCount/ItemCount";
 
 export default function ProductComponent({ product, pic1, pic2, pic3, pic4 }) {
   const [image, setImage] = useState();
+  const [products, setProducts] = useState([]);
 
   const selectImage = (img) => {
     setImage(img);
