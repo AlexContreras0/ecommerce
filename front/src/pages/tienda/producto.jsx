@@ -6,8 +6,8 @@ import { useRouter } from "next/router";
 
 export default function producto() {
   const router = useRouter()
-  const [product, setProducts] = useState("")
   const { id } = router.query
+  const [product, setProducts] = useState("")
 
     useEffect(() => {
       const loadProduct = async () => {
