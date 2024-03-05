@@ -129,7 +129,7 @@
 .rolContainer {
   display: flex;
   align-items: center;
-  justify-content: start;
+  justify-content: flex-start;
   padding: 0.5rem 1rem;
   gap: 2rem;
   width: 100%;
@@ -148,19 +148,11 @@
 }
 
 .error {
-  color: #ff0000;
-  font-size: 0.8rem;
+  margin-top: 1rem;
+  color: #fff;
+  background-color: red;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
   font-weight: 600;
-}
-
-.errorUl {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
 }

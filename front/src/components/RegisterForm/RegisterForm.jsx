@@ -3,20 +3,85 @@ import styles from "./RegisterForm.module.css";
 import Link from "next/link";
 
 export default function RegisterForm() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [errors, setErrors] = useState([]);
-  const [username, setUsername] = useState("");
-  const [userRole, setUserRole] = useState("");
+  const [error, setError] = useState(null);
   const [showPassword, setShowPassword] = useState(false);
-  const [phone, setPhone] = useState("");
-  const [address, setAddress] = useState("");
-  const [cp, setCp] = useState("");
-  const [province, setProvince] = useState("");
+  const [newUser, setNewUser] = useState({
+    username: "",
+    email: "",
+    phone: "",
+    address: "",
+    cp: "",
+    province: "",
+    password: "",
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setNewUser((prevUser) => ({ ...prevUser, [name]: value }));
+    console.log(newUser);
+  };
 
   const handleSubmit = async (e) => {
-    // falta logicas de validacion
+    e.preventDefault();
+    if (validateForm()) {
+      try {
+        // logicar para enviar los datos a la API
+        // const response = await createUser(newUser);
+        console.log("Usuario creado:", newUser);
+
+        if (response.ok) {
+          setNewUser({
+            username: "",
+            email: "",
+            phone: "",
+            address: "",
+            cp: "",
+            province: "",
+            password: "",
+          });
+          setError(null);
+        } else {
+          throw new Error("Error al crear el usuario");
+        }
+      } catch (error) {
+        console.error("Error al crear el usuario:", error);
+        setError("Error al crear el usuario. Por favor, inténtalo de nuevo.");
+      }
+    }
   };
+
+  const validateForm = () => {
+    if (newUser.password.length < 6) {
+      setError("La contraseña debe tener al menos 6 caracteres");
+      return false;
+    }
+    if (newUser.username.length < 3) {
+      setError("El nombre de usuario debe tener al menos 3 caracteres");
+      return false;
+    }
+    if (!newUser.email.includes("@")) {
+      setError("El correo electrónico no es válido");
+      return false;
+    }
+    if (newUser.phone.length < 9) {
+      setError("El teléfono no es válido");
+      return false;
+    }
+    if (newUser.address.length < 5) {
+      setError("La dirección no es válida");
+      return false;
+    }
+    if (newUser.cp.length < 5) {
+      setError("El código postal no es válido");
+      return false;
+    }
+    if (newUser.province.length < 3) {
+      setError("La provincia no es válida");
+      return false;
+    }
+    return true;
+  };
+
   return (
     <div>
       <div className={styles.body}>
@@ -26,76 +91,74 @@ export default function RegisterForm() {
             <div className={styles.formContainer}>
               <div className={styles.form}>
                 <input
-                  type="username"
-                  placeholder="Nombre de usuario"
+                  type="text"
                   name="username"
+                  placeholder="Nombre de usuario"
                   className={styles.field}
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
+                  value={newUser.username}
+                  onChange={handleInputChange}
                 />
+
                 <input
-                  type="email"
-                  placeholder="Correo electrónico"
-                  name="email"
-                  className={styles.field}
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-                <input
-                  type="phone"
-                  placeholder="Teléfono"
+                  type="tel"
                   name="phone"
+                  placeholder="Teléfono"
                   className={styles.field}
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
+                  value={newUser.phone}
+                  onChange={handleInputChange}
                 />
-                <div className={styles.rolContainer}>
-                  <label htmlFor="userRole">Elige tu rol:</label>
-                  <select
-                    className={styles.select}
-                    onChange={(e) => setPhone(e.target.value)}
-                  >
-                    <option value="option1" selected>
-                      Usuario
-                    </option>
-                    <option value="option2">Proveedor</option>
-                    <option value="option3">Administrador</option>
-                  </select>
-                </div>
+                <input
+                  type="text"
+                  name="locality"
+                  placeholder="Localidad"
+                  className={styles.field}
+                  value={newUser.locality}
+                  onChange={handleInputChange}
+                />
+
+                <input
+                  type="text"
+                  name="cp"
+                  placeholder="Código postal"
+                  className={styles.field}
+                  value={newUser.cp}
+                  onChange={handleInputChange}
+                />
               </div>
               <div className={styles.form}>
                 <input
-                  type="address"
-                  placeholder="Dirección (Calle, número, piso, puerta)"
+                  type="email"
+                  name="email"
+                  placeholder="Correo electrónico"
+                  className={styles.field}
+                  value={newUser.email}
+                  onChange={handleInputChange}
+                />
+
+                <input
+                  type="text"
                   name="address"
+                  placeholder="Dirección (Calle, número, piso, puerta)"
                   className={styles.field}
-                  value={address}
-                  onChange={(e) => setAddress(e.target.value)}
+                  value={newUser.address}
+                  onChange={handleInputChange}
                 />
                 <input
-                  type="cp"
-                  placeholder="Código postal"
-                  name="cp"
-                  className={styles.field}
-                  value={cp}
-                  onChange={(e) => setCp(e.target.value)}
-                />
-                <input
-                  type="province"
-                  placeholder="Provincia"
+                  type="text"
                   name="province"
+                  placeholder="Provincia"
                   className={styles.field}
-                  value={province}
-                  onChange={(e) => setProvince(e.target.value)}
+                  value={newUser.province}
+                  onChange={handleInputChange}
                 />
                 <div className={styles.passwordContainer}>
                   <input
                     type={showPassword ? "text" : "password"}
-                    placeholder="Contraseña"
                     name="password"
+                    placeholder="Contraseña"
                     className={styles.field}
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    value={newUser.password}
+                    onChange={handleInputChange}
                   />
                   <div
                     className={styles.passwordIconContainer}
@@ -108,25 +171,25 @@ export default function RegisterForm() {
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
                       >
-                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
                         <g
                           id="SVGRepo_tracerCarrier"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                         ></g>
                         <g id="SVGRepo_iconCarrier">
                           {" "}
                           <path
                             d="M15.0007 12C15.0007 13.6569 13.6576 15 12.0007 15C10.3439 15 9.00073 13.6569 9.00073 12C9.00073 10.3431 10.3439 9 12.0007 9C13.6576 9 15.0007 10.3431 15.0007 12Z"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                           ></path>{" "}
                           <path
                             d="M12.0012 5C7.52354 5 3.73326 7.94288 2.45898 12C3.73324 16.0571 7.52354 19 12.0012 19C16.4788 19 20.2691 16.0571 21.5434 12C20.2691 7.94291 16.4788 5 12.0012 5Z"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                           ></path>{" "}
                         </g>
                       </svg>
@@ -137,19 +200,19 @@ export default function RegisterForm() {
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
                       >
-                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
                         <g
                           id="SVGRepo_tracerCarrier"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                         ></g>
                         <g id="SVGRepo_iconCarrier">
                           {" "}
                           <path
                             d="M2.99902 3L20.999 21M9.8433 9.91364C9.32066 10.4536 8.99902 11.1892 8.99902 12C8.99902 13.6569 10.3422 15 11.999 15C12.8215 15 13.5667 14.669 14.1086 14.133M6.49902 6.64715C4.59972 7.90034 3.15305 9.78394 2.45703 12C3.73128 16.0571 7.52159 19 11.9992 19C13.9881 19 15.8414 18.4194 17.3988 17.4184M10.999 5.04939C11.328 5.01673 11.6617 5 11.9992 5C16.4769 5 20.2672 7.94291 21.5414 12C21.2607 12.894 20.8577 13.7338 20.3522 14.5"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                           ></path>{" "}
                         </g>
                       </svg>
@@ -158,26 +221,17 @@ export default function RegisterForm() {
                 </div>
               </div>
             </div>
+            {error && <p className={styles.error}>{error}</p>}
             <button type="submit" className={styles.submitButton}>
               Regístrate
             </button>
           </form>
-
           <div className={styles.signUp}>
             <p>¿Ya tienes una cuenta?</p>
             <Link className={styles.link} href="/login-usuario">
               Accede aquí
             </Link>
           </div>
-          {errors.length > 0 && (
-            <div className={styles.error}>
-              <ul className={styles.errorUl}>
-                {errors.map((error) => (
-                  <li key={error}>{error}</li>
-                ))}
-              </ul>
-            </div>
-          )}
         </div>
       </div>
     </div>
