@@ -1,12 +1,13 @@
 import NavMenu from "../components/NavMenu/NavMenu";
 import React, { useState } from "react";
-import styles from "../styles/login-usuario.module.css";
+import styles from "../styles/registro-usuario.module.css";
 import Link from "next/link";
 
-export default function loginUser() {
+export default function signUpUser() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
+  const [username, setUsername] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = async (e) => {
@@ -17,7 +18,7 @@ export default function loginUser() {
       <NavMenu />
       <div className={styles.body}>
         <div className={styles.container}>
-          <h2 className={styles.title}>Inicia sesión como usuario</h2>
+          <h2 className={styles.title}>Regístrate como usuario</h2>
           <form className={styles.form} onSubmit={handleSubmit}>
             <input
               type="email"
@@ -26,6 +27,14 @@ export default function loginUser() {
               className={styles.field}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+            />
+            <input
+              type="username"
+              placeholder="Nombre de usuario"
+              name="username"
+              className={styles.field}
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
             />
             <div className={styles.passwordContainer}>
               <input
@@ -95,17 +104,14 @@ export default function loginUser() {
                 )}
               </div>
             </div>
-            <Link className={styles.passwordLink} href="/recuperar-contrasena">
-              Recordar contraseña
-            </Link>
             <button type="submit" className={styles.submitButton}>
-              Iniciar sesión
+              Regístrate
             </button>
           </form>
           <div className={styles.signUp}>
-            <p>¿Aún no tienes cuenta?</p>
-            <Link className={styles.link} href="/registro-usuario">
-              Regístrate aquí
+            <p>¿Ya tienes una cuenta?</p>
+            <Link className={styles.link} href="/login-usuario">
+              Accede aquí
             </Link>
           </div>
           {errors.length > 0 && (
