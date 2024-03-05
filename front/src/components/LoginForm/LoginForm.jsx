@@ -1,12 +1,10 @@
-import NavMenu from "../components/NavMenu/NavMenu";
 import React, { useState } from "react";
-import styles from "../styles/login-proveedor.module.css";
+import styles from "./LoginForm.module.css";
 import Link from "next/link";
 
-export default function loginSupplier() {
+export default function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [errors, setErrors] = useState([]);
   const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = async (e) => {
@@ -14,10 +12,9 @@ export default function loginSupplier() {
   };
   return (
     <div>
-      <NavMenu />
       <div className={styles.body}>
         <div className={styles.container}>
-          <h2 className={styles.title}>Inicia sesión como proveedor</h2>
+          <h2 className={styles.title}>Inicia sesión</h2>
           <form className={styles.form} onSubmit={handleSubmit}>
             <input
               type="email"
@@ -104,19 +101,10 @@ export default function loginSupplier() {
           </form>
           <div className={styles.signUp}>
             <p>¿Aún no tienes cuenta?</p>
-            <Link className={styles.link} href="/registro-proveedor">
+            <Link className={styles.link} href="/registro-usuario">
               Regístrate aquí
             </Link>
           </div>
-          {errors.length > 0 && (
-            <div className={styles.error}>
-              <ul className={styles.errorUl}>
-                {errors.map((error) => (
-                  <li key={error}>{error}</li>
-                ))}
-              </ul>
-            </div>
-          )}
         </div>
       </div>
     </div>

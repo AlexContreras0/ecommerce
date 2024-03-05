@@ -13,9 +13,9 @@
   align-items: center;
   justify-content: center;
   gap: 2rem;
-  height: 70%;
+  height: 80%;
   width: 100%;
-  max-width: 25%;
+  max-width: 40%;
   padding: 2rem;
   border-radius: 10px;
   background-color: #379237;
@@ -25,6 +25,21 @@
   font-size: 1.5rem;
   font-weight: 600;
   text-align: center;
+}
+
+.formBody {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  align-items: center;
+}
+
+.formContainer {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  align-items: center;
 }
 
 .form {
@@ -109,6 +124,27 @@
   color: #2d3748;
   font-weight: 600;
   text-decoration: none;
+}
+
+.rolContainer {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  padding: 0.5rem 1rem;
+  gap: 2rem;
+  width: 100%;
+  border: none;
+  background-color: #edfbe2;
+  color: #757575;
+  font-size: 13px;
+  border-radius: 5px;
+  position: relative;
+}
+
+.select {
+  border: 0.5px solid #2d374837;
+  border-radius: 5px;
+  padding: 0.2rem 0.5rem;
 }
 
 .error {

@@ -214,12 +214,7 @@ export default function NavMenu() {
           </li>
           <li>
             <Link className={styles.link} href="/login-usuario">
-              Login usuario
-            </Link>
-          </li>
-          <li>
-            <Link className={styles.link} href="/login-proveedor">
-              Login proveedor
+              Login
             </Link>
           </li>
         </div>
