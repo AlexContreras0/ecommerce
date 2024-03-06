@@ -7,12 +7,16 @@ import { useRouter } from "next/router";
 export default function producto() {
   const router = useRouter()
   const { id } = router.query
-  const [product, setProducts] = useState("")
+  const [product, setProduct] = useState([])
+
+  console.log(id)
 
     useEffect(() => {
       const loadProduct = async () => {
       const productAux = await getProduct(id)
-      setProducts(productAux)
+      setProduct(productAux.data)
+      console.log("esto es el productAux", productAux)
+      console.log("esto es el producto del seteo", product)
       }
       loadProduct()
     }, [id])
@@ -20,7 +24,7 @@ export default function producto() {
   return (
     <>
       <NavMenu />
-      <ProductComponent id={id} product={product}/>
+      {product && <ProductComponent product={product}/>}
     </>
   );
 }

@@ -5,17 +5,22 @@ import StarRatingComponent from "../StarRatingComponent/StarRatingComponent";
 
 export default function ProductComponent(props) {
   const [image, setImage] = useState();
+  
+const { product } = props
 
-  const {
-    idParam,
-    nombreParam,
-    priceParam,
-    tipoParam,
-    descriptionParam,
-    stockParam,
-    ratingParam,
-    imagenParam,
-  } = props;
+  // const {
+  //   idParam,
+  //   nombreParam,
+  //   priceParam,
+  //   tipoParam,
+  //   descriptionParam,
+  //   stockParam,
+  //   ratingParam,
+  //   imagenParam,
+  // } = props;
+
+  console.log("esta es la imagen del param",product.productImage)
+  console.log("esta es el nombre del param",product.productName)
 
   const selectImage = (img) => {
     setImage(img);
@@ -34,40 +39,40 @@ export default function ProductComponent(props) {
       <section className={styles.container}>
         <div className={styles.imageContainer}>
           <div className={styles.imageDetailsContainer}>
-            <img
+            {product.image ? <img
               className={styles.imageDetails}
-              onClick={() => selectImage(imagenParam)}
+              onClick={() => selectImage(product.productImage[0])}
               alt="imagen producto"
-              src={imagenParam}
-            />
-            <img
+              src={product.productImage[0]}
+            />: <p>Imagen no disponible</p>}
+            {product.image ? <img
               className={styles.imageDetails}
-              onClick={() => selectImage(imagenParam)}
+              onClick={() => selectImage(product.productImage[1])}
               alt="imagen producto"
-              src={imagenParam}
-            />
-            <img
+              src={product.productImage[1]}
+            />: <p>Imagen no disponible</p>}
+            {product.image ? <img
               className={styles.imageDetails}
-              onClick={() => selectImage(imagenParam)}
+              onClick={() => selectImage(product.productImage[0])}
               alt="imagen producto"
-              src={imagenParam}
-            />
-            <img
+              src={product.productImage[0]}
+            />: <p>Imagen no disponible</p>}
+            {product.image ? <img
               className={styles.imageDetails}
-              onClick={() => selectImage(imagenParam)}
+              onClick={() => selectImage(product.productImage[1])}
               alt="imagen producto"
-              src={imagenParam}
-            />
+              src={product.productImage[1]}
+            />: <p>Imagen no disponible</p>}
           </div>
-          <img
+          {product.image ? <img
             className={styles.image}
-            src={imagenParam}
+            src={product.productImage}
             alt="imagen producto"
-          />
+          />: <p>Imagen no disponible</p>}
         </div>
         <div className={styles.infoContainer}>
-          <h1 className={styles.title}>{nombreParam}</h1>
-          <p className={styles.price}>{priceParam}</p>
+          <h1 className={styles.title}>{product.productName}</h1>
+          <p className={styles.price}>{product.productPrice}</p>
           <ItemCount />
           <button className={styles.cartButton} onClick={addToCart}>
             Añadir al carrito
@@ -146,11 +151,11 @@ export default function ProductComponent(props) {
                 ></path>{" "}
               </g>
             </svg>
-            Categorías: {tipoParam}
+            Categorías: {product.productCategory}
           </p>
           <section className={styles.descriptionContainer}>
             <h2 className={styles.descriptionTitle}>Detalles del producto:</h2>
-            <p className={styles.description}>{descriptionParam}</p>
+            <p className={styles.description}>{product.productDescription}</p>
           </section>
         </div>
       </section>

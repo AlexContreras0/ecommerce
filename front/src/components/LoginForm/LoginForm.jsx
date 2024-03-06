@@ -16,7 +16,12 @@ export default function LoginForm() {
     if (validateForm()) {
       try {
         // Lógica para enviar los datos a la API y manejar la autenticación
-        console.log("Usuario logueado:", user);
+        const response = await fetch("http://localhost:9000/auth-token", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(user)
+      });
+        console.log("response", response.json()); return;
         setError(null);
       } catch (error) {
         console.error("Error al loguear el usuario:", error);
@@ -29,6 +34,8 @@ export default function LoginForm() {
     const { name, value } = e.target;
     setUser((prevUser) => ({ ...prevUser, [name]: value }));
   };
+
+  console.log("este son los datos del usuario",user)
 
   const validateForm = () => {
     if (user.password.length < 6 || user.email.length < 3) {

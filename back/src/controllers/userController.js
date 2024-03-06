@@ -209,4 +209,23 @@ const refreshToken = async (req, res) => {
 
 }
 
-module.exports = { getUsers, getUserById, modifyById, createUser, login, refreshToken }
+const getToken = async (req, res) => {
+  if (!req.body.email) {
+      return res.status(401).json({ error: "Acceso denegado" })
+  }
+  const user = { email: req.body.email, password: req.body.password }
+  const token = generateToken(user, false)
+  const refreshToken = generateToken(user, true)
+
+  res.status(200).json({
+      status: "succeeded",
+      data: {
+          token,
+          refreshToken
+      },
+      error: null
+  })
+
+}
+
+module.exports = { getUsers, getUserById, modifyById, createUser, login, refreshToken, getToken }
