@@ -1,5 +1,5 @@
-import { useRouter } from "next/router";
 import Link from "next/link";
+import styles from "./ListProductComponent.module.css";
 
 export default function ListProductComponent(props) {
   const {
@@ -14,30 +14,32 @@ export default function ListProductComponent(props) {
   } = props;
 
   return (
-    <div className="asignar classname">
-      <div>
-        <div className="asignar classname">
-          <span className="asignar classname">{idParam}</span>
-          <span className="asignar classname">{nombreParam}</span>
-          <span className="asignar classname">{priceParam}</span>
-          <span className="asignar classname">{tipoParam}</span>
-          <span className="asignar classname">{descriptionParam}</span>
-          <span className="asignar classname">{stockParam}</span>
-          <span className="asignar classname">{ratingParam}</span>
-          <span className="asignar classname">{imagenParam}</span>
-        <Link
-          className="asignar classname"
-          href={{
-            pathname: "./tienda/producto",
-            query: {
-              id: idParam,
-            },
-          }}
-          >
-          Ver detalles del Producto
-        </Link>
-        </div>
-      </div>
+    <div className={styles.container}>
+      {/* <span className={styles.id}>{idParam}</span> */}
+      <img className={styles.image} src={imagenParam[0]}></img>
+      <h2 className={styles.name}>{nombreParam}</h2>
+      <p className={styles.price}>{priceParam}€</p>
+      {/* <p className={styles.type}>
+        <span className={styles.span}>Categoria: </span>
+        {tipoParam}
+      </p> */}
+      {/* <p className={styles.description}>{descriptionParam}</p> */}
+      {/* <p className={styles.stock}>{stockParam}</p> */}
+      <p className={styles.rating}>
+        <span className={styles.span}>Puntuación: </span>
+        {ratingParam}/10
+      </p>
+      <Link
+        className={styles.link}
+        href={{
+          pathname: "./tienda/producto",
+          query: {
+            id: idParam,
+          },
+        }}
+      >
+        Ver detalles
+      </Link>
     </div>
   );
 }

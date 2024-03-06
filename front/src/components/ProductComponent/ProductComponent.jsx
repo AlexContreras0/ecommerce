@@ -1,11 +1,21 @@
 import React, { useState } from "react";
 import styles from "./ProductComponent.module.css";
 import ItemCount from "../ItemCount/ItemCount";
+import StarRatingComponent from "../StarRatingComponent/StarRatingComponent";
 
-export default function ProductComponent(id, product) {
+export default function ProductComponent(props) {
   const [image, setImage] = useState();
 
-  const { idParam, nombreParam, priceParam, tipoParam, descriptionParam, stockParam, ratingParam, imagenParam } = product;
+  const {
+    idParam,
+    nombreParam,
+    priceParam,
+    tipoParam,
+    descriptionParam,
+    stockParam,
+    ratingParam,
+    imagenParam,
+  } = props;
 
   const selectImage = (img) => {
     setImage(img);
@@ -26,38 +36,38 @@ export default function ProductComponent(id, product) {
           <div className={styles.imageDetailsContainer}>
             <img
               className={styles.imageDetails}
-              onClick={() => selectImage(pic1)}
+              onClick={() => selectImage(imagenParam)}
               alt="imagen producto"
-              src="https://freepngimg.com/thumb/tomato/6-tomato-png-image.png"
+              src={imagenParam}
             />
             <img
               className={styles.imageDetails}
-              onClick={() => selectImage(pic2)}
+              onClick={() => selectImage(imagenParam)}
               alt="imagen producto"
-              src="https://freepngimg.com/thumb/broccoli/12-broccoli-png-image-with-transparent-background.png"
+              src={imagenParam}
             />
             <img
               className={styles.imageDetails}
-              onClick={() => selectImage(pic3)}
+              onClick={() => selectImage(imagenParam)}
               alt="imagen producto"
-              src="https://freepngimg.com/thumb/carrot/1-carrot-png-image.png"
+              src={imagenParam}
             />
             <img
               className={styles.imageDetails}
-              onClick={() => selectImage(pic4)}
+              onClick={() => selectImage(imagenParam)}
               alt="imagen producto"
-              src="https://freepngimg.com/thumb/potato/7-potato-png-images-pictures-download.png"
+              src={imagenParam}
             />
           </div>
           <img
             className={styles.image}
-            src="https://pngimg.com/uploads/salad/salad_PNG2819.png"
+            src={imagenParam}
             alt="imagen producto"
           />
         </div>
         <div className={styles.infoContainer}>
-          <h1 className={styles.title}>{product.productName}</h1>
-          <p className={styles.price}>{product.productPrice}</p>
+          <h1 className={styles.title}>{nombreParam}</h1>
+          <p className={styles.price}>{priceParam}</p>
           <ItemCount />
           <button className={styles.cartButton} onClick={addToCart}>
             Añadir al carrito
@@ -111,6 +121,7 @@ export default function ProductComponent(id, product) {
               </g>
             </svg>
           </button>
+          <StarRatingComponent />
           <p className={styles.tags}>
             <svg
               className={styles.tagIcon}
@@ -135,11 +146,11 @@ export default function ProductComponent(id, product) {
                 ></path>{" "}
               </g>
             </svg>
-            Etiquetas: {product.productCategory}
+            Categorías: {tipoParam}
           </p>
           <section className={styles.descriptionContainer}>
             <h2 className={styles.descriptionTitle}>Detalles del producto:</h2>
-            <p className={styles.description}>{product.productDescription}</p>
+            <p className={styles.description}>{descriptionParam}</p>
           </section>
         </div>
       </section>
