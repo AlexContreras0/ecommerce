@@ -15,16 +15,9 @@ export default function ListProductComponent(props) {
 
   return (
     <div className={styles.container}>
-      {/* <span className={styles.id}>{idParam}</span> */}
       <img className={styles.image} src={imagenParam[0]}></img>
       <h2 className={styles.name}>{nombreParam}</h2>
       <p className={styles.price}>{priceParam}€</p>
-      {/* <p className={styles.type}>
-        <span className={styles.span}>Categoria: </span>
-        {tipoParam}
-      </p> */}
-      {/* <p className={styles.description}>{descriptionParam}</p> */}
-      {/* <p className={styles.stock}>{stockParam}</p> */}
       <p className={styles.rating}>
         <span className={styles.span}>Puntuación: </span>
         {ratingParam}/10

@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import styles from "./NavMenu.module.css";
+import SearchBar from "../SearchBar/SearchBar";
 
 export default function NavMenu() {
   return (
@@ -218,6 +219,11 @@ export default function NavMenu() {
             </Link>
           </li>
         </div>
+
+        {/* <li>
+          <SearchBar />
+        </li> */}
+
         <li>
           <Link className={styles.link} href="/carrito">
             <svg

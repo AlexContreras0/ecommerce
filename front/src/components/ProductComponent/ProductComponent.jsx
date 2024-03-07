@@ -5,8 +5,8 @@ import StarRatingComponent from "../StarRatingComponent/StarRatingComponent";
 
 export default function ProductComponent(props) {
   const [image, setImage] = useState();
-  
-const { product } = props
+
+  const { product } = props;
 
   // const {
   //   idParam,
@@ -19,8 +19,8 @@ const { product } = props
   //   imagenParam,
   // } = props;
 
-  console.log("esta es la imagen del param",product.productImage)
-  console.log("esta es el nombre del param",product.productName)
+  console.log("esta es la imagen del param", product.productImage);
+  console.log("esta es el nombre del param", product.productName);
 
   const selectImage = (img) => {
     setImage(img);
@@ -39,36 +39,56 @@ const { product } = props
       <section className={styles.container}>
         <div className={styles.imageContainer}>
           <div className={styles.imageDetailsContainer}>
-            {product.image ? <img
-              className={styles.imageDetails}
-              onClick={() => selectImage(product.productImage[0])}
-              alt="imagen producto"
-              src={product.productImage[0]}
-            />: <p>Imagen no disponible</p>}
-            {product.image ? <img
-              className={styles.imageDetails}
-              onClick={() => selectImage(product.productImage[1])}
-              alt="imagen producto"
-              src={product.productImage[1]}
-            />: <p>Imagen no disponible</p>}
-            {product.image ? <img
-              className={styles.imageDetails}
-              onClick={() => selectImage(product.productImage[0])}
-              alt="imagen producto"
-              src={product.productImage[0]}
-            />: <p>Imagen no disponible</p>}
-            {product.image ? <img
-              className={styles.imageDetails}
-              onClick={() => selectImage(product.productImage[1])}
-              alt="imagen producto"
-              src={product.productImage[1]}
-            />: <p>Imagen no disponible</p>}
+            {product.image ? (
+              <img
+                className={styles.imageDetails}
+                onClick={() => selectImage(product.productImage[0])}
+                alt="imagen producto"
+                src={product.productImage[0]}
+              />
+            ) : (
+              <p>Imagen no disponible</p>
+            )}
+            {product.image ? (
+              <img
+                className={styles.imageDetails}
+                onClick={() => selectImage(product.productImage[1])}
+                alt="imagen producto"
+                src={product.productImage[1]}
+              />
+            ) : (
+              <p>Imagen no disponible</p>
+            )}
+            {product.image ? (
+              <img
+                className={styles.imageDetails}
+                onClick={() => selectImage(product.productImage[0])}
+                alt="imagen producto"
+                src={product.productImage[0]}
+              />
+            ) : (
+              <p>Imagen no disponible</p>
+            )}
+            {product.image ? (
+              <img
+                className={styles.imageDetails}
+                onClick={() => selectImage(product.productImage[1])}
+                alt="imagen producto"
+                src={product.productImage[1]}
+              />
+            ) : (
+              <p>Imagen no disponible</p>
+            )}
           </div>
-          {product.image ? <img
-            className={styles.image}
-            src={product.productImage}
-            alt="imagen producto"
-          />: <p>Imagen no disponible</p>}
+          {product.image ? (
+            <img
+              className={styles.image}
+              src={product.productImage}
+              alt="imagen producto"
+            />
+          ) : (
+            <p>Imagen no disponible</p>
+          )}
         </div>
         <div className={styles.infoContainer}>
           <h1 className={styles.title}>{product.productName}</h1>
