@@ -1,18 +1,23 @@
 import React, { useState } from "react";
 import styles from "./RegisterForm.module.css";
 import Link from "next/link";
+import { createUser } from "../../../api/userFetch";
+import { useRouter } from "next/router";
+
 
 export default function RegisterForm() {
+  const router = useRouter();
   const [error, setError] = useState(null);
   const [showPassword, setShowPassword] = useState(false);
   const [newUser, setNewUser] = useState({
-    username: "",
+    name: "",
     email: "",
     phone: "",
     address: "",
     cp: "",
     province: "",
     password: "",
+    locality: "",
   });
 
   const handleInputChange = (e) => {
@@ -25,21 +30,25 @@ export default function RegisterForm() {
     e.preventDefault();
     if (validateForm()) {
       try {
+      const response = await createUser(JSON.stringify(newUser))
         // logicar para enviar los datos a la API
         // const response = await createUser(newUser);
-        console.log("Usuario creado:", newUser);
+        console.log("este es el response", response);
 
-        if (response.ok) {
+        if (!response) {
           setNewUser({
-            username: "",
+            name: "",
             email: "",
             phone: "",
             address: "",
             cp: "",
             province: "",
             password: "",
+            locality: "",
           });
           setError(null);
+          alert("El usuario ha sido creado correctamente")
+          router.back();
         } else {
           throw new Error("Error al crear el usuario");
         }
@@ -51,19 +60,19 @@ export default function RegisterForm() {
   };
 
   const validateForm = () => {
-    if (newUser.password.length < 6) {
-      setError("La contraseña debe tener al menos 6 caracteres");
+    if (newUser.password.length < 8) {
+      setError("La contraseña debe tener al menos 8 caracteres");
       return false;
     }
-    if (newUser.username.length < 3) {
+    if (newUser.name.length < 3) {
       setError("El nombre de usuario debe tener al menos 3 caracteres");
       return false;
     }
-    if (!newUser.email.includes("@")) {
+    if (!newUser.email.includes("@" && ".")) {
       setError("El correo electrónico no es válido");
       return false;
     }
-    if (newUser.phone.length < 9) {
+    if (newUser.phone.length != 9) {
       setError("El teléfono no es válido");
       return false;
     }
@@ -71,7 +80,7 @@ export default function RegisterForm() {
       setError("La dirección no es válida");
       return false;
     }
-    if (newUser.cp.length < 5) {
+    if (newUser.cp.length != 5) {
       setError("El código postal no es válido");
       return false;
     }
@@ -92,10 +101,10 @@ export default function RegisterForm() {
               <div className={styles.form}>
                 <input
                   type="text"
-                  name="username"
+                  name="name"
                   placeholder="Nombre de usuario"
                   className={styles.field}
-                  value={newUser.username}
+                  value={newUser.name}
                   onChange={handleInputChange}
                 />
 

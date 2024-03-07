@@ -16,6 +16,7 @@ export default function LoginForm() {
     if (validateForm()) {
       try {
         // Lógica para enviar los datos a la API y manejar la autenticación
+        
         const response = await fetch("http://localhost:9000/auth-token", {
           method: "POST",
           headers: { "Content-Type": "application/json" },

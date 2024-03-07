@@ -1,26 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./ProductComponent.module.css";
 import ItemCount from "../ItemCount/ItemCount";
 import StarRatingComponent from "../StarRatingComponent/StarRatingComponent";
 
 export default function ProductComponent(props) {
-  const [image, setImage] = useState();
   
-const { product } = props
-
-  // const {
-  //   idParam,
-  //   nombreParam,
-  //   priceParam,
-  //   tipoParam,
-  //   descriptionParam,
-  //   stockParam,
-  //   ratingParam,
-  //   imagenParam,
-  // } = props;
-
-  console.log("esta es la imagen del param",product.productImage)
-  console.log("esta es el nombre del param",product.productName)
+  const { product } = props
+  const [image, setImage] = useState();
 
   const selectImage = (img) => {
     setImage(img);
@@ -34,41 +20,42 @@ const { product } = props
     // Hacer logica para añadir a la lista de deseos
   };
 
+
   return (
     <div className={styles.body}>
       <section className={styles.container}>
         <div className={styles.imageContainer}>
           <div className={styles.imageDetailsContainer}>
-            {product.image ? <img
+            {product.productImage ? <img
               className={styles.imageDetails}
               onClick={() => selectImage(product.productImage[0])}
               alt="imagen producto"
               src={product.productImage[0]}
             />: <p>Imagen no disponible</p>}
-            {product.image ? <img
+            {product.productImage ? <img
               className={styles.imageDetails}
               onClick={() => selectImage(product.productImage[1])}
               alt="imagen producto"
               src={product.productImage[1]}
             />: <p>Imagen no disponible</p>}
-            {product.image ? <img
+            {product.productImage ? <img
               className={styles.imageDetails}
               onClick={() => selectImage(product.productImage[0])}
               alt="imagen producto"
               src={product.productImage[0]}
             />: <p>Imagen no disponible</p>}
-            {product.image ? <img
+            {product.productImage ? <img
               className={styles.imageDetails}
               onClick={() => selectImage(product.productImage[1])}
               alt="imagen producto"
               src={product.productImage[1]}
             />: <p>Imagen no disponible</p>}
           </div>
-          {product.image ? <img
+          {product.productImage && image ? <img
             className={styles.image}
-            src={product.productImage}
+            src={image}
             alt="imagen producto"
-          />: <p>Imagen no disponible</p>}
+          />: <p>Selecciona una imagen para verla ampliada</p>}
         </div>
         <div className={styles.infoContainer}>
           <h1 className={styles.title}>{product.productName}</h1>

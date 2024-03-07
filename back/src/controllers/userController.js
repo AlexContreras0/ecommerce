@@ -35,7 +35,7 @@ const modifyById = async (req, res) => {
 
     try {
         const id = req.params.id
-        const { userName, userEmail, userPassword, userImage, userPhone, userAddress, userCP, userLocalidad, userProvincia } = req.body
+        const { userName, userEmail, userPassword, userPhone, userAddress, userCP, userLocality, userProvince } = req.body
 
         const userAux = await userModel.findById(id)
 
@@ -50,9 +50,6 @@ const modifyById = async (req, res) => {
         if (userPassword) {
             userAux.userPassword = userPassword
         }
-        if (userImage) {
-            userAux.userImage = userImage
-        }
         if (userPhone) {
             userAux.userPhone = userPhone
         }
@@ -62,11 +59,11 @@ const modifyById = async (req, res) => {
         if (userCP) {
             userAux.userCP = userCP
         }
-        if (userLocalidad) {
-            userAux.userLocalidad = userLocalidad
+        if (userLocality) {
+            userAux.userLocality = userLocality
         }
-        if (userProvincia) {
-            userAux.userProvincia = userProvincia
+        if (userProvince) {
+            userAux.userProvince = userProvince
         }
 
         await userAux.save()
@@ -87,24 +84,25 @@ const modifyById = async (req, res) => {
 
 const createUser = async (req, res) => {
   try {
+    console.log("este es el req del create user",req.params)
+    console.log("este es el req del create user",req.body)
     const newUser = new userModel({
-      userName: req.params.name,
-      userEmail: req.params.email,
-      userPassword: await bcrypt.hash(req.params.password, 10),
-      userImage: req.params.image,
-      userPhome: req.params.phone,
-      userAddress: req.params.address,
-      userCP: req.params.cp,
-      userLocalidad: req.params.localidad,
-      userProvincia: req.params.provincia,
+      userName: req.body.name,
+      userEmail: req.body.email,
+      userPassword: await bcrypt.hash(req.body.password, 10),
+      userPhone: Number(req.body.phone),
+      userAddress: req.body.address,
+      userCP: Number(req.body.cp),
+      userLocality: req.body.locality,
+      userProvince: req.body.province,
     });
 
     await newUser.save();
 
-    const to = email
-    const subject = `Alta registro usuario ${userName} con email ${userEmail}`
-    const html = `Gracias ${userName} por darte de alta en nuestra empresa se ha creado un nuevo usuario con email ${userEmail}`
-    await emailService.sendEmail(to, subject, html)
+    // const to = email
+    // const subject = `Alta registro usuario ${userName} con email ${userEmail}`
+    // const html = `Gracias ${userName} por darte de alta en nuestra empresa se ha creado un nuevo usuario con email ${userEmail}`
+    // await emailService.sendEmail(to, subject, html)
     
     res.status(201).json({
       status: "Succeeded",
