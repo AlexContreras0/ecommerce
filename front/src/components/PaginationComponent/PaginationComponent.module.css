@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-block: 1rem;
+  gap: 1rem;
+}
+
+.paginationLink {
+  padding: 0.5rem 1rem;
+  border: 1px solid #2d37482b;
+  border-radius: 0.25rem;
+  color: #2d3748;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.paginationLink:hover {
+  border: 1px solid #2d3748;
+}
+
+.svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: #2d3748;
+}

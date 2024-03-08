@@ -8,10 +8,10 @@ export default function StarRatingComponent() {
 
   return (
     <div>
-      {[...Array(5)].map((star, i) => {
+      {[...Array(5)].map((_, i) => {
         const ratingValue = i + 1;
         return (
-          <label>
+          <label key={i}>
             <input
               className={styles.input}
               type="radio"

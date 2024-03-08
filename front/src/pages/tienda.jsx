@@ -5,6 +5,7 @@ import styles from "@/styles/tienda.module.css";
 import ListProductComponent from "@/components/ProductComponent/ListProductComponent";
 import FooterComponent from "@/components/FooterComponent/FooterComponent";
 import FilterComponent from "@/components/FilterComponent/FilterComponent";
+import PaginationComponent from "@/components/PaginationComponent/PaginationComponent";
 
 export default function tienda() {
   const [products, setProducts] = useState([]);
@@ -49,6 +50,7 @@ export default function tienda() {
         </div>
       </div>
 
+      <PaginationComponent />
       <FooterComponent />
     </div>
   );

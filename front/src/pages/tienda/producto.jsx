@@ -3,28 +3,30 @@ import ProductComponent from "@/components/ProductComponent/ProductComponent";
 import React, { useEffect, useState } from "react";
 import { getProduct } from "../../../api/productFetch";
 import { useRouter } from "next/router";
+import FooterComponent from "@/components/FooterComponent/FooterComponent";
 
 export default function producto() {
-  const router = useRouter()
-  const { id } = router.query
-  const [product, setProduct] = useState([])
+  const router = useRouter();
+  const { id } = router.query;
+  const [product, setProduct] = useState([]);
 
-  console.log(id)
+  console.log(id);
 
-    useEffect(() => {
-      const loadProduct = async () => {
-      const productAux = await getProduct(id)
-      setProduct(productAux.data)
-      console.log("esto es el productAux", productAux)
-      console.log("esto es el producto del seteo", product)
-      }
-      loadProduct()
-    }, [id])
+  useEffect(() => {
+    const loadProduct = async () => {
+      const productAux = await getProduct(id);
+      setProduct(productAux.data);
+      console.log("esto es el productAux", productAux);
+      console.log("esto es el producto del seteo", product);
+    };
+    loadProduct();
+  }, [id]);
 
   return (
     <>
       <NavMenu />
-      {product && <ProductComponent product={product}/>}
+      {product && <ProductComponent product={product} />}
+      <FooterComponent />
     </>
   );
 }

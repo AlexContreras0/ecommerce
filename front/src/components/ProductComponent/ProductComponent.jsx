@@ -68,7 +68,13 @@ export default function ProductComponent(props) {
           {product.productImage && image ? (
             <img className={styles.image} src={image} alt="imagen producto" />
           ) : (
-            <p>Selecciona una imagen para verla ampliada</p>
+            <p>Selecciona una imagen</p>
+            // <img
+            //   className={styles.imageDetails}
+            //   onClick={() => selectImage(product.productImage[1])}
+            //   alt="imagen producto"
+            //   src={product.productImage[1]}
+            // />
           )}
         </div>
         <div className={styles.infoContainer}>
