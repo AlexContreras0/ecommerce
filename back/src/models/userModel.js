@@ -27,10 +27,6 @@ const userSchema = new Schema({
         enum: ['admin', 'user', 'supplier'],
         default: "user"
     },
-    userImage: {
-        type: String,
-        required: true
-    },
     userPhone: {
         type: Number,
         required: true
@@ -43,11 +39,11 @@ const userSchema = new Schema({
         type: Number,
         required: true
     },
-    userLocalidad: {
+    userLocality: {
         type: String,
         required: true
     },
-    userProvincia: {
+    userProvince: {
         type: String,
         required: true
     }

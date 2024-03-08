@@ -37,7 +37,7 @@ app.use(cors())
 app.use('/products', productsRouter)
 app.use('/favs', favsRouter)
 app.use('/carts', cartsRouter)
-app.use("/users", usersRouter)
+app.use('/users', usersRouter)
 
 
 app.listen(port, () => {

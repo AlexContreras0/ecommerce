@@ -1,26 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./ProductComponent.module.css";
 import ItemCount from "../ItemCount/ItemCount";
 import StarRatingComponent from "../StarRatingComponent/StarRatingComponent";
 
 export default function ProductComponent(props) {
-  const [image, setImage] = useState();
-
   const { product } = props;
-
-  // const {
-  //   idParam,
-  //   nombreParam,
-  //   priceParam,
-  //   tipoParam,
-  //   descriptionParam,
-  //   stockParam,
-  //   ratingParam,
-  //   imagenParam,
-  // } = props;
-
-  console.log("esta es la imagen del param", product.productImage);
-  console.log("esta es el nombre del param", product.productName);
+  const [image, setImage] = useState();
 
   const selectImage = (img) => {
     setImage(img);
@@ -39,7 +24,7 @@ export default function ProductComponent(props) {
       <section className={styles.container}>
         <div className={styles.imageContainer}>
           <div className={styles.imageDetailsContainer}>
-            {product.image ? (
+            {product.productImage ? (
               <img
                 className={styles.imageDetails}
                 onClick={() => selectImage(product.productImage[0])}
@@ -49,7 +34,7 @@ export default function ProductComponent(props) {
             ) : (
               <p>Imagen no disponible</p>
             )}
-            {product.image ? (
+            {product.productImage ? (
               <img
                 className={styles.imageDetails}
                 onClick={() => selectImage(product.productImage[1])}
@@ -59,7 +44,7 @@ export default function ProductComponent(props) {
             ) : (
               <p>Imagen no disponible</p>
             )}
-            {product.image ? (
+            {product.productImage ? (
               <img
                 className={styles.imageDetails}
                 onClick={() => selectImage(product.productImage[0])}
@@ -69,7 +54,7 @@ export default function ProductComponent(props) {
             ) : (
               <p>Imagen no disponible</p>
             )}
-            {product.image ? (
+            {product.productImage ? (
               <img
                 className={styles.imageDetails}
                 onClick={() => selectImage(product.productImage[1])}
@@ -80,14 +65,10 @@ export default function ProductComponent(props) {
               <p>Imagen no disponible</p>
             )}
           </div>
-          {product.image ? (
-            <img
-              className={styles.image}
-              src={product.productImage}
-              alt="imagen producto"
-            />
+          {product.productImage && image ? (
+            <img className={styles.image} src={image} alt="imagen producto" />
           ) : (
-            <p>Imagen no disponible</p>
+            <p>Selecciona una imagen para verla ampliada</p>
           )}
         </div>
         <div className={styles.infoContainer}>
