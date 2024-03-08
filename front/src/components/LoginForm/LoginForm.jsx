@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styles from "./LoginForm.module.css";
 import Link from "next/link";
+import { login } from "../../../api/userFetch";
+
 
 export default function LoginForm() {
   const [user, setUser] = useState({
@@ -14,20 +16,14 @@ export default function LoginForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (validateForm()) {
+
       try {
-        // Lógica para enviar los datos a la API y manejar la autenticación
+        login(user)
         
-        const response = await fetch("http://localhost:9000/auth-token", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(user)
-      });
-        console.log("response", response.json()); return;
-        setError(null);
       } catch (error) {
-        console.error("Error al loguear el usuario:", error);
-        setError("Error al loguear el usuario. Por favor, inténtalo de nuevo.");
+        
       }
+
     }
   };
 
@@ -39,7 +35,7 @@ export default function LoginForm() {
   console.log("este son los datos del usuario",user)
 
   const validateForm = () => {
-    if (user.password.length < 6 || user.email.length < 3) {
+    if (user.password.length < 8 || user.email.length < 8) {
       setError("Email o contraseña incorrectos");
       return false;
     }

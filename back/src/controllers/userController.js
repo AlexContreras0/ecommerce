@@ -135,10 +135,12 @@ const createUser = async (req, res) => {
 
 const login = async (req, res) => {
   try {
-    const user = await userModel.findOne({ userEmail: req.params.email });
+    console.log("este es el req.body del user controller", req.body)
+    console.log("este es el req.params del user controller", req.params)
+    const user = await userModel.findOne({ userEmail: req.body.email });
     if (user) {
       const validatePassword = await bcrypt.compare(
-        req.params.password,
+        req.body.password,
         user.userPassword
       );
 
@@ -168,14 +170,14 @@ const login = async (req, res) => {
       return res.status(400).json({
         status: "Failed",
         message: null,
-        error: "Usuario y contraseña no encontrado"
+        error: "Usuario y contraseña no encontrados"
       })
     }
 
     return res.status(400).json({
         status: "Failed",
         message: null,
-        error: "Usuario y contraseña no encontrado"
+        error: "Usuario no existe"
       })
     
   } catch (error) {

@@ -10,10 +10,10 @@ const app = express()
 const port = 9000
 
 //Mongo Alex
-const url_mongo = 'mongodb+srv://alexcontrerasg98:bbVNZcJHIv0dP1rW@donut.wpe2e45.mongodb.net/?retryWrites=true&w=majority'
+// const url_mongo = 'mongodb+srv://alexcontrerasg98:bbVNZcJHIv0dP1rW@donut.wpe2e45.mongodb.net/?retryWrites=true&w=majority'
 
 //Mongo Sara
-// const url_mongo = 'mongodb+srv://saramalagamba:fU22UMs!9dhLtDQ@cluster0.9bckfo4.mongodb.net/?retryWrites=true&w=majority'
+const url_mongo = 'mongodb+srv://saramalagamba:fU22UMs!9dhLtDQ@cluster0.9bckfo4.mongodb.net/?retryWrites=true&w=majority'
 
 mongoose.connect(url_mongo)
 
@@ -32,7 +32,7 @@ db.on("disconnected", () => {
 })
 
 app.use(express.json())
-app.use(cors())
+app.use(cors({origin: 'http://localhost:3000'}))
 
 app.use('/products', productsRouter)
 app.use('/favs', favsRouter)
