@@ -1,0 +1,26 @@
+.socialNav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.socialIcon {
+  width: 2rem;
+  height: 2rem;
+  fill: #edfbe2;
+  transition: fill 0.3s;
+}
+
+.socialIcon:hover {
+  fill: #379237;
+}
+
+.subLink {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.subLink:hover {
+  color: #379237;
+}
