@@ -1,9 +1,12 @@
+@value colors: '../../styles/colors.module.css';
+@value verde, azul, beige, blanco from colors;
+
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #fff;
+  background-color: blanco;
   padding: 2rem;
   border-radius: 10px;
   margin: 2rem;
@@ -27,7 +30,7 @@
 }
 
 .input::placeholder {
-  color: #2d3748;
+  color: azul;
 }
 
 .messageInput {
@@ -41,7 +44,7 @@
 }
 
 .messageInput::placeholder {
-  color: #2d3748;
+  color: azul;
 }
 
 .checkboxContainer {
@@ -57,31 +60,19 @@
   height: 1rem;
   cursor: pointer;
   border: none;
-  background-color: #2d3748;
+  background-color: azul;
 }
 
 .checkboxLabel {
   font-size: 1rem;
-  color: #2d3748;
+  color: azul;
 }
 
 .submitButton {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.8rem 1.5rem;
-  background-color: #379237;
-  color: #fff;
-  font-size: 1rem;
-  font-weight: 600;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.3s all ease-in-out;
+  composes: botonVerde from "../../styles/mixins.module.css";
 }
 
 .submitButton:hover {
-  background-color: #2d3748;
-  color: #fff;
+  background-color: azul;
+  color: blanco;
 }

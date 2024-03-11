@@ -1,3 +1,6 @@
+@value colors: './colors.module.css';
+@value blanco from colors;
+
 .container {
   display: flex;
   flex-direction: column;
@@ -17,18 +20,13 @@
 }
 
 .title {
-  font-size: 2rem;
-  font-weight: 600;
-  margin: 0;
-  padding: 0;
+  composes: title from "mixins.module.css";
+  margin-bottom: 1rem;
 }
 
 .subtitle {
-  font-size: 1rem;
-  font-weight: 400;
+  composes: subtitle from "mixins.module.css";
   margin-top: 1rem;
-  width: 66%;
-  text-align: center;
 }
 
 .miembroContainer {
@@ -46,7 +44,7 @@
   justify-content: flex-end;
   position: relative;
   margin: 10px;
-  color: #fff;
+  color: blanco;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   background-image: url("https://cdn-icons-png.flaticon.com/512/3577/3577429.png");
@@ -63,7 +61,7 @@
   justify-content: flex-end;
   padding: 1rem;
   background: linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0));
-  color: #fff;
+  color: blanco;
   height: 60%;
   width: 100%;
   position: absolute;
@@ -89,7 +87,7 @@
 .frase {
   margin: 0;
   padding: 0;
-  font-size: 1rem;
-  font-weight: 300;
+  composes: paragraph from "mixins.module.css";
+  text-align: left;
   margin-top: 10px;
 }

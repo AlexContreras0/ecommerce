@@ -1,171 +1,157 @@
+@value colors: '../../styles/colors.module.css';
+@value verde, azul, negro, beige, blanco, verdeClaro from colors;
+
 .body {
   padding: 2rem 3rem;
+}
 
-  .container {
-    display: grid;
+.container {
+  display: grid;
+  height: 100%;
+  margin: 1rem 0 2rem 0;
+}
 
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr;
+.imageContainer {
+  grid-row-start: 1;
+  grid-column-start: 1;
+  grid-row-end: 3;
+  grid-column-end: 2;
 
-    gap: 0px;
-    height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
 
-    .imageContainer {
-      grid-row-start: 1;
-      grid-column-start: 1;
-      grid-row-end: 3;
-      grid-column-end: 2;
+.image {
+  padding: 2rem;
+  border: 1px solid verdeClaro;
+  border-radius: 10px;
+  width: auto;
+  height: 400px;
+}
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
+.imageDetailsContainer {
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  width: auto;
+  gap: 1rem;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
 
-      .image {
-        padding: 2rem;
-        border: 1px solid #2e7b2e3f;
-        border-radius: 10px;
-        width: auto;
-        height: 400px;
-      }
+.imageDetailsContainer::-webkit-scrollbar {
+  width: 12px;
+  border-radius: 10px;
+}
 
-      .imageDetailsContainer {
-        display: flex;
-        flex-direction: column;
-        height: 400px;
-        width: auto;
-        gap: 1rem;
-        overflow-y: scroll;
-        overflow-x: hidden;
-      }
+.imageDetailsContainer::-webkit-scrollbar-thumb {
+  background-color: verdeClaro;
+  border-radius: 10px;
+  border: 3px solid blanco;
+}
 
-      .imageDetailsContainer::-webkit-scrollbar {
-        width: 12px;
-        border-radius: 10px;
-      }
+.imageDetailsContainer::-webkit-scrollbar-track {
+  background-color: transparent;
+}
 
-      .imageDetailsContainer::-webkit-scrollbar-thumb {
-        background-color: #2e7b2e3f;
-        border-radius: 10px;
-        border: 3px solid #fff;
-      }
+.imageDetails {
+  box-sizing: border-box;
+  width: 90px;
+  height: 90px;
+  transition: 0.5s;
+  cursor: pointer;
+  border: 1px solid verdeClaro;
+  border-radius: 10px;
+  padding: 0.5rem;
+}
 
-      .imageDetailsContainer::-webkit-scrollbar-track {
-        background-color: transparent;
-      }
+.imageDetails:hover {
+  border: 1px solid verde;
+}
 
-      .imageDetails {
-        box-sizing: border-box;
-        width: 90px;
-        height: 90px;
-        transition: 0.5s;
-        cursor: pointer;
-        border: 1px solid #2e7b2e3f;
-        border-radius: 10px;
-        padding: 0.5rem;
-      }
+.infoContainer {
+  grid-row-start: 1;
+  grid-column-start: 2;
+  grid-row-end: 3;
+  grid-column-end: 3;
 
-      .imageDetails:hover {
-        border: 1px solid #379237;
-      }
-    }
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
 
-    .infoContainer {
-      grid-row-start: 1;
-      grid-column-start: 2;
-      grid-row-end: 3;
-      grid-column-end: 3;
+.title {
+  composes: title from "../../styles/mixins.module.css";
+}
 
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
+.price {
+  font-size: 1.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
 
-      .title {
-        font-size: 1.5rem;
-        font-weight: 500;
-      }
+.euroIcon {
+  width: 1.5rem;
+  height: auto;
+  fill: negro;
+}
 
-      .price {
-        font-size: 1.5rem;
-        font-weight: 600;
-      }
+.cartButton {
+  composes: botonVerde from "../../styles/mixins.module.css";
+  width: 30%;
+}
 
-      .cartButton {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 30%;
-        gap: 0.5rem;
-        padding: 1rem;
-        background-color: #379237;
-        color: #fff;
-        font-size: 1rem;
-        font-weight: 600;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: 0.3s all ease-in-out;
+.cartIcon {
+  width: 30px;
+  stroke: blanco;
+}
 
-        .cartIcon {
-          width: 30px;
-          stroke: #fff;
-        }
-      }
-      .cartButton:hover {
-        background-color: #2e7b2e;
-      }
+.cartButton:hover {
+  background-color: azul;
+  color: blanco;
+}
 
-      .wishButton {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 30%;
-        gap: 0.5rem;
-        padding: 0.5rem;
-        background-color: #fff;
-        color: #2d3748;
-        font-size: 1rem;
-        font-weight: 600;
-        border: 1px solid #2d3748;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: 0.3s all ease-in-out;
-        stroke: #2d3748;
+.wishButton {
+  composes: botonBlanco from "../../styles/mixins.module.css";
+  width: 30%;
+  stroke: azul;
+  border: 1.5px solid azul;
+  color: azul;
+}
 
-        .wishIcon {
-          width: 30px;
-        }
-      }
-      .wishButton:hover {
-        background-color: #2d3748;
-        color: #fff;
-        stroke: #fff;
-      }
+.wishIcon {
+  width: 30px;
+}
 
-      .tags {
-        display: flex;
-        align-items: center;
-        gap: 5px;
-      }
+.wishButton:hover {
+  background-color: azul;
+  color: blanco;
+  stroke: blanco;
+}
 
-      .tagIcon {
-        width: 20px;
-        stroke: #2d3748;
-      }
-    }
+.tags {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
 
-    .descriptionContainer {
-      .descriptionTitle {
-        font-size: 1rem;
-        font-weight: 600;
-        margin-bottom: 0.5rem;
-      }
+.tagIcon {
+  width: 20px;
+  stroke: azul;
+}
 
-      .description {
-        font-size: 1rem;
-        font-weight: 400;
-        width: 80%;
-      }
-    }
-  }
+.descriptionTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.description {
+  font-size: 1rem;
+  font-weight: 400;
+  width: 80%;
 }

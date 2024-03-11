@@ -1,10 +1,13 @@
+@value colors: 'colors.module.css';
+@value blanco from colors;
+
 .productContainer {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   padding: 1rem;
   height: auto;
-  background-color: #f5f5f5;
+  background-color: blanco;
 }
 
 .filterContainer {
@@ -14,7 +17,7 @@
   gap: 1rem;
   padding: 1rem;
   height: auto;
-  background-color: #f5f5f5;
+  background-color: blanco;
   height: 100%;
 }
 
@@ -23,5 +26,5 @@
   gap: 1rem;
   padding: 1rem;
   height: auto;
-  background-color: #f5f5f5;
+  background-color: blanco;
 }

@@ -1,11 +1,13 @@
+@value colors: '../../styles/colors.module.css';
+@value verde, azul, beige, blanco from colors;
+
 .container {
   display: flex;
 
   justify-content: space-around;
   padding: 1rem;
-  background-color: #2d3748;
-  border-top: 1px solid #e9ecef;
-  color: #fff;
+  background-color: azul;
+  color: blanco;
   text-decoration: none;
 }
 
@@ -22,22 +24,14 @@
 }
 
 .subLink {
-  color: #fff;
+  color: blanco;
   text-decoration: none;
   transition: color 0.3s;
 }
 
 .subLink:hover {
-  color: #379237;
+  color: verde;
 }
-
-/* .line {
-  width: 30px;
-  height: 1px;
-  background-color: #e9ecef;
-  margin-top: -0.2rem;
-  margin-bottom: 0.5rem;
-} */
 
 .logoAgrooe {
   width: 10rem;
@@ -53,10 +47,10 @@
 .socialIcon {
   width: 2rem;
   height: 2rem;
-  fill: #edfbe2;
+  fill: beige;
   transition: fill 0.3s;
 }
 
 .socialIcon:hover {
-  fill: #379237;
+  fill: verde;
 }

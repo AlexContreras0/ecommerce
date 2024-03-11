@@ -72,9 +72,15 @@ export default function page() {
               <br />
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
               repellendus, quas, voluptate, quod quia quibusdam tempora
-              exercitationem doloribus autem quae quos. Quisquam repellendus,
-              quas, voluptate, quod quia quibusdam tempora exercitationem
-              doloribus autem quae quos.
+              exercitationem doloribus autem quae quos.
+              <br />
+              <br />
+              Quisquam repellendus, quas, voluptate, quod quia quibusdam tempora
+              exercitationem doloribus autem quae quos. Lorem ipsum dolor sit
+              amet consectetur adipisicing elit. Quisquam repellendus, quas,
+              voluptate, quod quia quibusdam tempora exercitationem doloribus
+              autem quae quos. Quisquam repellendus, quas, voluptate, quod quia
+              quibusdam tempora exercitationem doloribus autem quae quos.
             </p>
             <Link className={styles.linkProveedor} href="#">
               Enlace
@@ -115,9 +121,11 @@ export default function page() {
               <p className={styles.parrafoValueCol}>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Quisquam repellendus, quas, voluptate, quod quia quibusdam
-                tempora exercitationem doloribus autem quae quos. Quisquam
-                repellendus, quas, voluptate, quod quia quibusdam tempora
-                exercitationem doloribus autem quae quos.
+                tempora exercitationem doloribus autem quae quos.
+                <br />
+                <br />
+                Quisquam repellendus, quas, voluptate, quod quia quibusdam
+                tempora exercitationem doloribus autem quae quos.
               </p>
               <Link className={styles.linkValueCol} href="#">
                 Enlace
@@ -129,9 +137,11 @@ export default function page() {
               <p className={styles.parrafoValueCol}>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Quisquam repellendus, quas, voluptate, quod quia quibusdam
-                tempora exercitationem doloribus autem quae quos. Quisquam
-                repellendus, quas, voluptate, quod quia quibusdam tempora
-                exercitationem doloribus autem quae quos.
+                tempora exercitationem doloribus autem quae quos.
+                <br />
+                <br />
+                Quisquam repellendus, quas, voluptate, quod quia quibusdam
+                tempora exercitationem doloribus autem quae quos.
               </p>
               <Link className={styles.linkValueCol} href="#">
                 Enlace
@@ -143,9 +153,11 @@ export default function page() {
               <p className={styles.parrafoValueCol}>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Quisquam repellendus, quas, voluptate, quod quia quibusdam
-                tempora exercitationem doloribus autem quae quos. Quisquam
-                repellendus, quas, voluptate, quod quia quibusdam tempora
-                exercitationem doloribus autem quae quos.
+                tempora exercitationem doloribus autem quae quos.
+                <br />
+                <br />
+                Quisquam repellendus, quas, voluptate, quod quia quibusdam
+                tempora exercitationem doloribus autem quae quos.
               </p>
               <Link className={styles.linkValueCol} href="#">
                 Enlace

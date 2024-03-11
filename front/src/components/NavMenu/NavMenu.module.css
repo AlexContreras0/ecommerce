@@ -1,3 +1,6 @@
+@value colors: '../../styles/colors.module.css';
+@value verde, azul, beige, blanco, rojo from colors;
+
 .list {
   list-style: none;
   margin: 0;
@@ -7,7 +10,7 @@
   justify-content: space-around;
   height: 100%;
   padding-block: 1rem;
-  background-color: #2d3748;
+  background-color: azul;
 }
 
 .menu {
@@ -18,12 +21,12 @@
 
 .link {
   display: block;
-  color: #fff;
+  color: blanco;
   text-decoration: none;
   font-weight: 600;
   display: flex;
   align-items: center;
-  fill: #fff;
+  fill: blanco;
 }
 
 .nav ul li {
@@ -34,8 +37,8 @@
 }
 
 .link:hover {
-  color: #379237;
-  fill: #379237;
+  color: verde;
+  fill: verde;
 }
 
 .logoAgrooe {
@@ -44,11 +47,13 @@
 }
 
 .cartIcon {
-  stroke: #fff;
+  width: 30px;
+  height: 30px;
+  fill: blanco;
 }
 
 .cartIcon:hover {
-  stroke: #379237;
+  fill: verde;
 }
 
 /* Menu desplegable */
@@ -60,7 +65,7 @@
   left: 0;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  background-color: #2d3748;
+  background-color: azul;
   border-radius: 5px;
 }
 
@@ -71,14 +76,14 @@
 }
 
 .subLink:hover {
-  color: #379237;
+  color: verde;
 }
 
 .nav ul ul a {
   line-height: 120%;
   padding: 10px 15px;
   text-decoration: none;
-  color: #fff;
+  color: blanco;
 }
 
 .nav ul li:hover > ul {
