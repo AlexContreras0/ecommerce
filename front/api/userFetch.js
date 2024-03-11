@@ -29,8 +29,8 @@ export const login = async (bodyParam) => {
 //nueva prueba
 
 
-    console.log(user)
-    const user = await response.json()
+const user = await response.json()
+console.log(user)
 
     if (user.error) {
         return user.error

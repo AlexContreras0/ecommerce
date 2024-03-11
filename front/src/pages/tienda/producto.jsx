@@ -16,8 +16,6 @@ export default function producto() {
     const loadProduct = async () => {
       const productAux = await getProduct(id);
       setProduct(productAux.data);
-      console.log("esto es el productAux", productAux);
-      console.log("esto es el producto del seteo", product);
     };
     loadProduct();
   }, [id]);
