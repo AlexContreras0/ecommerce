@@ -1,6 +1,9 @@
+@value colors: 'colors.module.css';
+@value verde, azul, beige, blanco from colors;
+
 .container {
-  background-color: #edfbe2;
-  color: #2d3748;
+  background-color: beige;
+  color: azul;
 }
 
 .cabeceraContainer {
@@ -16,176 +19,125 @@
   background-size: cover;
   background-position: 100% 30%;
   margin-bottom: 2rem;
+}
 
-  .tituloCabecera {
-    font-size: 2rem;
-    font-weight: 600;
-  }
+.tituloCabecera {
+  composes: title from "mixins.module.css";
+}
 
-  .parrafoCabecera {
-    font-size: 1.2rem;
-    text-align: center;
-    max-width: 50%;
-  }
+.parrafoCabecera {
+  composes: subtitle from "mixins.module.css";
+}
 
-  .linkCabecera {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1rem;
-    background-color: #379237;
-    color: #fff;
-    font-size: 1rem;
-    font-weight: 600;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s all ease-in-out;
-  }
+.linkCabecera {
+  composes: botonVerde from "mixins.module.css";
+}
 
-  .linkCabecera:hover {
-    background-color: #2d3748;
-    color: #fff;
-  }
+.linkCabecera:hover {
+  background-color: azul;
+  color: blanco;
 }
 
 .misionContainer {
   display: flex;
   gap: 2rem;
   padding: 2rem;
-  background-color: #edfbe2;
+  background-color: beige;
+}
 
-  .misionTextContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+.misionTextContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
 
-    .tituloMision {
-      font-size: 2rem;
-      font-weight: 600;
-    }
+.tituloMision {
+  composes: title from "mixins.module.css";
+}
 
-    .parrafoMision {
-      font-size: 1.2rem;
-      max-width: 90%;
-    }
+.parrafoMision {
+  composes: paragraph from "mixins.module.css";
+  max-width: 90%;
+}
 
-    .linkMision {
-      display: flex;
-      align-items: center;
-      color: #379237;
-      text-decoration: underline;
-      font-size: 1rem;
-      font-weight: 600;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: 0.3s all ease-in-out;
-    }
+.linkMision {
+  composes: linkVerde from "mixins.module.css";
+}
 
-    .linkMision:hover {
-      color: #2d3748;
-    }
-  }
+.linkMision:hover {
+  color: azul;
+}
 
-  .imgMision {
-    border-radius: 10px;
-  }
+.imgMision {
+  border-radius: 10px;
 }
 
 .proveedorContainer {
   display: flex;
   gap: 5rem;
   padding: 2rem;
-  background-color: #fff;
+  background-color: blanco;
   margin-bottom: 2rem;
+}
 
-  .proveedorTextContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+.proveedorTextContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
 
-    .tituloProveedor {
-      font-size: 2rem;
-      font-weight: 600;
-    }
+.tituloProveedor {
+  composes: title from "mixins.module.css";
+}
 
-    .parrafoProveedor {
-      font-size: 1.2rem;
-      max-width: 100%;
-    }
+.parrafoProveedor {
+  composes: paragraph from "mixins.module.css";
+}
 
-    .linkProveedor {
-      display: flex;
-      align-items: center;
+.linkProveedor {
+  composes: linkVerde from "mixins.module.css";
+}
 
-      color: #379237;
-      text-decoration: underline;
-      font-size: 1rem;
-      font-weight: 600;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: 0.3s all ease-in-out;
-    }
+.linkProveedor:hover {
+  color: azul;
+}
 
-    .linkProveedor:hover {
-      color: #2d3748;
-    }
-  }
-
-  .imgProveedor {
-    border-radius: 10px;
-  }
+.imgProveedor {
+  border-radius: 10px;
 }
 
 .proveedorPillContainer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #379237;
-  color: #fff;
+  background-color: verde;
+  color: blanco;
   border-radius: 10px;
   margin-inline: 15%;
   padding: 2rem 5rem;
+}
 
-  .proveedorPillTextContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+.proveedorPillTextContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
 
-    .proveedorPillTitulo {
-      font-size: 1.5rem;
-      font-weight: 600;
-    }
+.proveedorPillTitulo {
+  composes: title from "mixins.module.css";
+}
 
-    .proveedorPillParrafo {
-      font-size: 1.2rem;
-      max-width: 100%;
-    }
-  }
+.proveedorPillParrafo {
+  composes: paragraph from "mixins.module.css";
+}
 
-  .proveedorPillLink {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1rem;
-    background-color: #fff;
-    color: #379237;
-    font-size: 1.5rem;
-    font-weight: 600;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s all ease-in-out;
-  }
+.proveedorPillLink {
+  composes: botonBlanco from "mixins.module.css";
+}
 
-  .proveedorPillLink:hover {
-    background-color: #2d3748;
-    color: #fff;
-  }
+.proveedorPillLink:hover {
+  background-color: azul;
+  color: blanco;
 }
 
 .valueContainer {
@@ -195,62 +147,52 @@
   align-items: center;
   gap: 2rem;
   padding: 2rem;
+}
 
-  .valueTitulo {
-    font-size: 2rem;
-    font-weight: 600;
-  }
+.valueTitulo {
+  composes: title from "mixins.module.css";
+}
 
-  .valueParrafo {
-    font-size: 1.2rem;
-    text-align: center;
-    max-width: 60%;
-  }
+.valueParrafo {
+  composes: subtitle from "mixins.module.css";
+  margin-bottom: 1rem;
+}
 
-  .colContainer {
-    display: flex;
-    gap: 2rem;
-  }
+.colContainer {
+  display: flex;
+  gap: 2rem;
+}
 
-  .valueCol {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    align-items: center;
-    text-align: center;
-    padding: 2rem;
-    box-shadow: #2d374810 5px 5px 10px 5px;
-    border-radius: 10px;
-    background-color: #fff;
+.valueCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 400px;
+  text-align: center;
+  padding: 2rem;
+  box-shadow: #2d374810 5px 5px 10px 5px;
+  border-radius: 10px;
+  background-color: blanco;
+}
 
-    .tituloValueCol {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: #379237;
-    }
+.tituloValueCol {
+  composes: title from "mixins.module.css";
+  color: verde;
+  font-size: 1.5rem;
+}
 
-    .parrafoValueCol {
-      font-size: 1.2rem;
-      max-width: 80%;
-    }
+.parrafoValueCol {
+  composes: paragraph from "mixins.module.css";
+  max-width: 80%;
+}
 
-    .linkValueCol {
-      display: flex;
-      align-items: center;
-      color: #379237;
-      text-decoration: underline;
-      font-size: 1rem;
-      font-weight: 600;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: 0.3s all ease-in-out;
-    }
+.linkValueCol {
+  composes: linkVerde from "mixins.module.css";
+}
 
-    .linkValueCol:hover {
-      color: #2d3748;
-    }
-  }
+.linkValueCol:hover {
+  color: azul;
 }
 
 .contactoContainer {
@@ -260,36 +202,21 @@
   align-items: center;
   gap: 2rem;
   padding: 2rem;
+}
 
-  .contactoTitulo {
-    font-size: 2rem;
-    font-weight: 600;
-  }
+.contactoTitulo {
+  composes: title from "mixins.module.css";
+}
 
-  .contactoParrafo {
-    font-size: 1.2rem;
-    text-align: center;
-    max-width: 60%;
-  }
+.contactoParrafo {
+  composes: subtitle from "mixins.module.css";
+}
 
-  .contactoLink {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1rem;
-    background-color: #379237;
-    color: #fff;
-    font-size: 1.5rem;
-    font-weight: 600;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s all ease-in-out;
-  }
+.contactoLink {
+  composes: botonVerde from "mixins.module.css";
+}
 
-  .contactoLink:hover {
-    background-color: #2d3748;
-    color: #fff;
-  }
+.contactoLink:hover {
+  background-color: azul;
+  color: blanco;
 }

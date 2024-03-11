@@ -1,10 +1,13 @@
+@value colors: '../../styles/colors.module.css';
+@value azul, blanco, grisClaro from colors;
+
 .container {
   display: flex;
   flex-direction: column;
   padding: 1rem;
   width: 200px;
   height: 300px;
-  border: 1px solid #ddd;
+  border: 1px solid grisClaro;
   border-radius: 5px;
   overflow: hidden;
   gap: 0.5rem;
@@ -31,22 +34,10 @@
 }
 
 .link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  background-color: #379237;
-  color: #fff;
-  font-size: 1rem;
-  font-weight: 600;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.3s all ease-in-out;
+  composes: botonVerde from "../../styles/mixins.module.css";
 }
 
 .link:hover {
-  background-color: #2d3748;
-  color: #fff;
+  background-color: azul;
+  color: blanco;
 }

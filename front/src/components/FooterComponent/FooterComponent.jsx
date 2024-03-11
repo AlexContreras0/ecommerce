@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./FooterComponent.module.css";
 import Link from "next/link";
+import SocialNavMenuComponent from "../SocialNavMenuComponent/SocialNavMenuComponent";
 
 export default function FooterComponent() {
   return (
@@ -175,7 +176,7 @@ export default function FooterComponent() {
         <div className={styles.column}>
           <h2 className={styles.subTitle}>Síguenos</h2>
           <span className={styles.line}></span>
-          <div className={styles.socialNav}>
+          {/* <div className={styles.socialNav}>
             <Link
               className={styles.subLink}
               href="https://www.instagram.com/agrooe"
@@ -273,7 +274,8 @@ export default function FooterComponent() {
                 </g>
               </svg>
             </Link>
-          </div>
+          </div> */}
+          <SocialNavMenuComponent />
           <h2 className={styles.subTitle}>Oficinas</h2>
           <p>
             C. de Marie Curie, 8, Edificio B (PTA), Málaga. <br></br>

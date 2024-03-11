@@ -1,3 +1,6 @@
+@value colors: './colors.module.css';
+@value blanco from colors;
+
 .container {
   display: flex;
   flex-direction: column;
@@ -5,6 +8,25 @@
   justify-content: center;
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.title {
+  composes: title from "mixins.module.css";
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  composes: subtitle from "mixins.module.css";
+  margin-top: 1rem;
 }
 
 .miembroContainer {
@@ -18,15 +40,54 @@
 .miembroCard {
   display: flex;
   flex-direction: column;
-  align-items: start;
-  justify-content: end;
+  align-items: flex-start;
+  justify-content: flex-end;
+  position: relative;
   margin: 10px;
-  padding: 10px;
+  color: blanco;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  /* background-color: #fff; */
-  background-image: url("https://c.tenor.com/A3PC_hXmTs4AAAAC/tenor.gif");
+  background-image: url("https://cdn-icons-png.flaticon.com/512/3577/3577429.png");
   background-size: cover;
+  background-position: center;
   width: 300px;
   height: 400px;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 1rem;
+  background: linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0));
+  color: blanco;
+  height: 60%;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.nombre {
+  margin: 0;
+  padding: 0;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.cargo {
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.frase {
+  margin: 0;
+  padding: 0;
+  composes: paragraph from "mixins.module.css";
+  text-align: left;
+  margin-top: 10px;
 }

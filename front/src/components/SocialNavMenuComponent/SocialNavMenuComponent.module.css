@@ -1,0 +1,29 @@
+@value colors: '../../styles/colors.module.css';
+@value verde, blanco, beige from colors;
+
+.socialNav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.socialIcon {
+  width: 2rem;
+  height: 2rem;
+  fill: beige;
+  transition: fill 0.3s;
+}
+
+.socialIcon:hover {
+  fill: verde;
+}
+
+.subLink {
+  color: blanco;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.subLink:hover {
+  color: verde;
+}
