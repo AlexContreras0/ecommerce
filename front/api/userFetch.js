@@ -26,15 +26,29 @@ export const login = async (bodyParam) => {
 
 // el cors me bloquea el fetch, y si le pongo un mode: 'no-cors' no me da respuesta y pasa datos
 
-//nueva prueba
-
-
 const user = await response.json()
 console.log(user)
 
     if (user.error) {
         return user.error
     }
-    return     
+    return    
 
 }
+
+export const getUsers = async (bodyParam) => {
+
+    // sustituto del login hasta solucionar el problema del fetch
+    
+    const response = await fetch("http://localhost:9000/users/");
+    const users = await response.json();
+    if (users.error) {
+        return users.error
+    }
+    const userfiltered = users.data.filter((user) => user.userEmail == bodyParam.email)
+    const user = userfiltered[0]
+    return user;   
+};
+
+
+

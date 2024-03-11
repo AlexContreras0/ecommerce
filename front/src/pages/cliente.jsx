@@ -1,7 +1,10 @@
 import NavMenu from "@/components/NavMenu/NavMenu";
-import React from "react";
+import React, { useState } from "react";
 
-export default function page() {
+export default function cliente(props) {
+  const {id, nombre, address, phone } = props
+
+
   return (
     <div>
       <NavMenu />
