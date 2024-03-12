@@ -2,17 +2,25 @@ import React, { useEffect, useState } from "react";
 import styles from "./ProductComponent.module.css";
 import ItemCount from "../ItemCount/ItemCount";
 import StarRatingComponent from "../StarRatingComponent/StarRatingComponent";
+import LoginForm from "../LoginForm/LoginForm";
+import LoginFormAddComponent from "../LoginFormAddComponent/LoginFormAddComponent";
 
 export default function ProductComponent(props) {
-  const { product } = props;
+
+  const { product, isUserLoged, setIsUserLoged, token, setToken } = props;
+
   const [image, setImage] = useState();
+
 
   const selectImage = (img) => {
     setImage(img);
   };
 
   const addToCart = () => {
-    // Hacer logica para añadir al carrito
+    if (!token) {
+      setIsUserLoged(true)
+      
+    }
   };
 
   const addToWishList = () => {
@@ -176,6 +184,7 @@ export default function ProductComponent(props) {
         </div>
       </section>
       <p className={styles.relatedProducts}>Productos relacionados</p>
+      
     </div>
   );
 }

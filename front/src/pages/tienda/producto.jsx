@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { getProduct } from "../../../api/productFetch";
 import { useRouter } from "next/router";
 import FooterComponent from "@/components/FooterComponent/FooterComponent";
+import ProductDetailComponent from "@/components/ProductComponent/ProductDetailComponent";
 
 export default function producto() {
   const router = useRouter();
@@ -23,7 +24,7 @@ export default function producto() {
   return (
     <>
       <NavMenu />
-      {product && <ProductComponent product={product} />}
+      {product && <ProductDetailComponent product={product} />}
       <FooterComponent />
     </>
   );
