@@ -1,7 +1,6 @@
 import NavMenu from "@/components/NavMenu/NavMenu";
 import React from "react";
-import Link from "next/link";
-import styles from "../../styles/Contacto.module.css";
+import styles from "../../styles/contacto.module.css";
 import FooterComponent from "@/components/FooterComponent/FooterComponent";
 import ContactComponent from "@/components/ContactComponent/contactComponent";
 import SocialNavMenuComponent from "@/components/SocialNavMenuComponent/SocialNavMenuComponent";
@@ -10,7 +9,7 @@ export default function page() {
   return (
     <div>
       <NavMenu />
-      <div className={styles.container}>
+      <div className={`${styles.container} ${styles.box}`}>
         <div className={styles.leftContainer}>
           <div>
             <h1 className={styles.title}>Tenemos ganas de escucharte</h1>

@@ -1,13 +1,19 @@
 @value colors: './colors.module.css';
 @value blanco from colors;
 
+.box {
+  composes: box from "mixins.module.css";
+}
+
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .titleContainer {
@@ -15,8 +21,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
 }
 
 .title {
@@ -47,7 +51,6 @@
   color: blanco;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  background-image: url("https://cdn-icons-png.flaticon.com/512/3577/3577429.png");
   background-size: cover;
   background-position: center;
   width: 300px;

@@ -2,11 +2,12 @@
 @value verde, azul, beige, blanco from colors;
 
 .container {
-  background-color: beige;
+  background-color: blanco;
   color: azul;
 }
 
 .cabeceraContainer {
+  composes: box from "mixins.module.css";
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,11 +15,8 @@
   gap: 2rem;
   padding: 2rem;
   height: 50vh;
-  width: 100%;
-  background-image: url("https://images.pexels.com/photos/265216/pexels-photo-265216.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
-  background-size: cover;
-  background-position: 100% 30%;
   margin-bottom: 2rem;
+  box-sizing: border-box;
 }
 
 .tituloCabecera {
@@ -38,11 +36,15 @@
   color: blanco;
 }
 
+.backMisionContainer {
+  background-color: verde;
+}
+
 .misionContainer {
+  composes: box from "mixins.module.css";
   display: flex;
   gap: 2rem;
-  padding: 2rem;
-  background-color: beige;
+  padding: 4rem 0;
 }
 
 .misionTextContainer {
@@ -53,11 +55,12 @@
 
 .tituloMision {
   composes: title from "mixins.module.css";
+  color: blanco;
 }
 
 .parrafoMision {
   composes: paragraph from "mixins.module.css";
-  max-width: 90%;
+  color: blanco;
 }
 
 .linkMision {
@@ -73,9 +76,10 @@
 }
 
 .proveedorContainer {
+  composes: box from "mixins.module.css";
   display: flex;
   gap: 5rem;
-  padding: 2rem;
+  padding: 4rem 0;
   background-color: blanco;
   margin-bottom: 2rem;
 }
@@ -106,14 +110,19 @@
   border-radius: 10px;
 }
 
+.backProveedorPillContainer {
+  background-color: verde;
+  padding-top: 4rem;
+}
+
 .proveedorPillContainer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: verde;
+  background-color: azul;
   color: blanco;
   border-radius: 10px;
-  margin-inline: 15%;
+  margin-inline: 20%;
   padding: 2rem 5rem;
 }
 
@@ -133,29 +142,37 @@
 
 .proveedorPillLink {
   composes: botonBlanco from "mixins.module.css";
+  font-size: 1.5rem;
 }
 
 .proveedorPillLink:hover {
-  background-color: azul;
+  background-color: verde;
   color: blanco;
 }
 
+.backValueContainer {
+  background-color: verde;
+}
+
 .valueContainer {
+  composes: box from "mixins.module.css";
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 2rem;
-  padding: 2rem;
+  padding: 4rem 0;
 }
 
 .valueTitulo {
   composes: title from "mixins.module.css";
+  color: blanco;
 }
 
 .valueParrafo {
   composes: subtitle from "mixins.module.css";
   margin-bottom: 1rem;
+  color: blanco;
 }
 
 .colContainer {
@@ -201,7 +218,7 @@
   justify-content: center;
   align-items: center;
   gap: 2rem;
-  padding: 2rem;
+  padding: 4rem 0;
 }
 
 .contactoTitulo {

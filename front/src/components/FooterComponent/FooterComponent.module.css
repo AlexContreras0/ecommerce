@@ -1,11 +1,15 @@
 @value colors: '../../styles/colors.module.css';
 @value verde, azul, beige, blanco from colors;
 
-.container {
-  display: flex;
+.backContainer {
+  background-color: azul;
+}
 
-  justify-content: space-around;
-  padding: 1rem;
+.container {
+  composes: box from "../../styles/mixins.module.css";
+  display: flex;
+  justify-content: space-between;
+  padding: 3rem 0;
   background-color: azul;
   color: blanco;
   text-decoration: none;

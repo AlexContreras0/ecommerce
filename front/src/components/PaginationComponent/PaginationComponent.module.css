@@ -1,3 +1,6 @@
+@value colors: '../../styles/colors.module.css';
+@value azul from colors;
+
 .container {
   display: flex;
   justify-content: center;
@@ -10,17 +13,17 @@
   padding: 0.5rem 1rem;
   border: 1px solid #2d37482b;
   border-radius: 0.25rem;
-  color: #2d3748;
+  color: azul;
   cursor: pointer;
   transition: all 0.3s;
 }
 
 .paginationLink:hover {
-  border: 1px solid #2d3748;
+  border: 1px solid azul;
 }
 
 .svg {
   width: 1.5rem;
   height: 1.5rem;
-  fill: #2d3748;
+  fill: azul;
 }

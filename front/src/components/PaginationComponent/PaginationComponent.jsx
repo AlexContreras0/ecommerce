@@ -25,7 +25,6 @@ export default function PaginationComponent() {
             </g>
           </svg>
         </Link>
-        <p className={styles.text}>Página actual</p>
         <Link className={styles.paginationLink} href="/">
           <svg
             className={styles.svg}

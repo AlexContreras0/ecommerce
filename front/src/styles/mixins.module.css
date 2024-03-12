@@ -1,6 +1,13 @@
 @value colors: 'colors.module.css';
 @value verde, azul, beige, blanco from colors;
 
+/* CAJA */
+
+.box {
+  max-inline-size: 1160px;
+  margin-inline: auto;
+}
+
 /* TEXTOS */
 
 .title {
@@ -61,6 +68,27 @@
 
 .botonBlancoHover {
   background-color: azul;
+  color: blanco;
+}
+
+.botonAzul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: azul;
+  color: blanco;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s all ease-in-out;
+}
+
+.botonAzulHover {
+  background-color: verde;
   color: blanco;
 }
 

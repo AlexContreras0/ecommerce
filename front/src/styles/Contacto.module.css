@@ -1,6 +1,9 @@
 @value colors: './colors.module.css';
 @value verde, blanco from colors;
 
+.box {
+  composes: box from "mixins.module.css";
+}
 .container {
   display: flex;
   justify-content: space-around;

@@ -1,10 +1,13 @@
+@value colors: '../../styles/colors.module.css';
+@value negro, verde, azul, beige, blanco, rojo from colors;
+
 .body {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 90vh;
   width: 100%;
-  background-color: #fff;
+  background-color: blanco;
 }
 
 .container {
@@ -18,8 +21,8 @@
   max-width: 40%;
   padding: 2rem;
   border-radius: 10px;
-  background-color: #379237;
-  color: #fff;
+  background-color: verde;
+  color: blanco;
 }
 .title {
   font-size: 1.5rem;
@@ -56,15 +59,15 @@
   gap: 0.5rem;
   width: 100%;
   border: none;
-  background-color: #edfbe2;
+  background-color: beige;
   padding: 1rem 1rem;
-  color: #000;
+  color: negro;
   border-radius: 5px;
   outline: none;
   position: relative;
 }
 .field:focus {
-  outline-color: #2d3748;
+  outline-color: azul;
 }
 
 .passwordContainer {
@@ -73,8 +76,8 @@
   gap: 0.5rem;
   width: 100%;
   border: none;
-  background-color: #edfbe2;
-  color: #000;
+  background-color: beige;
+  color: negro;
   border-radius: 5px;
   position: relative;
 }
@@ -84,7 +87,7 @@
   width: 1.5rem;
   height: auto;
   right: 50%;
-  stroke: #2d3748;
+  stroke: azul;
 }
 
 .submitButton {
@@ -94,8 +97,8 @@
   justify-content: center;
   gap: 0.5rem;
   padding: 0.8rem 1.5rem;
-  background-color: #fff;
-  color: #379237;
+  background-color: blanco;
+  color: verde;
   font-size: 1rem;
   font-weight: 600;
   border: none;
@@ -105,8 +108,8 @@
 }
 
 .submitButton:hover {
-  background-color: #2d3748;
-  color: #fff;
+  background-color: azul;
+  color: blanco;
 }
 
 .signUp {
@@ -117,40 +120,19 @@
   gap: 0.2rem;
   font-size: 0.8rem;
   font-weight: 600;
-  color: #fff;
+  color: blanco;
 }
 
 .link {
-  color: #2d3748;
+  color: azul;
   font-weight: 600;
   text-decoration: none;
 }
 
-.rolContainer {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 0.5rem 1rem;
-  gap: 2rem;
-  width: 100%;
-  border: none;
-  background-color: #edfbe2;
-  color: #757575;
-  font-size: 13px;
-  border-radius: 5px;
-  position: relative;
-}
-
-.select {
-  border: 0.5px solid #2d374837;
-  border-radius: 5px;
-  padding: 0.2rem 0.5rem;
-}
-
 .error {
   margin-top: 1rem;
-  color: #fff;
-  background-color: red;
+  color: blanco;
+  background-color: rojo;
   border-radius: 5px;
   padding: 0.5rem 1rem;
   font-size: 1rem;

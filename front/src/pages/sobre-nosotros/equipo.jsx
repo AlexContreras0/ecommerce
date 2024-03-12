@@ -2,13 +2,12 @@ import FooterComponent from "@/components/FooterComponent/FooterComponent";
 import NavMenu from "@/components/NavMenu/NavMenu";
 import React from "react";
 import styles from "../../styles/equipo.module.css";
-import persona from "../../../public/assets/persona.png";
 
 export default function page() {
   return (
     <div>
       <NavMenu />
-      <div className={styles.container}>
+      <div className={`${styles.container} ${styles.box}`}>
         <div className={styles.titleContainer}>
           <h1 className={styles.title}>Conóce a nuestro equipo</h1>
           <p className={styles.subtitle}>

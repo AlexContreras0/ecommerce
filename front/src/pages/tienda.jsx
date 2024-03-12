@@ -4,8 +4,6 @@ import { getAllProducts } from "../../api/productFetch";
 import styles from "@/styles/tienda.module.css";
 import ListProductComponent from "@/components/ProductComponent/ListProductComponent";
 import FooterComponent from "@/components/FooterComponent/FooterComponent";
-import FilterComponent from "@/components/FilterComponent/FilterComponent";
-import PaginationComponent from "@/components/PaginationComponent/PaginationComponent";
 
 export default function tienda() {
   const [products, setProducts] = useState([]);
@@ -21,7 +19,8 @@ export default function tienda() {
         setAllProductsLength(productsAux.data.length);
         const productForPage = productsAux.data.filter(
           (elemento, index) =>
-            index > firstElementPage - 1 && index < firstElementPage + elementForPage
+            index > firstElementPage - 1 &&
+            index < firstElementPage + elementForPage
         );
         setProducts(productForPage);
       };
@@ -36,7 +35,8 @@ export default function tienda() {
         setAllProductsLength(productsFiltered.length);
         const productsForPage = productsFiltered.filter(
           (elemento, index) =>
-            index > firstElementPage - 1 && index < firstElementPage + elementForPage
+            index > firstElementPage - 1 &&
+            index < firstElementPage + elementForPage
         );
         setProducts(productsForPage);
       };
@@ -45,57 +45,62 @@ export default function tienda() {
   }, [firstElementPage]);
 
   const refreshProductsHandler = async () => {
-    const vacio = ""
+    const vacio = "";
     setInputSearched(vacio);
-    console.log("este es el input set que se pone vacío", inputSearched)
+    console.log("este es el input set que se pone vacío", inputSearched);
     let productsAux = await getAllProducts();
     setAllProductsLength(productsAux.data.length);
     const productForPage = productsAux.data.filter(
-      (elemento, index) => index > firstElementPage - 1 && index < firstElementPage + elementForPage
+      (elemento, index) =>
+        index > firstElementPage - 1 &&
+        index < firstElementPage + elementForPage
     );
     setProducts(productForPage);
   };
 
   const searchedHandler = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     const getAllProductsAux = async () => {
       let productsAux = await getAllProducts();
-      console.log("primer filtro de busqueda productAux", productsAux)
+      console.log("primer filtro de busqueda productAux", productsAux);
       const inputToLower = inputSearched.toLowerCase();
       const selectSearched = productsAux.data.filter((element) =>
         element.nombre.toLowerCase().includes(inputToLower)
       );
       setAllProductsLength(selectSearched.length);
-      console.log("cantidad filtrada", selectSearched.length)
-      console.log("segundo filtro de busqueda setectSearched", selectSearched)
-      setFirstElementPage(0)
+      console.log("cantidad filtrada", selectSearched.length);
+      console.log("segundo filtro de busqueda setectSearched", selectSearched);
+      setFirstElementPage(0);
       const productForPage = selectSearched.filter(
-        (elemento, index) =>
-          index >= firstElementPage && index < elementForPage
+        (elemento, index) => index >= firstElementPage && index < elementForPage
       );
-      console.log("tercer filtro de busqueda productForPage", productForPage)
+      console.log("tercer filtro de busqueda productForPage", productForPage);
       setProducts(productForPage);
-      }
-      getAllProductsAux()
-    
+    };
+    getAllProductsAux();
   };
 
   const nextPageHandler = () => {
-    console.log("esta es la longitud del allproductlength", allProductsLength)
-    if ((firstElementPage + elementForPage) < allProductsLength) {
+    console.log("esta es la longitud del allproductlength", allProductsLength);
+    if (firstElementPage + elementForPage < allProductsLength) {
       setFirstElementPage(firstElementPage + elementForPage);
     }
   };
 
   const previousPageHandler = () => {
-    console.log("esta es la longitud del allproductlength", allProductsLength)
+    console.log("esta es la longitud del allproductlength", allProductsLength);
     if (firstElementPage < 12) {
-      console.log("aqui es donde pregunta si firstelement < 12", firstElementPage)
+      console.log(
+        "aqui es donde pregunta si firstelement < 12",
+        firstElementPage
+      );
       setFirstElementPage(0);
     } else {
       setFirstElementPage(firstElementPage - elementForPage);
-      console.log("aqui es donde pregunta si firstelement > 12", firstElementPage)
-
+      console.log(
+        "aqui es donde pregunta si firstelement > 12",
+        firstElementPage
+      );
     }
   };
 
@@ -103,97 +108,109 @@ export default function tienda() {
     <div>
       <NavMenu />
 
-      <div className={styles.container}>
-        <div className={styles.filterContainer}>
-
-        <form onSubmit={searchedHandler}>
-        <input 
-          type="text" 
-          name="inputSearched"
-          placeholder="Introduzca un producto"
-          onChange={(e) => setInputSearched(e.target.value)}
-        />
-      <button type="submit">Buscar</button>
-    </form>
-
-{/* 
-          <input
-          type="button"
-            placeholder="Buscar"
-            onClick={searchedHandler}
-            value={inputSearched}
-          ></input> */}
-          <button onClick={refreshProductsHandler}>refresh</button>
-          <p>filtro por categorias</p>
-          <p>filtro por precio</p>
-        </div>
-        <div className={styles.productContainer}>
-          {products.map((product, index) => {
-            return (
-              <div key={index}>
-                <ListProductComponent
-                  idParam={product.id}
-                  nombreParam={product.nombre}
-                  priceParam={product.precio}
-                  tipoParam={product.tipo}
-                  descriptionParam={product.description}
-                  stockParam={product.stock}
-                  ratingParam={product.rating}
-                  imagenParam={product.imagen}
+      <div className={styles.backBox}>
+        <div className={styles.box}>
+          <div className={styles.container}>
+            <div className={styles.filterContainer}>
+              <form className={styles.formFilter} onSubmit={searchedHandler}>
+                <input
+                  className={styles.inputFilter}
+                  type="text"
+                  name="inputSearched"
+                  placeholder="Buscar"
+                  onChange={(e) => setInputSearched(e.target.value)}
                 />
-              </div>
-            );
-          })}
+                <button className={styles.buttonFilter} type="submit">
+                  <svg className={styles.iconFilter} viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                  </svg>
+                </button>
+              </form>
+              {/*
+              <input
+              type="button"
+                placeholder="Buscar"
+                onClick={searchedHandler}
+                value={inputSearched}
+              ></input> */}
+              <button
+                className={styles.buttonRefresh}
+                onClick={refreshProductsHandler}
+              >
+                Borrar búsqueda
+              </button>
+              <p>filtro por categorias</p>
+              <p>filtro por precio</p>
+            </div>
+            <div className={styles.productContainer}>
+              {products.map((product, index) => {
+                return (
+                  <div key={index}>
+                    <ListProductComponent
+                      idParam={product.id}
+                      nombreParam={product.nombre}
+                      priceParam={product.precio}
+                      tipoParam={product.tipo}
+                      descriptionParam={product.description}
+                      stockParam={product.stock}
+                      ratingParam={product.rating}
+                      imagenParam={product.imagen}
+                    />
+                  </div>
+                );
+              })}
+            </div>
+          </div>
         </div>
-      </div>
-      <div className={styles.containerPagination}>
-        <button
-          onClick={previousPageHandler}
-          className={styles.paginationLink}
-          href="/"
-        >
-          <svg
-            className={styles.svg}
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
+        <div className={styles.containerPagination}>
+          <button
+            onClick={previousPageHandler}
+            className={styles.paginationLink}
+            href="/"
           >
-            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-            <g
-              id="SVGRepo_tracerCarrier"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            ></g>
-            <g id="SVGRepo_iconCarrier">
-              {" "}
-              <path d="M14.2893 5.70708C13.8988 5.31655 13.2657 5.31655 12.8751 5.70708L7.98768 10.5993C7.20729 11.3805 7.2076 12.6463 7.98837 13.427L12.8787 18.3174C13.2693 18.7079 13.9024 18.7079 14.293 18.3174C14.6835 17.9269 14.6835 17.2937 14.293 16.9032L10.1073 12.7175C9.71678 12.327 9.71678 11.6939 10.1073 11.3033L14.2893 7.12129C14.6799 6.73077 14.6799 6.0976 14.2893 5.70708Z"></path>{" "}
-            </g>
-          </svg>
-        </button>
-        <p className={styles.text}>Página actual</p>
-        <button
-          onClick={nextPageHandler}
-          className={styles.paginationLink}
-          href="/"
-        >
-          <svg
-            className={styles.svg}
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
+            <svg
+              className={styles.svg}
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                {" "}
+                <path d="M14.2893 5.70708C13.8988 5.31655 13.2657 5.31655 12.8751 5.70708L7.98768 10.5993C7.20729 11.3805 7.2076 12.6463 7.98837 13.427L12.8787 18.3174C13.2693 18.7079 13.9024 18.7079 14.293 18.3174C14.6835 17.9269 14.6835 17.2937 14.293 16.9032L10.1073 12.7175C9.71678 12.327 9.71678 11.6939 10.1073 11.3033L14.2893 7.12129C14.6799 6.73077 14.6799 6.0976 14.2893 5.70708Z"></path>{" "}
+              </g>
+            </svg>
+          </button>
+          <p className={styles.text}>Página actual</p>
+          <button
+            onClick={nextPageHandler}
+            className={styles.paginationLink}
+            href="/"
           >
-            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-            <g
-              id="SVGRepo_tracerCarrier"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            ></g>
-            <g id="SVGRepo_iconCarrier">
-              {" "}
-              <path d="M9.71069 18.2929C10.1012 18.6834 10.7344 18.6834 11.1249 18.2929L16.0123 13.4006C16.7927 12.6195 16.7924 11.3537 16.0117 10.5729L11.1213 5.68254C10.7308 5.29202 10.0976 5.29202 9.70708 5.68254C9.31655 6.07307 9.31655 6.70623 9.70708 7.09676L13.8927 11.2824C14.2833 11.6729 14.2833 12.3061 13.8927 12.6966L9.71069 16.8787C9.32016 17.2692 9.32016 17.9023 9.71069 18.2929Z"></path>{" "}
-            </g>
-          </svg>
-        </button>
+            <svg
+              className={styles.svg}
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                {" "}
+                <path d="M9.71069 18.2929C10.1012 18.6834 10.7344 18.6834 11.1249 18.2929L16.0123 13.4006C16.7927 12.6195 16.7924 11.3537 16.0117 10.5729L11.1213 5.68254C10.7308 5.29202 10.0976 5.29202 9.70708 5.68254C9.31655 6.07307 9.31655 6.70623 9.70708 7.09676L13.8927 11.2824C14.2833 11.6729 14.2833 12.3061 13.8927 12.6966L9.71069 16.8787C9.32016 17.2692 9.32016 17.9023 9.71069 18.2929Z"></path>{" "}
+              </g>
+            </svg>
+          </button>
+        </div>
       </div>
 
       {/* <PaginationComponent /> */}

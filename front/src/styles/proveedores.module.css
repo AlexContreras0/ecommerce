@@ -1,10 +1,22 @@
+@value colors: 'colors.module.css';
+@value verde, azul, beige, blanco from colors;
+
 .root {
+  background-color: azul;
+}
+
+.box {
+  composes: box from "mixins.module.css";
+}
+
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #2d3748;
-  color: #fff;
+  color: blanco;
   padding: 2rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .body {
@@ -15,7 +27,7 @@
   align-items: center;
   overflow: hidden;
   transition: all 0.5s;
-  background: #2d3748;
+  background: azul;
 }
 
 .images {
@@ -50,7 +62,7 @@
 }
 
 .image.active .label {
-  background: #2d3748;
+  background: azul;
   padding: 10px;
   border-radius: 50px;
   bottom: 15px;
@@ -83,17 +95,17 @@
   justify-content: center;
   align-items: center;
   min-width: 40px;
-  background: #fff;
+  background: blanco;
   height: 40px;
   border-radius: 50%;
-  color: #2d3748;
+  color: azul;
 }
 
 .info {
   display: flex;
   flex-direction: column;
   margin-left: 10px;
-  color: #fff;
+  color: blanco;
 }
 
 .main {

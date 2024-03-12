@@ -31,9 +31,9 @@ export default function page() {
   }, []);
 
   return (
-    <div>
+    <div className={styles.root}>
       <NavMenu />
-      <div className={styles.root}>
+      <div className={`${styles.container} ${styles.box}`}>
         <h1 className={styles.title}>Conoce a nuestros proveedores</h1>
         <div className={styles.body}>
           <section className={styles.images}>

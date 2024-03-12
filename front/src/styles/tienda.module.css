@@ -1,32 +1,74 @@
 @value colors: 'colors.module.css';
-@value blanco from colors;
+@value blanco, gris, azul, verde, verdeClaro, grisClaro, beige from colors;
 
-.productContainer {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  padding: 1rem;
-  height: auto;
+.backBox {
   background-color: blanco;
+}
+
+.box {
+  composes: box from "mixins.module.css";
+}
+
+.container {
+  display: flex;
+  gap: 2rem;
+  border-radius: 10px;
+  margin-top: 3rem;
+  margin-left: 2rem;
 }
 
 .filterContainer {
   display: flex;
   flex-direction: column;
-  width: 300px;
   gap: 1rem;
-  padding: 1rem;
-  height: auto;
-  background-color: blanco;
-  height: 100%;
+  border-radius: 10px;
 }
 
-.container {
+.formFilter {
   display: flex;
-  gap: 1rem;
-  padding: 1rem;
+  align-items: center;
+  border: 1px solid azul;
+  border-radius: 5px;
+}
+
+.inputFilter {
+  padding: 0.5rem 1rem;
+  border: none;
+}
+
+.inputFilter::placeholder {
+  color: azul;
+}
+
+.inputFilter:focus {
+  outline: none;
+}
+
+.buttonFilter {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  margin-right: 0.2rem;
+}
+
+.iconFilter {
+  fill: azul;
+  width: 15px;
   height: auto;
-  background-color: blanco;
+}
+
+.buttonRefresh {
+  composes: botonAzul from "mixins.module.css";
+}
+
+.buttonRefresh:hover {
+  background-color: gris;
+}
+
+.productContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .containerPagination {
@@ -41,18 +83,17 @@
   padding: 0.5rem 1rem;
   border: 1px solid #2d37482b;
   border-radius: 0.25rem;
-  color: #2d3748;
+  color: azul;
   cursor: pointer;
   transition: all 0.3s;
 }
 
 .paginationLink:hover {
-  border: 1px solid #2d3748;
+  border: 1px solid azul;
 }
 
 .svg {
   width: 1.5rem;
   height: 1.5rem;
-  fill: #2d3748;
+  fill: azul;
 }
-

@@ -3,7 +3,7 @@ import styles from "./RegisterForm.module.css";
 import Link from "next/link";
 import { createUser } from "../../../api/userFetch";
 import { useRouter } from "next/router";
-
+import FooterComponent from "../FooterComponent/FooterComponent";
 
 export default function RegisterForm() {
   const router = useRouter();
@@ -30,7 +30,7 @@ export default function RegisterForm() {
     e.preventDefault();
     if (validateForm()) {
       try {
-      const response = await createUser(JSON.stringify(newUser))
+        const response = await createUser(JSON.stringify(newUser));
         // logicar para enviar los datos a la API
         // const response = await createUser(newUser);
         console.log("este es el response", response);
@@ -47,7 +47,7 @@ export default function RegisterForm() {
             locality: "",
           });
           setError(null);
-          alert("El usuario ha sido creado correctamente")
+          alert("El usuario ha sido creado correctamente");
           router.back();
         } else {
           throw new Error("Error al crear el usuario");
@@ -243,6 +243,7 @@ export default function RegisterForm() {
           </div>
         </div>
       </div>
+      <FooterComponent />
     </div>
   );
 }

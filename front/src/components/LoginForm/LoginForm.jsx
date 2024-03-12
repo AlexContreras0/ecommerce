@@ -2,17 +2,16 @@ import React, { useState } from "react";
 import styles from "./LoginForm.module.css";
 import Link from "next/link";
 import { getUsers, login } from "../../../api/userFetch";
-import cliente from "../../pages/cliente"
-
+import cliente from "../ClienteComponent/ClienteComponent";
 
 export default function LoginForm() {
   const [user, setUser] = useState({
     email: "",
     password: "",
   });
-  const [userData, setUserData] = useState([])
-  const [roleUser, setRoleUser] = useState(false)
-  const [roleSupplier, setRoleSupplier] = useState(false)
+  const [userData, setUserData] = useState([]);
+  const [roleUser, setRoleUser] = useState(false);
+  const [roleSupplier, setRoleSupplier] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState(null);
 
@@ -21,27 +20,25 @@ export default function LoginForm() {
     if (validateForm()) {
       try {
         const getUserfiltered = async () => {
-        const userFiltered = await getUsers(user)
-        setUserData(userFiltered)}
-        getUserfiltered()
-        if(userData.userRole == "user"){
-          setRoleUser(true)
+          const userFiltered = await getUsers(user);
+          setUserData(userFiltered);
+        };
+        getUserfiltered();
+        if (userData.userRole == "user") {
+          setRoleUser(true);
         } else if (userData.userRole == "supplier") {
-          setRoleSupplier(true)
+          setRoleSupplier(true);
         }
-      }        
-       catch (error) {
-        console.log(error)
+      } catch (error) {
+        console.log(error);
       }
     }
   };
-
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setUser((prevUser) => ({ ...prevUser, [name]: value }));
   };
-
 
   const validateForm = () => {
     if (user.password.length < 8 || user.email.length < 8) {
@@ -145,11 +142,10 @@ export default function LoginForm() {
             <p>¿Aún no tienes cuenta?</p>
             <Link className={styles.link} href="/registro-usuario">
               Regístrate aquí
-            </Link>               
+            </Link>
           </div>
 
-
-            {/* {roleUser && (
+          {/* {roleUser && (
           <cliente
             id={user.id}
             nombre={user.userName}
@@ -157,8 +153,6 @@ export default function LoginForm() {
             phone={user.userPhone}
           />
         )} */}
-
-
         </div>
       </div>
     </div>

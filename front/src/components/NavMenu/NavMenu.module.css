@@ -1,25 +1,39 @@
 @value colors: '../../styles/colors.module.css';
 @value verde, azul, beige, blanco, rojo from colors;
 
-.nav {
-  z-index: 10;
-}
-.list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  height: 100%;
-  padding-block: 1rem;
+.backBody {
   background-color: azul;
 }
 
-.menu {
+.body {
+  z-index: 10;
+  position: sticky;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+  background-color: azul;
+  composes: box from "../../styles/mixins.module.css";
+}
+
+.nav {
+  display: flex;
+  gap: 5rem;
+}
+
+.navList {
+  list-style-type: none;
   display: flex;
   align-items: center;
   gap: 2rem;
+}
+
+.nav li {
+  position: relative;
+  float: left;
+  margin: 0;
+  padding: 0;
 }
 
 .link {
@@ -30,13 +44,6 @@
   display: flex;
   align-items: center;
   fill: blanco;
-}
-
-.nav ul li {
-  position: relative;
-  float: left;
-  margin: 0;
-  padding: 0;
 }
 
 .link:hover {
@@ -59,9 +66,18 @@
   fill: verde;
 }
 
+.toggleButton {
+  display: none;
+}
+
+.iconMobileMenu {
+  fill: blanco;
+  color: blanco;
+}
+
 /* Menu desplegable */
 
-.nav ul ul {
+.navList ul {
   z-index: 10;
   display: none;
   position: absolute;
@@ -73,7 +89,7 @@
   border-radius: 5px;
 }
 
-.nav ul ul li {
+.navList ul li {
   float: none;
   width: 150px;
   border-radius: 3px;
@@ -83,13 +99,76 @@
   color: verde;
 }
 
-.nav ul ul a {
+.subLink {
   line-height: 120%;
   padding: 10px 15px;
   text-decoration: none;
   color: blanco;
 }
 
-.nav ul li:hover > ul {
+.navList li:hover > ul {
   display: block;
+}
+
+@media screen and (max-width: 550px) {
+  .toggleButton {
+    display: block;
+    border: 0;
+    font-size: 1.25rem;
+    background-color: transparent;
+    cursor: pointer;
+    color: blanco;
+    position: relative;
+  }
+
+  .nav {
+    opacity: 0;
+    visibility: hidden;
+
+    display: flex;
+    position: absolute;
+  }
+
+  .navVisible {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .navList {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    position: absolute;
+    background-color: azul;
+    left: 0;
+    margin-top: 2rem;
+    padding: 1rem;
+    border-end-end-radius: 10px;
+  }
+
+  .navVisible li {
+    position: relative;
+    float: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .navList ul {
+    position: static;
+    display: none;
+    background-color: azul;
+    gap: 0.5rem;
+  }
+
+  .navList ul li {
+    width: 100%;
+  }
+
+  .navList li:hover > ul {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: 100%;
+  }
 }

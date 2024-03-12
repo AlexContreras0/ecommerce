@@ -5,7 +5,7 @@ import SocialNavMenuComponent from "../SocialNavMenuComponent/SocialNavMenuCompo
 
 export default function FooterComponent() {
   return (
-    <div>
+    <div className={styles.backContainer}>
       <div className={styles.container}>
         <Link className={styles.link} href="/">
           <svg
