@@ -8,15 +8,27 @@ export default function ClienteComponent(props) {
     <div>
       <div className={styles.box}>
         <div className={styles.container}>
-          <h1 className={styles.title}>Bienvenido a tu perfil</h1>
           <div className={styles.infoContainer}>
-            <h2 className="name">Nombre Apellido Apellido</h2>
-            <p>TLFN: 667 667 667</p>
-            <p>DIR: C/La Rata, 3, 2-1</p>
-            <button>Editar datos personales</button>
-          </div>
-          <div>
-            <p>Mis pedidos</p>
+            <div className={styles.textContainer}>
+              <h1 className={styles.title}>Bienvenido a tu perfil</h1>
+              <h2 className={styles.subtitleDatos}>Mis datos personales</h2>
+              <p className={styles.name}>
+                <p>Nombre: </p>Nombre Apellido Apellido
+              </p>
+              <p className={styles.phone}>
+                <p>Teléfono:</p> 667 667 667
+              </p>
+              <p className={styles.address}>
+                <p>Dirección:</p> C/La Rata, 3, 2-1
+              </p>
+              <button className={styles.buttonEdit}>
+                Editar datos personales
+              </button>
+            </div>
+            <div>
+              {/* FALTA LOGICA MOSTRAR LOS PEDIDOS */}
+              <p className={styles.orders}>Mis pedidos</p>
+            </div>
           </div>
         </div>
       </div>
