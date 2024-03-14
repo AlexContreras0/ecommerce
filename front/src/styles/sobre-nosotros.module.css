@@ -6,6 +6,8 @@
   color: azul;
 }
 
+/* CABECERA */
+
 .cabeceraContainer {
   composes: box from "mixins.module.css";
   display: flex;
@@ -36,6 +38,8 @@
   color: blanco;
 }
 
+/* MISION */
+
 .backMisionContainer {
   background-color: verde;
 }
@@ -64,16 +68,18 @@
 }
 
 .linkMision {
-  composes: linkVerde from "mixins.module.css";
+  composes: linkAzul from "mixins.module.css";
 }
 
 .linkMision:hover {
-  color: azul;
+  color: blanco;
 }
 
 .imgMision {
   border-radius: 10px;
 }
+
+/* PROVEEDOR */
 
 .proveedorContainer {
   composes: box from "mixins.module.css";
@@ -109,6 +115,12 @@
 .imgProveedor {
   border-radius: 10px;
 }
+
+.imgProveedorMobile {
+  display: none;
+}
+
+/* PILL PROVEEDOR */
 
 .backProveedorPillContainer {
   background-color: verde;
@@ -149,6 +161,8 @@
   background-color: verde;
   color: blanco;
 }
+
+/* PROEPUESTA VALOR */
 
 .backValueContainer {
   background-color: verde;
@@ -212,6 +226,8 @@
   color: azul;
 }
 
+/* CONTACTO */
+
 .contactoContainer {
   display: flex;
   flex-direction: column;
@@ -236,4 +252,88 @@
 .contactoLink:hover {
   background-color: azul;
   color: blanco;
+}
+
+@media screen and (max-width: 550px) {
+  /* CABECERA */
+
+  .tituloCabecera {
+    margin-top: 2rem;
+  }
+
+  .parrafoCabecera {
+    width: 100%;
+  }
+
+  /* MISION */
+
+  .misionContainer {
+    flex-direction: column;
+    padding: 2rem;
+    height: 100%;
+  }
+
+  .imgMision {
+    border-radius: 10px;
+    max-width: 100%;
+    max-height: 200px;
+  }
+
+  /* PROVEEDOR */
+
+  .proveedorContainer {
+    flex-direction: column;
+    padding: 2rem;
+    height: 100%;
+  }
+
+  .imgProveedor {
+    display: none;
+  }
+
+  .imgProveedorMobile {
+    display: block;
+    border-radius: 10px;
+    margin-top: 1rem;
+  }
+
+  /* PILL PROVEEDOR */
+
+  .proveedorPillContainer {
+    flex-direction: column;
+    text-align: center;
+    margin-inline: 2rem;
+    padding: 2rem 0;
+  }
+
+  .proveedorPillTextContainer {
+    flex-direction: column;
+  }
+
+  .proveedorPillLink {
+    margin-top: 1rem;
+  }
+
+  /* PROEPUESTA VALOR */
+
+  .valueContainer {
+    text-align: center;
+  }
+
+  .valueParrafo {
+    width: 100%;
+    padding-inline: 2rem;
+  }
+
+  .colContainer {
+    flex-direction: column;
+    margin-inline: 2rem;
+  }
+
+  /* CONTACTO */
+
+  .contactoParrafo {
+    width: 100%;
+    padding-inline: 2rem;
+  }
 }

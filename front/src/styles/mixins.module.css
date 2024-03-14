@@ -108,3 +108,20 @@
 .linkMisionHover {
   color: azul;
 }
+
+.linkAzul {
+  display: flex;
+  align-items: center;
+  color: azul;
+  text-decoration: underline;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s all ease-in-out;
+}
+
+.linkMisionHover {
+  color: blanco;
+}

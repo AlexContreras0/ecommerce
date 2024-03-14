@@ -111,6 +111,9 @@
 }
 
 @media screen and (max-width: 550px) {
+  .body {
+    padding: 2rem;
+  }
   .toggleButton {
     display: block;
     border: 0;

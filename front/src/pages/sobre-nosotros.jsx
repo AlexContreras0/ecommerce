@@ -86,6 +86,12 @@ export default function page() {
             <Link className={styles.linkProveedor} href="#">
               Enlace
             </Link>
+            <img
+              className={styles.imgProveedorMobile}
+              src="http://via.placeholder.com/640x360
+              "
+              alt=""
+            />
           </div>
         </section>
 
