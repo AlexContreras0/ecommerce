@@ -9,8 +9,18 @@ import ProductComponent from "./ProductComponent";
 export default function ProductDetailComponent(props) {
   const { product } = props;
   const [image, setImage] = useState();
-  const [token, setToken] = useState(false);
+  // const [token, setToken] = useState(false);
   const [isUserLoged, setIsUserLoged] = useState(false);
+
+  const userLocalStorage = JSON.parse(localStorage.getItem('user'))
+  const isUserLogedLocalStorage = JSON.parse(localStorage.getItem('isUserLogedLStorage'))
+  console.log("estos son el usuario y el isloged", userLocalStorage, isUserLogedLocalStorage)
+ 
+
+   useEffect(() => {
+    setIsUserLoged(isUserLogedLocalStorage)
+   }, []);
+
 
   const [user, setUser] = useState({
     email: "",
@@ -23,27 +33,24 @@ export default function ProductDetailComponent(props) {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    console.log("este es el user del padre",user)
-  }, [isUserLoged]);
 
   return (
     <div>
-      {!isUserLoged ? (
+      {isUserLoged ? (
         <ProductComponent
           product={product}
           isUserLoged={isUserLoged}
           setIsUserLoged={setIsUserLoged}
-          token={token}
-          setToken={setToken}
+          // token={token}
+          // setToken={setToken}
         />
       ) : (
         <LoginFormAddComponent
           product={product}
           isUserLoged={isUserLoged}
           setIsUserLoged={setIsUserLoged}
-          token={token}
-          setToken={setToken}
+          // token={token}
+          // setToken={setToken}
           user ={user}
           setUser ={setUser}
           userData={userData}

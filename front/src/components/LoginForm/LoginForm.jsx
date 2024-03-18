@@ -14,6 +14,11 @@ export default function LoginForm() {
   const [roleSupplier, setRoleSupplier] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState(null);
+  const [token, setToken] = useState(false);
+  // const [isUserLoged, setIsUserLoged] = useState(false);
+
+
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,6 +27,14 @@ export default function LoginForm() {
         const getUserfiltered = async () => {
           const userFiltered = await getUsers(user);
           setUserData(userFiltered);
+          localStorage.setItem('user', JSON.stringify(userFiltered))
+          if (userFiltered) {
+          localStorage.setItem('isUserLogedLStorage', JSON.stringify(true))
+          const isUserLogedLocalStorage = JSON.parse(localStorage.getItem('isUserLogedLStorage'))
+          console.log("estos son el usuario y el isloged en el LoginForm", userFiltered, isUserLogedLocalStorage)
+          } else {
+            alert("El usuario no existe")
+          }
         };
         getUserfiltered();
         if (userData.userRole == "user") {

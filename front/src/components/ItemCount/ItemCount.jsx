@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import styles from "./ItemCount.module.css";
 
-export default function ItemCount({ stock, updateQuantity }) {
-  const [count, setCount] = useState(0);
+export default function ItemCount(props) {
+  const {product, count, setCount} = props
+  
 
   const addItem = () => {
-    if (count < stock) {
+
+    if (count < product.productStock) {
       setCount(count + 1);
-      updateQuantity(count + 1);
+      // updateQuantity(count + 1);
     } else {
       alert(
         "Lo sentimos mucho, no hay mas unidades disponibles de este producto."
@@ -18,7 +20,7 @@ export default function ItemCount({ stock, updateQuantity }) {
   const removeItem = () => {
     if (count > 0) {
       setCount(count - 1);
-      updateQuantity(count - 1);
+      // updateQuantity(count - 1);
     }
   };
 

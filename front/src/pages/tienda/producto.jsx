@@ -19,7 +19,7 @@ export default function producto() {
       setProduct(productAux.data);
     };
     loadProduct();
-  }, [id]);
+  }, []);
 
   return (
     <>
