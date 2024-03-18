@@ -13,13 +13,15 @@ export default function ClienteComponent(props) {
               <h1 className={styles.title}>Bienvenido a tu perfil</h1>
               <h2 className={styles.subtitleDatos}>Mis datos personales</h2>
               <p className={styles.name}>
-                <p>Nombre: </p>Nombre Apellido Apellido
+                <p>Nombre: </p>
+                {nombre}
               </p>
               <p className={styles.phone}>
-                <p>Teléfono:</p> 667 667 667
+                <p>Teléfono:</p>
+                {phone}
               </p>
               <p className={styles.address}>
-                <p>Dirección:</p> C/La Rata, 3, 2-1
+                <p>Dirección:</p> {address}
               </p>
               <button className={styles.buttonEdit}>
                 Editar datos personales
