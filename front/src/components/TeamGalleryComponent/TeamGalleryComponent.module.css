@@ -51,3 +51,10 @@
 .card:hover .text {
   opacity: 1;
 }
+
+@media screen and (max-width: 550px) {
+  .box {
+    margin-block: 0;
+    padding: 2rem;
+  }
+}

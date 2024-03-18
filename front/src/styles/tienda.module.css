@@ -97,3 +97,31 @@
   height: 1.5rem;
   fill: azul;
 }
+
+@media screen and (max-width: 550px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    gap: 2rem;
+    margin-top: 0;
+    margin-left: 0;
+  }
+
+  .buttonFilter {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    margin-right: 0;
+  }
+
+  .iconFilter {
+    margin-left: 0.5rem;
+  }
+
+  .productContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+}
