@@ -1,12 +1,13 @@
 import FooterComponent from "@/components/FooterComponent/FooterComponent";
+import EditProfileFormComponent from "@/components/EditProfileFormComponent/EditProfileFormComponent";
 import NavMenu from "@/components/NavMenu/NavMenu";
 import React from "react";
 
-export default function page() {
+export default function Page() {
   return (
     <div>
       <NavMenu />
-      <div></div>
+
       <FooterComponent />
     </div>
   );

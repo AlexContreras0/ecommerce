@@ -76,3 +76,20 @@
   background-color: azul;
   color: blanco;
 }
+
+@media screen and (max-width: 550px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: blanco;
+    padding: 2rem;
+    border-radius: 10px;
+    margin: 0;
+  }
+  .checkboxContainer {
+    text-align: start;
+    width: 100%;
+  }
+}

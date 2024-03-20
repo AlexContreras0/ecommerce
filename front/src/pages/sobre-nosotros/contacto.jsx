@@ -87,6 +87,9 @@ export default function page() {
           </div>
         </div>
         <ContactComponent className={styles.ContactComponent} />
+        <div className={styles.SocialNavMenuComponentMobile}>
+          <SocialNavMenuComponent />
+        </div>
       </div>
 
       <FooterComponent />

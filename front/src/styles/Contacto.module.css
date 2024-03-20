@@ -56,3 +56,43 @@
   position: absolute;
   bottom: 10%;
 }
+
+.infoContainerMobile {
+  display: none;
+}
+
+.SocialNavMenuComponentMobile {
+  display: none;
+}
+@media screen and (max-width: 550px) {
+  .container {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    width: 90%;
+    height: 100%;
+    position: inherit;
+  }
+  .leftContainer {
+    width: 100%;
+    margin-top: 0;
+    gap: 0;
+    margin-bottom: 2rem;
+  }
+  .infoContainer {
+    display: none;
+  }
+  .info {
+    gap: 0.5rem;
+  }
+  .SocialNavMenuComponent {
+    display: none;
+  }
+  .SocialNavMenuComponentMobile {
+    display: block;
+    padding-top: 2rem;
+  }
+}
