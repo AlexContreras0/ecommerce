@@ -5,14 +5,24 @@ import styles from "./LoginForm.module.css";
 import cliente from "../ClienteComponent/ClienteComponent";
 
 export default function LoginFormAddComponent(props) {
+
+  // const isUserLogedLocalStorage = JSON.parse(localStorage.getItem('isUserLogedLStorage'))
+  // const userLocalStorage = JSON.parse(localStorage.getItem('user'))
+
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+  });
+  
+
   const {
     product,
     isUserLoged,
     setIsUserLoged,
     token,
     setToken,
-    user,
-    setUser,
+    // user,
+    // setUser,
     userData,
     setUserData,
     roleUser,
@@ -31,7 +41,16 @@ export default function LoginFormAddComponent(props) {
       try {
         const getUserfiltered = async () => {
           const userFiltered = await getUsers(user);
-          setUserData(userFiltered);          
+          // setUserData(userFiltered);
+          localStorage.setItem('user', JSON.stringify(userFiltered)) 
+          if (userFiltered) {
+            localStorage.setItem('isUserLogedLStorage', JSON.stringify(true))
+            setIsUserLoged(true)
+            const isUserLogedLocalStorage = JSON.parse(localStorage.getItem('isUserLogedLStorage'))
+            console.log("estos son el usuario y el isloged en el LoginForm despues", userFiltered, isUserLogedLocalStorage)
+            } else {
+              alert("El usuario no existe")
+            }      
         };
         getUserfiltered();
         if (userData.userRole == "user") {

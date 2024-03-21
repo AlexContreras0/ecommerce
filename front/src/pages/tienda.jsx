@@ -12,6 +12,10 @@ export default function tienda() {
   const [elementForPage, setElementForPage] = useState(12);
   const [inputSearched, setInputSearched] = useState("");
 
+  // localStorage.setItem('isUserLogedLStorage', JSON.stringify(false))
+  // const isUserLogedLocalStorage = JSON.parse(localStorage.getItem('isUserLogedLStorage'))
+  // console.log("este es el isuserloged del home", isUserLogedLocalStorage )
+
   useEffect(() => {
     if (inputSearched == "") {
       const getAllProductsAux = async () => {

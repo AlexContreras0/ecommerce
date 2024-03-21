@@ -2,18 +2,21 @@ import React, { useState, useEffect } from "react";
 import styles from "./ClienteComponent.module.css";
 
 export default function ClienteComponent() {
-  const [userData, setUserData] = useState(null);
+  const userLocalStorage = JSON.parse(localStorage.getItem('user'))
+  const [userData, setUserData] = useState(userLocalStorage);
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
 
-  useEffect(() => {
-    const userLocalStorage = localStorage.getItem("user");
-    const isUserLogedLocalStorage = localStorage.getItem("isUserLogedLStorage");
+  console.log(userData, "este es el userdata del clientecomponente")
 
-    if (userLocalStorage && isUserLogedLocalStorage) {
-      setUserData(JSON.parse(userLocalStorage));
-      setIsUserLoggedIn(JSON.parse(isUserLogedLocalStorage));
-    }
-  }, []);
+  // useEffect(() => {
+  //   const userLocalStorage = localStorage.getItem("user");
+  //   const isUserLogedLocalStorage = localStorage.getItem("isUserLogedLStorage");
+
+  //   if (userLocalStorage && isUserLogedLocalStorage) {
+  //     setUserData(JSON.parse(userLocalStorage));
+  //     setIsUserLoggedIn(JSON.parse(isUserLogedLocalStorage));
+  //   }
+  // }, []);
 
   return (
     <div>
@@ -27,14 +30,14 @@ export default function ClienteComponent() {
                 <>
                   <p className={styles.name}>
                     <span>Nombre: </span>
-                    {userData.nombre}
+                    {userData.userName}
                   </p>
                   <p className={styles.phone}>
                     <span>Teléfono:</span>
-                    {userData.phone}
+                    {userData.userPhone}
                   </p>
                   <p className={styles.address}>
-                    <span>Dirección:</span> {userData.address}
+                    <span>Dirección:</span> {userData.userAddress}
                   </p>
                 </>
               )}
