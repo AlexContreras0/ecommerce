@@ -31,7 +31,7 @@ export default function RegisterForm() {
     if (validateForm()) {
       try {
         const response = await createUser(JSON.stringify(newUser));
-        // logicar para enviar los datos a la API
+        // logica para enviar los datos a la API
         // const response = await createUser(newUser);
         console.log("este es el response", response);
 

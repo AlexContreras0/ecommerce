@@ -11,8 +11,6 @@ export default function producto() {
   const { id } = router.query;
   const [product, setProduct] = useState([]);
 
-  console.log(id);
-
   useEffect(() => {
     const loadProduct = async () => {
       const productAux = await getProduct(id);

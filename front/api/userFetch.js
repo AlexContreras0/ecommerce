@@ -24,7 +24,7 @@ export const login = async (bodyParam) => {
           body: bodyParam,
          })
 
-// el cors me bloquea el fetch, y si le pongo un mode: 'no-cors' no me da respuesta y pasa datos
+// el cors me bloquea el fetch, y si le pongo un mode: 'no-cors' no me da respuesta y no pasa datos
 
 const user = await response.json()
 console.log(user)
