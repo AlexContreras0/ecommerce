@@ -32,7 +32,7 @@ console.log(user)
     if (user.error) {
         return user.error
     }
-    return    
+    return user
 
 }
 

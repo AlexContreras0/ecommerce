@@ -24,24 +24,26 @@ export default function LoginForm() {
     e.preventDefault();
     if (validateForm()) {
       try {
-        const getUserfiltered = async () => {
-          const userFiltered = await getUsers(user);
-          setUserData(userFiltered);
-          localStorage.setItem('user', JSON.stringify(userFiltered))
-          if (userFiltered) {
-          localStorage.setItem('isUserLogedLStorage', JSON.stringify(true))
-          const isUserLogedLocalStorage = JSON.parse(localStorage.getItem('isUserLogedLStorage'))
-          console.log("estos son el usuario y el isloged en el LoginForm", userFiltered, isUserLogedLocalStorage)
-          } else {
-            alert("El usuario no existe")
-          }
-        };
-        getUserfiltered();
-        if (userData.userRole == "user") {
-          setRoleUser(true);
-        } else if (userData.userRole == "supplier") {
-          setRoleSupplier(true);
-        }
+        const userFiltered = await login(JSON.stringify(user));
+        console.log("este es el login real", userFiltered)
+        // const getUserfiltered = async () => {
+        //   const userFiltered = await getUsers(user);
+        //   setUserData(userFiltered);
+        //   localStorage.setItem('user', JSON.stringify(userFiltered))
+        //   if (userFiltered) {
+        //   localStorage.setItem('isUserLogedLStorage', JSON.stringify(true))
+        //   const isUserLogedLocalStorage = JSON.parse(localStorage.getItem('isUserLogedLStorage'))
+        //   console.log("estos son el usuario y el isloged en el LoginForm", userFiltered, isUserLogedLocalStorage)
+        //   } else {
+        //     alert("El usuario no existe")
+        //   }
+        // };
+        // getUserfiltered();
+        // if (userData.userRole == "user") {
+        //   setRoleUser(true);
+        // } else if (userData.userRole == "supplier") {
+        //   setRoleSupplier(true);
+        // }
       } catch (error) {
         console.log(error);
       }
