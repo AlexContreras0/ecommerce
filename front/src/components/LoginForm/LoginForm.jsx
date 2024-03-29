@@ -17,35 +17,31 @@ export default function LoginForm() {
   const [token, setToken] = useState(false);
   // const [isUserLoged, setIsUserLoged] = useState(false);
 
-
-
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (validateForm()) {
       try {
-        const userFiltered = await login(JSON.stringify(user));
-        console.log("este es el login real", userFiltered)
-        // const getUserfiltered = async () => {
-        //   const userFiltered = await getUsers(user);
-        //   setUserData(userFiltered);
-        //   localStorage.setItem('user', JSON.stringify(userFiltered))
-        //   if (userFiltered) {
-        //   localStorage.setItem('isUserLogedLStorage', JSON.stringify(true))
-        //   const isUserLogedLocalStorage = JSON.parse(localStorage.getItem('isUserLogedLStorage'))
-        //   console.log("estos son el usuario y el isloged en el LoginForm", userFiltered, isUserLogedLocalStorage)
-        //   } else {
-        //     alert("El usuario no existe")
-        //   }
-        // };
-        // getUserfiltered();
-        // if (userData.userRole == "user") {
-        //   setRoleUser(true);
-        // } else if (userData.userRole == "supplier") {
-        //   setRoleSupplier(true);
-        // }
+        const userLoged = await login(JSON.stringify(user));
+        if (userLoged.status == "Success") {
+          setUserData(userLoged);
+          localStorage.setItem("user", JSON.stringify(userLoged));
+          localStorage.setItem("isUserLogedLStorage", JSON.stringify(true));
+          alert("Usuario logado correctamente");
+          const isUserLogedLocalStorage = JSON.parse(
+            localStorage.getItem("isUserLogedLStorage")
+          );
+        } else {
+          alert("El usuario no existe");
+        }
+        if (userData.data.user.userRole == "user") {
+          setRoleUser(true);
+        } else if (userData.data.user.userRole == "supplier") {
+          setRoleSupplier(true);
+        }
+
       } catch (error) {
         console.log(error);
+        alert("Usuario y contraseña erróneos");
       }
     }
   };

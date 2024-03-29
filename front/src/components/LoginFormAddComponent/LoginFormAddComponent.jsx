@@ -21,46 +21,42 @@ export default function LoginFormAddComponent(props) {
     setIsUserLoged,
     token,
     setToken,
-    // user,
-    // setUser,
     userData,
     setUserData,
-    roleUser,
-    setRoleUser,
-    roleSupplier,
-    setRoleSupplier,
     showPassword,
     setShowPassword,
     error,
     setError,
   } = props;
 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (validateForm()) {
       try {
-        const getUserfiltered = async () => {
-          const userFiltered = await getUsers(user);
-          // setUserData(userFiltered);
-          localStorage.setItem('user', JSON.stringify(userFiltered)) 
-          if (userFiltered) {
+        const getUserLoged = async () => {
+          const userData = await login(JSON.stringify(user));
+          if (userData.status == "Success") {
+            localStorage.setItem('user', JSON.stringify(userData)) 
             localStorage.setItem('isUserLogedLStorage', JSON.stringify(true))
-            setIsUserLoged(true)
             const isUserLogedLocalStorage = JSON.parse(localStorage.getItem('isUserLogedLStorage'))
-            console.log("estos son el usuario y el isloged en el LoginForm despues", userFiltered, isUserLogedLocalStorage)
+            setIsUserLoged(true)
             } else {
-              alert("El usuario no existe")
-            }      
+              alert("Usuario y contraseña erróneos");
+              localStorage.setItem('isUserLogedLStorage', JSON.stringify(false))
+              const isUserLogedLocalStorage = JSON.parse(localStorage.getItem('isUserLogedLStorage'))
+            } 
+            // console.log("estos son los roles user", roleUser, setRoleUser)     
+            // if (userData.data.user.userRole == "user") {
+            //   // setRoleUser("true");
+            // } else if (userData.data.user.userRole == "supplier") {
+            //   // setRoleSupplier("true");
+            // }
         };
-        getUserfiltered();
-        if (userData.userRole == "user") {
-          setRoleUser(true);
-        } else if (userData.userRole == "supplier") {
-          setRoleSupplier(true);
-        }
-        setIsUserLoged(false)
+        getUserLoged();
       } catch (error) {
         console.log(error);
+        alert("Usuario y contraseña erróneos");
       }
     }
   };

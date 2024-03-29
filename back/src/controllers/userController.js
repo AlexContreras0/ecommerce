@@ -135,8 +135,6 @@ const createUser = async (req, res) => {
 
 const login = async (req, res) => {
   try {
-    console.log("este es el req.body del user controller", req.body)
-    console.log("este es el req.params del user controller", req.params)
     const user = await userModel.findOne({ userEmail: req.body.email });
     if (user) {
       const validatePassword = await bcrypt.compare(
