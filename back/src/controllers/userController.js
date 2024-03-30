@@ -35,38 +35,41 @@ const modifyById = async (req, res) => {
 
     try {
         const id = req.params.id
-        const { userName, userEmail, userPassword, userPhone, userAddress, userCP, userLocality, userProvince } = req.body
+        const { userName, userPhone, userAddress } = req.body
 
         const userAux = await userModel.findById(id)
+        console.log(userAux, "este es el useraux antes de grabar")
 
         if (!userAux) return res.status(404).send('El usuario no existe')
 
         if (userName) {
             userAux.userName = userName
         }
-        if (userEmail) {
-            userAux.userEmail = userEmail
-        }
-        if (userPassword) {
-            userAux.userPassword = userPassword
-        }
+        // if (userEmail) {
+        //     userAux.userEmail = userEmail
+        // }
+        // if (userPassword) {
+        //     userAux.userPassword = userPassword
+        // }
         if (userPhone) {
             userAux.userPhone = userPhone
         }
         if (userAddress) {
             userAux.userAddress = userAddress
         }
-        if (userCP) {
-            userAux.userCP = userCP
-        }
-        if (userLocality) {
-            userAux.userLocality = userLocality
-        }
-        if (userProvince) {
-            userAux.userProvince = userProvince
-        }
+        // if (userCP) {
+        //     userAux.userCP = userCP
+        // }
+        // if (userLocality) {
+        //     userAux.userLocality = userLocality
+        // }
+        // if (userProvince) {
+        //     userAux.userProvince = userProvince
+        // }
 
+        console.log(userAux, "este es el useraux justo antes de grabar")
         await userAux.save()
+        console.log(userAux, "este es el useraux despues de grabar")
 
         res.status(200).json({
             status: 'succeeded',

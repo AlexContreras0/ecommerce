@@ -14,7 +14,7 @@ export default function ProductDetailComponent(props) {
 
   const userLocalStorage = JSON.parse(localStorage.getItem('user'))
   const isUserLogedLocalStorage = JSON.parse(localStorage.getItem('isUserLogedLStorage'))
-  console.log("estos son el usuario y el isloged", userLocalStorage, isUserLogedLocalStorage)
+
  
 
    useEffect(() => {
