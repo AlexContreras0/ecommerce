@@ -27,7 +27,7 @@ const productSchema = new Schema({
     productCategory: {
         type: String,
         required: true,
-        enum: ['aceite', 'verdura', 'embutido', 'ecológico', 'gourmet']
+        enum: ['aceite', 'verdura', 'embutido', 'ecológico', 'gourmet', 'cafe', 'vino', 'fruta']
     },
     productStock: {
         type: Number,

@@ -12,9 +12,6 @@ export default function tienda() {
   const [elementForPage, setElementForPage] = useState(12);
   const [inputSearched, setInputSearched] = useState("");
 
-  // localStorage.setItem('isUserLogedLStorage', JSON.stringify(false))
-  // const isUserLogedLocalStorage = JSON.parse(localStorage.getItem('isUserLogedLStorage'))
-  // console.log("este es el isuserloged del home", isUserLogedLocalStorage )
 
   useEffect(() => {
     if (inputSearched == "") {
@@ -51,7 +48,6 @@ export default function tienda() {
   const refreshProductsHandler = async () => {
     const vacio = "";
     setInputSearched(vacio);
-    console.log("este es el input set que se pone vacío", inputSearched);
     let productsAux = await getAllProducts();
     setAllProductsLength(productsAux.data.length);
     const productForPage = productsAux.data.filter(
@@ -66,45 +62,31 @@ export default function tienda() {
     e.preventDefault();
     const getAllProductsAux = async () => {
       let productsAux = await getAllProducts();
-      console.log("primer filtro de busqueda productAux", productsAux);
       const inputToLower = inputSearched.toLowerCase();
       const selectSearched = productsAux.data.filter((element) =>
         element.nombre.toLowerCase().includes(inputToLower)
       );
       setAllProductsLength(selectSearched.length);
-      console.log("cantidad filtrada", selectSearched.length);
-      console.log("segundo filtro de busqueda setectSearched", selectSearched);
       setFirstElementPage(0);
       const productForPage = selectSearched.filter(
         (elemento, index) => index >= firstElementPage && index < elementForPage
       );
-      console.log("tercer filtro de busqueda productForPage", productForPage);
       setProducts(productForPage);
     };
     getAllProductsAux();
   };
 
   const nextPageHandler = () => {
-    console.log("esta es la longitud del allproductlength", allProductsLength);
     if (firstElementPage + elementForPage < allProductsLength) {
       setFirstElementPage(firstElementPage + elementForPage);
     }
   };
 
   const previousPageHandler = () => {
-    console.log("esta es la longitud del allproductlength", allProductsLength);
     if (firstElementPage < 12) {
-      console.log(
-        "aqui es donde pregunta si firstelement < 12",
-        firstElementPage
-      );
       setFirstElementPage(0);
     } else {
       setFirstElementPage(firstElementPage - elementForPage);
-      console.log(
-        "aqui es donde pregunta si firstelement > 12",
-        firstElementPage
-      );
     }
   };
 

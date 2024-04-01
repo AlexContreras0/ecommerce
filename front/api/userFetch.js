@@ -43,19 +43,16 @@ export const getUsers = async (bodyParam) => {
 
 
 export const updateUser = async (id, bodyParam) => {
-    console.log("este es el id y el bodyParam del updateuser del userfetch", id, bodyParam)
     const response = await fetch("http://localhost:9000/users/" + id, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: bodyParam,
   });
   const userUpdated = await response.json();
-  console.log("este es el userUpdated del userfetch", userUpdated)
   if (userUpdated.error) {
     console.log(userUpdated.error);
     return userUpdated;
   }
-  console.log(userUpdated);
   return userUpdated;
 
 }

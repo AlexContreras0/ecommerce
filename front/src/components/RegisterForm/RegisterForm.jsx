@@ -23,7 +23,6 @@ export default function RegisterForm() {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setNewUser((prevUser) => ({ ...prevUser, [name]: value }));
-    console.log(newUser);
   };
 
   const handleSubmit = async (e) => {
@@ -31,9 +30,6 @@ export default function RegisterForm() {
     if (validateForm()) {
       try {
         const response = await createUser(JSON.stringify(newUser));
-        // logica para enviar los datos a la API
-        // const response = await createUser(newUser);
-        console.log("este es el response", response);
 
         if (!response) {
           setNewUser({

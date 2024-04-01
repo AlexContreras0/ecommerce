@@ -9,10 +9,6 @@ export default function page() {
 
   const isUserLogedLocalStorage = JSON.parse(localStorage.getItem('isUserLogedLStorage'))
   const [isUserLoged, setIsUserLoged] = useState(false)
-  // useEffect(() => {
-  // // setIsUserLoged(isUserLogedLocalStorage)
-  // console.log("este es el isuserloged inicial",isUserLogedLocalStorage, " y el userloged del blog",isUserLoged)  
-  // }, []);
 
   return (
     <div>

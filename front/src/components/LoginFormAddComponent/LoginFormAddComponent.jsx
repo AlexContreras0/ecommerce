@@ -46,12 +46,6 @@ export default function LoginFormAddComponent(props) {
               localStorage.setItem('isUserLogedLStorage', JSON.stringify(false))
               const isUserLogedLocalStorage = JSON.parse(localStorage.getItem('isUserLogedLStorage'))
             } 
-            // console.log("estos son los roles user", roleUser, setRoleUser)     
-            // if (userData.data.user.userRole == "user") {
-            //   // setRoleUser("true");
-            // } else if (userData.data.user.userRole == "supplier") {
-            //   // setRoleSupplier("true");
-            // }
         };
         getUserLoged();
       } catch (error) {

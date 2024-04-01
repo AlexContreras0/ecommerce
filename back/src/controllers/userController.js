@@ -38,7 +38,6 @@ const modifyById = async (req, res) => {
         const { userName, userPhone, userAddress } = req.body
 
         const userAux = await userModel.findById(id)
-        console.log(userAux, "este es el useraux antes de grabar")
 
         if (!userAux) return res.status(404).send('El usuario no existe')
 
@@ -66,10 +65,8 @@ const modifyById = async (req, res) => {
         // if (userProvince) {
         //     userAux.userProvince = userProvince
         // }
-
-        console.log(userAux, "este es el useraux justo antes de grabar")
+     
         await userAux.save()
-        console.log(userAux, "este es el useraux despues de grabar")
 
         res.status(200).json({
             status: 'succeeded',
@@ -87,8 +84,7 @@ const modifyById = async (req, res) => {
 
 const createUser = async (req, res) => {
   try {
-    console.log("este es el req del create user",req.params)
-    console.log("este es el req del create user",req.body)
+
     const newUser = new userModel({
       userName: req.body.name,
       userEmail: req.body.email,
