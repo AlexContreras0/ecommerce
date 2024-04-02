@@ -75,14 +75,14 @@ export default function NavMenu() {
                         Proveedores
                       </Link>
                     </li>
-                    <li>
+                    {/* <li>
                       <Link
                         className={styles.subLink}
                         href="/sobre-nosotros/voluntarios"
                       >
                         Voluntarios
                       </Link>
-                    </li>
+                    </li> */}
                     <li>
                       <Link
                         className={styles.subLink}

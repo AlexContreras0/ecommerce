@@ -46,8 +46,7 @@ export default function page() {
             </div>
             <img
               className={styles.imgMision}
-              src="http://via.placeholder.com/640x360
-                "
+              src="https://images.pexels.com/photos/169523/pexels-photo-169523.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
               alt=""
             />
           </section>
@@ -56,13 +55,13 @@ export default function page() {
         <section className={styles.proveedorContainer}>
           <img
             className={styles.imgProveedor}
-            src="http://via.placeholder.com/640x360
+            src="https://images.pexels.com/photos/974314/pexels-photo-974314.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1
               "
             alt=""
           />
 
           <div className={styles.proveedorTextContainer}>
-            <h2 className={styles.tituloProveedor}>Misión</h2>
+            <h2 className={styles.tituloProveedor}>Visión</h2>
             <p className={styles.parrafoProveedor}>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
               repellendus, quas, voluptate, quod quia quibusdam tempora
@@ -88,9 +87,10 @@ export default function page() {
             </Link>
             <img
               className={styles.imgProveedorMobile}
-              src="http://via.placeholder.com/640x360
+              src="https://images.pexels.com/photos/974314/pexels-photo-974314.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1
               "
-              alt=""
+              alt="Foto De Campo Verde Cerca De Las Montañas
+              "
             />
           </div>
         </section>

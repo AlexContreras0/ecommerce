@@ -47,7 +47,8 @@
 .misionContainer {
   composes: box from "mixins.module.css";
   display: flex;
-  gap: 2rem;
+  align-items: center;
+  gap: 4rem;
   padding: 4rem 0;
 }
 
@@ -65,6 +66,7 @@
 .parrafoMision {
   composes: paragraph from "mixins.module.css";
   color: blanco;
+  max-width: 6400px;
 }
 
 .linkMision {
@@ -77,6 +79,8 @@
 
 .imgMision {
   border-radius: 10px;
+  width: 640px;
+  height: 360px;
 }
 
 /* PROVEEDOR */
@@ -84,6 +88,7 @@
 .proveedorContainer {
   composes: box from "mixins.module.css";
   display: flex;
+  align-items: center;
   gap: 5rem;
   padding: 4rem 0;
   background-color: blanco;
@@ -114,6 +119,8 @@
 
 .imgProveedor {
   border-radius: 10px;
+  width: 640px;
+  height: 360px;
 }
 
 .imgProveedorMobile {
@@ -205,6 +212,12 @@
   box-shadow: #2d374810 5px 5px 10px 5px;
   border-radius: 10px;
   background-color: blanco;
+  transition: all 0.2s ease-in-out;
+}
+
+.valueCol:hover {
+  box-shadow: #2d37483e 5px 5px 10px 5px;
+  transform: scale(1.02);
 }
 
 .tituloValueCol {
