@@ -3,8 +3,10 @@ import Link from "next/link";
 import { getUsers, login } from "../../../api/userFetch";
 import styles from "./LoginForm.module.css";
 import cliente from "../ClienteComponent/ClienteComponent";
+import { useRouter } from "next/router";
 
 export default function LoginFormAddComponent(props) {
+  const router = useRouter();
 
   // const isUserLogedLocalStorage = JSON.parse(localStorage.getItem('isUserLogedLStorage'))
   // const userLocalStorage = JSON.parse(localStorage.getItem('user'))
@@ -41,6 +43,7 @@ export default function LoginFormAddComponent(props) {
             localStorage.setItem('isUserLogedLStorage', JSON.stringify(true))
             const isUserLogedLocalStorage = JSON.parse(localStorage.getItem('isUserLogedLStorage'))
             setIsUserLoged(true)
+            router.back();
             } else {
               alert("Usuario y contraseña erróneos");
               localStorage.setItem('isUserLogedLStorage', JSON.stringify(false))
@@ -50,7 +53,6 @@ export default function LoginFormAddComponent(props) {
         getUserLoged();
       } catch (error) {
         console.log(error);
-        alert("Usuario y contraseña erróneos");
       }
     }
   };

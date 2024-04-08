@@ -4,22 +4,42 @@ import ItemCount from "../ItemCount/ItemCount";
 import StarRatingComponent from "../StarRatingComponent/StarRatingComponent";
 import LoginForm from "../LoginForm/LoginForm";
 import LoginFormAddComponent from "../LoginFormAddComponent/LoginFormAddComponent";
+import { addProductToCart } from "../../../api/cartFetch";
 
 export default function ProductComponent(props) {
 
   const { product, isUserLoged, setIsUserLoged, token, setToken } = props;
   const [count, setCount] = useState(0);
-
   const [image, setImage] = useState();
+  const [productForCart, setProductForCart] = useState({
+    idUser: "",
+    idProduct: "",
+    quantity: 0,
+  });
+  const userLocalStorage = JSON.parse(localStorage.getItem('user'))
+  console.log(userLocalStorage.data.user._id, product._id)
+
+
+  useEffect(() => {
+    const changeIds = () =>{
+      setProductForCart((prevValue) => ({...prevValue, idProduct: product._id,}));
+      setProductForCart((prevValue) => ({...prevValue, idUser: userLocalStorage.data.user._id,}));
+      setProductForCart((prevValue) => ({...prevValue, quantity: count,}));
+      setProductForCart((prevValue) => ({...prevValue, quantity: count,}));
+  console.log(productForCart, "este es el productforcart")}
+  changeIds()
+}, [])
 
 
   const selectImage = (img) => {
     setImage(img);
   };
 
-  const addToCart = () => {
+  const addToCart = async() => {
     if (isUserLoged) {
-      const userLocalStorage = JSON.parse(localStorage.getItem('user'))
+      console.log(productForCart, "este es el producto seleccionado antes de añadir al carrito")
+      
+      // const addToCartProduct = await addProductToCart(JSON.stringify(productForCart))
       
 
       

@@ -3,8 +3,10 @@ import styles from "./LoginForm.module.css";
 import Link from "next/link";
 import { getUsers, login } from "../../../api/userFetch";
 import cliente from "../ClienteComponent/ClienteComponent";
+import { useRouter } from "next/router";
 
 export default function LoginForm() {
+  const router = useRouter();
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -22,6 +24,7 @@ export default function LoginForm() {
     if (validateForm()) {
       try {
         const userLoged = await login(JSON.stringify(user));
+        console.log("Estos son los datos del userLoged", userLoged)
         if (userLoged.status == "Success") {
           setUserData(userLoged);
           localStorage.setItem("user", JSON.stringify(userLoged));
@@ -30,8 +33,9 @@ export default function LoginForm() {
           const isUserLogedLocalStorage = JSON.parse(
             localStorage.getItem("isUserLogedLStorage")
           );
+          router.back();
         } else {
-          alert("El usuario no existe");
+          alert("Usuario o contraseña erróneos");
         }
         if (userData.data.user.userRole == "user") {
           setRoleUser(true);
@@ -41,7 +45,6 @@ export default function LoginForm() {
 
       } catch (error) {
         console.log(error);
-        alert("Usuario y contraseña erróneos");
       }
     }
   };
