@@ -1,5 +1,5 @@
 @value colors: '../../styles/colors.module.css';
-@value verde, azul, beige, blanco from colors;
+@value azul, naranja, beige, blanco from colors;
 
 .backContainer {
   background-color: azul;
@@ -34,12 +34,17 @@
 }
 
 .subLink:hover {
-  color: verde;
+  color: naranja;
 }
 
-.logoAgrooe {
-  width: 10rem;
-  height: auto;
+.logoAutoPlak {
+  width: auto;
+  height: 5rem;
+  fill: blanco;
+}
+
+.logoAutoPlak:hover {
+  fill: naranja;
 }
 
 .socialNav {
@@ -51,12 +56,12 @@
 .socialIcon {
   width: 2rem;
   height: 2rem;
-  fill: beige;
+  fill: blanco;
   transition: fill 0.3s;
 }
 
 .socialIcon:hover {
-  fill: verde;
+  fill: azul;
 }
 
 @media screen and (max-width: 550px) {

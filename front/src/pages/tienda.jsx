@@ -111,21 +111,13 @@ export default function tienda() {
                   </svg>
                 </button>
               </form>
-              {/*
-              <input
-              type="button"
-                placeholder="Buscar"
-                onClick={searchedHandler}
-                value={inputSearched}
-              ></input> */}
+
               <button
                 className={styles.buttonRefresh}
                 onClick={refreshProductsHandler}
               >
                 Borrar búsqueda
               </button>
-              <p>filtro por categorias</p>
-              <p>filtro por precio</p>
             </div>
             <div className={styles.productContainer}>
               {products.map((product, index) => {

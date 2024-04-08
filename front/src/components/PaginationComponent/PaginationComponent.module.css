@@ -1,5 +1,5 @@
 @value colors: '../../styles/colors.module.css';
-@value azul from colors;
+@value naranja from colors;
 
 .container {
   display: flex;
@@ -13,17 +13,17 @@
   padding: 0.5rem 1rem;
   border: 1px solid #2d37482b;
   border-radius: 0.25rem;
-  color: azul;
+  color: naranja;
   cursor: pointer;
   transition: all 0.3s;
 }
 
 .paginationLink:hover {
-  border: 1px solid azul;
+  border: 1px solid naranja;
 }
 
 .svg {
   width: 1.5rem;
   height: 1.5rem;
-  fill: azul;
+  fill: naranja;
 }

@@ -12,7 +12,7 @@ export default function TeamGalleryComponent() {
           </div>
           <img
             className={styles.img}
-            src="https://e1.pxfuel.com/desktop-wallpaper/843/829/desktop-wallpaper-avengers-infinity-war-captain-america-chris-evans-movies-avengers-vertical.jpg"
+            src="https://images.pexels.com/photos/919073/pexels-photo-919073.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
             alt="Team member"
           />
         </div>
@@ -23,7 +23,7 @@ export default function TeamGalleryComponent() {
           </div>
           <img
             className={styles.img}
-            src="https://e0.pxfuel.com/wallpapers/779/310/desktop-wallpaper-best-for-android-and-ios-marvel-marvel-spiderman-avengers-vertical-marvel.jpg"
+            src="https://images.pexels.com/photos/638479/pexels-photo-638479.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
             alt="Team member"
           />
         </div>
@@ -34,7 +34,7 @@ export default function TeamGalleryComponent() {
           </div>
           <img
             className={styles.img}
-            src="https://e1.pxfuel.com/desktop-wallpaper/132/285/desktop-wallpaper-avengers-infinity-war-thanos-josh-brolin-movies-avengers-vertical.jpg"
+            src="https://images.pexels.com/photos/39501/lamborghini-brno-racing-car-automobiles-39501.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
             alt="Team member"
           />
         </div>
@@ -45,7 +45,7 @@ export default function TeamGalleryComponent() {
           </div>
           <img
             className={styles.img}
-            src="https://w0.peakpx.com/wallpaper/477/401/HD-wallpaper-thor-in-avengers-endgame.jpg"
+            src="https://images.pexels.com/photos/544542/pexels-photo-544542.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
             alt="Team member"
           />
         </div>
@@ -56,7 +56,7 @@ export default function TeamGalleryComponent() {
           </div>
           <img
             className={styles.img}
-            src="https://e1.pxfuel.com/desktop-wallpaper/214/696/desktop-wallpaper-iron-man-infinity-stones-avengers-endgame-avengers-vertical.jpg"
+            src="https://images.pexels.com/photos/2631489/pexels-photo-2631489.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
             alt="Team member"
           />
         </div>

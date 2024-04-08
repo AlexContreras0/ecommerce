@@ -1,5 +1,5 @@
 @value colors: '../../styles/colors.module.css';
-@value verde, blanco, beige from colors;
+@value azul, blanco, beige from colors;
 
 .socialNav {
   display: flex;
@@ -25,5 +25,5 @@
 }
 
 .subLink:hover {
-  color: verde;
+  color: azul;
 }

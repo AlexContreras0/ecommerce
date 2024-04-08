@@ -1,9 +1,9 @@
 @value colors: '../../styles/colors.module.css';
-@value verde, azul, beige, blanco from colors;
+@value azul, naranja, beige, blanco from colors;
 
 .box {
   composes: box from "../../styles/mixins.module.css";
-  margin-block: 2rem;
+  margin-block: 5rem;
   display: flex;
   justify-content: center;
 }

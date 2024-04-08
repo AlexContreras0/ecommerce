@@ -1,9 +1,9 @@
 @value colors: 'colors.module.css';
-@value verde, azul, beige, blanco from colors;
+@value azul, naranja, beige, blanco, negro from colors;
 
 .container {
   background-color: blanco;
-  color: azul;
+  color: naranja;
 }
 
 /* CABECERA */
@@ -15,14 +15,16 @@
   align-items: center;
   flex-direction: column;
   gap: 2rem;
-  padding: 2rem;
-  height: 50vh;
-  margin-bottom: 2rem;
+  padding-inline: 2rem;
+  padding-block: 4rem;
+  height: auto;
   box-sizing: border-box;
+  color: azul;
 }
 
 .tituloCabecera {
   composes: title from "mixins.module.css";
+  color: naranja;
 }
 
 .parrafoCabecera {
@@ -30,18 +32,18 @@
 }
 
 .linkCabecera {
-  composes: botonVerde from "mixins.module.css";
+  composes: botonazul from "mixins.module.css";
 }
 
 .linkCabecera:hover {
-  background-color: azul;
+  background-color: naranja;
   color: blanco;
 }
 
 /* MISION */
 
 .backMisionContainer {
-  background-color: verde;
+  background-color: azul;
 }
 
 .misionContainer {
@@ -60,7 +62,7 @@
 
 .tituloMision {
   composes: title from "mixins.module.css";
-  color: blanco;
+  color: naranja;
 }
 
 .parrafoMision {
@@ -70,7 +72,7 @@
 }
 
 .linkMision {
-  composes: linkAzul from "mixins.module.css";
+  composes: linknaranja from "mixins.module.css";
 }
 
 .linkMision:hover {
@@ -93,6 +95,7 @@
   padding: 4rem 0;
   background-color: blanco;
   margin-bottom: 2rem;
+  color: negro;
 }
 
 .proveedorTextContainer {
@@ -103,6 +106,7 @@
 
 .tituloProveedor {
   composes: title from "mixins.module.css";
+  color: azul;
 }
 
 .parrafoProveedor {
@@ -110,11 +114,11 @@
 }
 
 .linkProveedor {
-  composes: linkVerde from "mixins.module.css";
+  composes: linkazul from "mixins.module.css";
 }
 
 .linkProveedor:hover {
-  color: azul;
+  color: naranja;
 }
 
 .imgProveedor {
@@ -130,7 +134,7 @@
 /* PILL PROVEEDOR */
 
 .backProveedorPillContainer {
-  background-color: verde;
+  background-color: azul;
   padding-top: 4rem;
 }
 
@@ -138,7 +142,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: azul;
+  background-color: naranja;
   color: blanco;
   border-radius: 10px;
   margin-inline: 20%;
@@ -165,14 +169,14 @@
 }
 
 .proveedorPillLink:hover {
-  background-color: verde;
+  background-color: azul;
   color: blanco;
 }
 
 /* PROEPUESTA VALOR */
 
 .backValueContainer {
-  background-color: verde;
+  background-color: azul;
 }
 
 .valueContainer {
@@ -207,8 +211,10 @@
   align-items: center;
   justify-content: space-around;
   height: 400px;
+  width: 350px;
   text-align: center;
-  padding: 2rem;
+  padding-block: 2rem;
+  padding-inline: 3rem;
   box-shadow: #2d374810 5px 5px 10px 5px;
   border-radius: 10px;
   background-color: blanco;
@@ -222,21 +228,21 @@
 
 .tituloValueCol {
   composes: title from "mixins.module.css";
-  color: verde;
+  color: naranja;
   font-size: 1.5rem;
 }
 
 .parrafoValueCol {
   composes: paragraph from "mixins.module.css";
-  max-width: 80%;
+  color: azul;
 }
 
 .linkValueCol {
-  composes: linkVerde from "mixins.module.css";
+  composes: linkazul from "mixins.module.css";
 }
 
 .linkValueCol:hover {
-  color: azul;
+  color: naranja;
 }
 
 /* CONTACTO */
@@ -248,6 +254,7 @@
   align-items: center;
   gap: 2rem;
   padding: 4rem 0;
+  color: azul;
 }
 
 .contactoTitulo {
@@ -259,7 +266,7 @@
 }
 
 .contactoLink {
-  composes: botonVerde from "mixins.module.css";
+  composes: botonnaranja from "mixins.module.css";
 }
 
 .contactoLink:hover {

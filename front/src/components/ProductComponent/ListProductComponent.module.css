@@ -1,5 +1,5 @@
 @value colors: '../../styles/colors.module.css';
-@value azul, blanco, grisClaro from colors;
+@value naranja, blanco, grisClaro from colors;
 
 .container {
   display: flex;
@@ -34,11 +34,11 @@
 }
 
 .link {
-  composes: botonVerde from "../../styles/mixins.module.css";
+  composes: botonazul from "../../styles/mixins.module.css";
 }
 
 .link:hover {
-  background-color: azul;
+  background-color: naranja;
   color: blanco;
 }
 

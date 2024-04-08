@@ -12,7 +12,7 @@ export default function page() {
       <div className={`${styles.container} ${styles.box}`}>
         <div className={styles.leftContainer}>
           <div>
-            <h1 className={styles.title}>Tenemos ganas de escucharte</h1>
+            <h1 className={styles.title}>Queremos escucharte</h1>
             <p className={styles.text}>
               Si tienes alguna duda, comentario o sugerencia, no dudes en
               contactarnos. Estamos aquí para ayudarte.
@@ -34,7 +34,7 @@ export default function page() {
                   d="m3.5 5.5 7.9 6c.4.3.8.3 1.2 0l7.9-6M4 19h16c.6 0 1-.4 1-1V6c0-.6-.4-1-1-1H4a1 1 0 0 0-1 1v12c0 .6.4 1 1 1Z"
                 />
               </svg>
-              agroee@agrooe.com
+              hola@autoplak.com
             </p>
             <p className={styles.info}>
               <svg

@@ -1,5 +1,5 @@
 @value colors: '../../styles/colors.module.css';
-@value verde, azul, beige, blanco from colors;
+@value azul, naranja, beige, blanco from colors;
 
 .container {
   display: flex;
@@ -23,7 +23,7 @@
   height: 2rem;
   margin-bottom: 1rem;
   padding: 0.5rem;
-  background-color: #3792373c;
+  background-color: #d1e3f3;
   border: none;
   border-radius: 5px;
   width: 100%;
@@ -37,7 +37,7 @@
   height: 10rem;
   margin-bottom: 1rem;
   padding: 0.5rem;
-  background-color: #3792373c;
+  background-color: #d1e3f3;
   border: none;
   border-radius: 5px;
   width: 100%;
@@ -60,20 +60,20 @@
   height: 1rem;
   cursor: pointer;
   border: none;
-  background-color: azul;
+  background-color: naranja;
 }
 
 .checkboxLabel {
   font-size: 1rem;
-  color: azul;
+  color: naranja;
 }
 
 .submitButton {
-  composes: botonVerde from "../../styles/mixins.module.css";
+  composes: botonazul from "../../styles/mixins.module.css";
 }
 
 .submitButton:hover {
-  background-color: azul;
+  background-color: naranja;
   color: blanco;
 }
 

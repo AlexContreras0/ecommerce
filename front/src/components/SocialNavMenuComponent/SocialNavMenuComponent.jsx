@@ -8,7 +8,7 @@ export default function SocialNavMenuComponent() {
       <Link
         target="_blank"
         className={styles.socialLink}
-        href="https://www.instagram.com/agrooe"
+        href="https://www.instagram.com/AutoPlak"
       >
         <svg
           className={styles.socialIcon}
@@ -21,7 +21,7 @@ export default function SocialNavMenuComponent() {
       <Link
         target="_blank"
         className={styles.socialLink}
-        href="https://twitter.com/agrooe"
+        href="https://twitter.com/AutoPlak"
       >
         <svg
           className={styles.socialIcon}
@@ -34,7 +34,7 @@ export default function SocialNavMenuComponent() {
       <Link
         target="_blank"
         className={styles.socialLink}
-        href="https://www.youtube.com/@Agrooe"
+        href="https://www.youtube.com/@AutoPlak"
       >
         <svg
           className={styles.socialIcon}

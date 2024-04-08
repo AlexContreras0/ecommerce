@@ -1,5 +1,5 @@
 @value colors: '../../styles/colors.module.css';
-@value verde, azul, beige, blanco, rojo from colors;
+@value azul, naranja, beige, blanco, rojo from colors;
 
 .backBody {
   background-color: azul;
@@ -47,13 +47,13 @@
 }
 
 .link:hover {
-  color: verde;
-  fill: verde;
+  color: naranja;
+  fill: naranja;
 }
 
-.logoAgrooe {
-  width: 10rem;
-  height: auto;
+.logoAutoPlak {
+  width: auto;
+  height: 5rem;
 }
 
 .cartIcon {
@@ -63,7 +63,7 @@
 }
 
 .cartIcon:hover {
-  fill: verde;
+  fill: naranja;
 }
 
 .toggleButton {
@@ -96,7 +96,7 @@
 }
 
 .subLink:hover {
-  color: verde;
+  color: naranja;
 }
 
 .subLink {

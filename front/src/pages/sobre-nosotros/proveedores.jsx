@@ -41,7 +41,7 @@ export default function page() {
               className={`${styles.image} ${styles.active}`}
               style={{
                 backgroundImage:
-                  "url(https://images.pexels.com/photos/2464069/pexels-photo-2464069.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)",
+                  "url(https://images.pexels.com/photos/8463778/pexels-photo-8463778.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)",
               }}
             >
               <div className={styles.label}>
@@ -65,8 +65,8 @@ export default function page() {
                   href="https://developer.mozilla.org/es/docs/Web/HTML/Element/a"
                   className={styles.info}
                 >
-                  <p className={styles.main}>Nombre Coop.</p>
-                  <p className={styles.sub}>Algo de información</p>
+                  <p className={styles.main}>Ferrari</p>
+                  <p className={styles.sub}>Italia</p>
                 </a>
               </div>
             </div>
@@ -74,7 +74,7 @@ export default function page() {
               className={`${styles.image} ${styles.active}`}
               style={{
                 backgroundImage:
-                  "url(https://images.pexels.com/photos/6493568/pexels-photo-6493568.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)",
+                  "url(https://images.pexels.com/photos/14188010/pexels-photo-14188010.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)",
               }}
             >
               <div className={styles.label}>
@@ -98,8 +98,8 @@ export default function page() {
                   href="https://developer.mozilla.org/es/docs/Web/HTML/Element/a"
                   className={styles.info}
                 >
-                  <p className={styles.main}>Nombre Coop.</p>
-                  <p className={styles.sub}>Algo de información</p>
+                  <p className={styles.main}>Bentley</p>
+                  <p className={styles.sub}>Reino Unido</p>
                 </a>
               </div>
             </div>
@@ -107,7 +107,7 @@ export default function page() {
               className={`${styles.image} ${styles.active}`}
               style={{
                 backgroundImage:
-                  "url(https://images.pexels.com/photos/6417826/pexels-photo-6417826.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)",
+                  "url(https://images.pexels.com/photos/10493497/pexels-photo-10493497.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)",
               }}
             >
               <div className={styles.label}>
@@ -131,8 +131,8 @@ export default function page() {
                   href="https://developer.mozilla.org/es/docs/Web/HTML/Element/a"
                   className={styles.info}
                 >
-                  <p className={styles.main}>Nombre Coop.</p>
-                  <p className={styles.sub}>Algo de información</p>
+                  <p className={styles.main}>Lamborghini</p>
+                  <p className={styles.sub}>Italia</p>
                 </a>
               </div>
             </div>
@@ -140,7 +140,7 @@ export default function page() {
               className={`${styles.image} ${styles.active}`}
               style={{
                 backgroundImage:
-                  "url(https://images.pexels.com/photos/9758237/pexels-photo-9758237.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)",
+                  "url(https://images.pexels.com/photos/19782034/pexels-photo-19782034/free-photo-of-coche-vehiculo-mercedes-marca.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)",
               }}
             >
               <div className={styles.label}>
@@ -164,8 +164,8 @@ export default function page() {
                   href="https://developer.mozilla.org/es/docs/Web/HTML/Element/a"
                   className={styles.info}
                 >
-                  <p className={styles.main}>Nombre Coop.</p>
-                  <p className={styles.sub}>Algo de información</p>
+                  <p className={styles.main}>Mercedes</p>
+                  <p className={styles.sub}>Alemania</p>
                 </a>
               </div>
             </div>
@@ -173,7 +173,7 @@ export default function page() {
               className={`${styles.image} ${styles.active}`}
               style={{
                 backgroundImage:
-                  "url(https://images.pexels.com/photos/12705664/pexels-photo-12705664.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)",
+                  "url(https://images.pexels.com/photos/3892890/pexels-photo-3892890.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)",
               }}
             >
               <div className={styles.label}>
@@ -197,8 +197,8 @@ export default function page() {
                   href="https://developer.mozilla.org/es/docs/Web/HTML/Element/a"
                   className={styles.info}
                 >
-                  <p className={styles.main}>Nombre Coop.</p>
-                  <p className={styles.sub}>Algo de información</p>
+                  <p className={styles.main}>BMW</p>
+                  <p className={styles.sub}>Alemania</p>
                 </a>
               </div>
             </div>

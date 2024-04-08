@@ -1,5 +1,5 @@
 @value colors: 'colors.module.css';
-@value verde, azul, beige, blanco from colors;
+@value azul, naranja, beige, blanco from colors;
 
 /* CAJA */
 
@@ -29,13 +29,13 @@
 
 /* BOTONES Y ENLACES */
 
-.botonVerde {
+.botonazul {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
   padding: 0.5rem 1rem;
-  background-color: verde;
+  background-color: azul;
   color: blanco;
   font-size: 1rem;
   font-weight: 600;
@@ -45,8 +45,8 @@
   transition: 0.3s all ease-in-out;
 }
 
-.botonVerdeHover {
-  background-color: azul;
+.botonazulHover {
+  background-color: naranja;
   color: blanco;
 }
 
@@ -57,7 +57,7 @@
   gap: 0.5rem;
   padding: 0.5rem 1rem;
   background-color: blanco;
-  color: verde;
+  color: azul;
   font-size: 1rem;
   font-weight: 600;
   border: none;
@@ -67,17 +67,17 @@
 }
 
 .botonBlancoHover {
-  background-color: azul;
+  background-color: naranja;
   color: blanco;
 }
 
-.botonAzul {
+.botonnaranja {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
   padding: 0.5rem 1rem;
-  background-color: azul;
+  background-color: naranja;
   color: blanco;
   font-size: 1rem;
   font-weight: 600;
@@ -87,15 +87,15 @@
   transition: 0.3s all ease-in-out;
 }
 
-.botonAzulHover {
-  background-color: verde;
+.botonnaranjaHover {
+  background-color: azul;
   color: blanco;
 }
 
-.linkVerde {
+.linkazul {
   display: flex;
   align-items: center;
-  color: verde;
+  color: azul;
   text-decoration: underline;
   font-size: 1rem;
   font-weight: 600;
@@ -106,13 +106,13 @@
 }
 
 .linkMisionHover {
-  color: azul;
+  color: naranja;
 }
 
-.linkAzul {
+.linknaranja {
   display: flex;
   align-items: center;
-  color: azul;
+  color: naranja;
   text-decoration: underline;
   font-size: 1rem;
   font-weight: 600;

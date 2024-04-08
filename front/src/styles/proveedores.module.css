@@ -1,8 +1,8 @@
 @value colors: 'colors.module.css';
-@value verde, azul, beige, blanco from colors;
+@value verde, naranja, beige, blanco from colors;
 
 .root {
-  background-color: azul;
+  background-color: blanco;
 }
 
 .box {
@@ -15,19 +15,19 @@
   align-items: center;
   color: blanco;
   padding: 2rem;
+  margin-bottom: 2rem;
   margin-left: auto;
   margin-right: auto;
 }
 
 .body {
   margin: 2rem 0;
-  padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
   transition: all 0.5s;
-  background: azul;
+  background: blanco;
 }
 
 .images {
@@ -62,7 +62,7 @@
 }
 
 .image.active .label {
-  background: azul;
+  background: naranja;
   padding: 10px;
   border-radius: 50px;
   bottom: 15px;
@@ -98,7 +98,7 @@
   background: blanco;
   height: 40px;
   border-radius: 50%;
-  color: azul;
+  color: naranja;
 }
 
 .info {

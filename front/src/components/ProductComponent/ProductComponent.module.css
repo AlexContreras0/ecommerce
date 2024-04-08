@@ -1,5 +1,5 @@
 @value colors: '../../styles/colors.module.css';
-@value verde, azul, negro, beige, blanco, verdeClaro from colors;
+@value azul, naranja, negro, beige, blanco, azulClaro from colors;
 
 .body {
   padding: 2rem 3rem;
@@ -25,7 +25,7 @@
 
 .image {
   padding: 2rem;
-  border: 1px solid verdeClaro;
+  border: 1px solid azulClaro;
   border-radius: 10px;
   width: auto;
   height: 400px;
@@ -47,7 +47,7 @@
 }
 
 .imageDetailsContainer::-webkit-scrollbar-thumb {
-  background-color: verdeClaro;
+  background-color: azulClaro;
   border-radius: 10px;
   border: 3px solid blanco;
 }
@@ -62,13 +62,13 @@
   height: 90px;
   transition: 0.5s;
   cursor: pointer;
-  border: 1px solid verdeClaro;
+  border: 1px solid azulClaro;
   border-radius: 10px;
   padding: 0.5rem;
 }
 
 .imageDetails:hover {
-  border: 1px solid verde;
+  border: 1px solid azul;
 }
 
 .infoContainer {
@@ -101,7 +101,7 @@
 }
 
 .cartButton {
-  composes: botonVerde from "../../styles/mixins.module.css";
+  composes: botonazul from "../../styles/mixins.module.css";
   width: 30%;
 }
 
@@ -111,16 +111,16 @@
 }
 
 .cartButton:hover {
-  background-color: azul;
+  background-color: naranja;
   color: blanco;
 }
 
 .wishButton {
   composes: botonBlanco from "../../styles/mixins.module.css";
   width: 30%;
-  stroke: azul;
-  border: 1.5px solid azul;
-  color: azul;
+  stroke: naranja;
+  border: 1.5px solid naranja;
+  color: naranja;
 }
 
 .wishIcon {
@@ -128,7 +128,7 @@
 }
 
 .wishButton:hover {
-  background-color: azul;
+  background-color: naranja;
   color: blanco;
   stroke: blanco;
 }
@@ -141,7 +141,7 @@
 
 .tagIcon {
   width: 20px;
-  stroke: azul;
+  stroke: naranja;
 }
 
 .descriptionTitle {
