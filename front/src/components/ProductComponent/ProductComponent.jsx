@@ -4,7 +4,7 @@ import ItemCount from "../ItemCount/ItemCount";
 import StarRatingComponent from "../StarRatingComponent/StarRatingComponent";
 import LoginForm from "../LoginForm/LoginForm";
 import LoginFormAddComponent from "../LoginFormAddComponent/LoginFormAddComponent";
-import { addProductToCart } from "../../../api/cartFetch";
+import { addNewProductToCart, addProductToCart } from "../../../api/cartFetch";
 
 export default function ProductComponent(props) {
 
@@ -22,11 +22,10 @@ export default function ProductComponent(props) {
 
   useEffect(() => {
     const changeIds = () =>{
-      setProductForCart((prevValue) => ({...prevValue, idProduct: product._id,}));
+      setProductForCart((prevValue) => ({...prevValue, idProduct: product._id}));
       setProductForCart((prevValue) => ({...prevValue, idUser: userLocalStorage.data.user._id,}));
-      setProductForCart((prevValue) => ({...prevValue, quantity: count,}));
-      setProductForCart((prevValue) => ({...prevValue, quantity: count,}));
-  console.log(productForCart, "este es el productforcart")}
+      setProductForCart((prevValue) => ({...prevValue, quantity: count}))
+      setProductForCart((prevValue) => ({...prevValue, idProduct: product._id}))};
   changeIds()
 }, [])
 
@@ -38,7 +37,13 @@ export default function ProductComponent(props) {
   const addToCart = async() => {
     if (isUserLoged) {
       console.log(productForCart, "este es el producto seleccionado antes de añadir al carrito")
-      
+      const changeIds = () =>{
+      setProductForCart((prevValue) => ({...prevValue, idProduct: product._id}));
+      setProductForCart((prevValue) => ({...prevValue, idUser: userLocalStorage.data.user._id,}));
+      setProductForCart((prevValue) => ({...prevValue, quantity: count}))
+      setProductForCart((prevValue) => ({...prevValue, idProduct: product._id}))};
+      changeIds()
+      const cart = await addNewProductToCart(userLocalStorage.data.user._id, JSON.stringify(productForCart))
       // const addToCartProduct = await addProductToCart(JSON.stringify(productForCart))
       
 
