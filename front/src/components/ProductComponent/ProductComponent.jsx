@@ -35,6 +35,9 @@ export default function ProductComponent(props) {
   };
 
   const addToCart = async() => {
+    if (count == 0) {
+      alert("Debe de seleccionar una cantidad")
+    } else {
     if (isUserLoged) {
       console.log(productForCart, "este es el producto seleccionado antes de añadir al carrito")
       const changeIds = () =>{
@@ -48,6 +51,9 @@ export default function ProductComponent(props) {
       
 
       
+    } else {
+
+    }
     }
   };
 

@@ -23,12 +23,21 @@ export const addNewProductToCart = async (id, bodyParam) => {
             headers: { "Content-Type": "application/json" },
             body: bodyParam,
         });
-
-        //falta el else haciendo la lógica de cuando existe al carrito con un update del carrito
         const productCreated = await responseAdd.json();
-
         console.log(productCreated);
-        return productCreated.error;
+        return productCreated;
+        
+    } else if (cartExisted.status == "succeeded"){
+         const responseUpdating = await fetch("http://localhost:9000/carts/" + id, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: bodyParam,
+         })
+
+         const cartUpdated = await responseUpdating.json()
+         if (cartUpdated.error) {
+            console.log(cartUpdated.error)
+         }
+        return cartUpdated;
     }
-    return;
 };
