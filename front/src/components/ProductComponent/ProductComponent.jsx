@@ -11,23 +11,8 @@ export default function ProductComponent(props) {
   const { product, isUserLoged, setIsUserLoged, token, setToken } = props;
   const [count, setCount] = useState(0);
   const [image, setImage] = useState();
-  const [productForCart, setProductForCart] = useState({
-    idUser: "",
-    idProduct: "",
-    quantity: 0,
-  });
   const userLocalStorage = JSON.parse(localStorage.getItem('user'))
   console.log(userLocalStorage.data.user._id, product._id)
-
-
-//   useEffect(() => {
-//     const changeIds = () =>{
-//       setProductForCart((prevValue) => ({...prevValue, idProduct: product._id}));
-//       setProductForCart((prevValue) => ({...prevValue, idUser: userLocalStorage.data.user._id,}));
-//       setProductForCart((prevValue) => ({...prevValue, quantity: count}))
-//       setProductForCart((prevValue) => ({...prevValue, idProduct: product._id}))};
-//   changeIds()
-// }, [])
 
 
   const selectImage = (img) => {
@@ -39,15 +24,11 @@ export default function ProductComponent(props) {
       alert("Debe de seleccionar una cantidad")
     } else {
     if (isUserLoged) {
-      console.log(productForCart, "este es el producto seleccionado antes de añadir al carrito")
-      // const changeIds = () =>{
-      setProductForCart((prevValue) => ({...prevValue, idProduct: product._id}));
-      setProductForCart((prevValue) => ({...prevValue, idUser: userLocalStorage.data.user._id,}));
-      setProductForCart((prevValue) => ({...prevValue, quantity: count}))
-      // setProductForCart((prevValue) => ({...prevValue, idProduct: product._id}))};
-      // changeIds()
-      console.log("ESTE SON LOS DATOS QUE SE ENVIAN AL BACK",userLocalStorage.data.user._id, JSON.stringify(productForCart) )
-      const cart = await addNewProductToCart(userLocalStorage.data.user._id, JSON.stringify(productForCart))
+    
+
+      console.log("ESTE SON LOS DATOS QUE SE ENVIAN AL BACK",userLocalStorage.data.user._id, JSON.stringify({idUser:userLocalStorage.data.user._id, idProduct:product._id, quantity:count}))
+      const cart = await addNewProductToCart(userLocalStorage.data.user._id, JSON.stringify({idUser:userLocalStorage.data.user._id, idProduct:product._id, quantity:count}))
+
       if (cart.status == "succeded"){
         alert("El producto ha sido añadido al carrito")
       }
