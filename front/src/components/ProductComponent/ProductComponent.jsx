@@ -20,14 +20,14 @@ export default function ProductComponent(props) {
   console.log(userLocalStorage.data.user._id, product._id)
 
 
-  useEffect(() => {
-    const changeIds = () =>{
-      setProductForCart((prevValue) => ({...prevValue, idProduct: product._id}));
-      setProductForCart((prevValue) => ({...prevValue, idUser: userLocalStorage.data.user._id,}));
-      setProductForCart((prevValue) => ({...prevValue, quantity: count}))
-      setProductForCart((prevValue) => ({...prevValue, idProduct: product._id}))};
-  changeIds()
-}, [])
+//   useEffect(() => {
+//     const changeIds = () =>{
+//       setProductForCart((prevValue) => ({...prevValue, idProduct: product._id}));
+//       setProductForCart((prevValue) => ({...prevValue, idUser: userLocalStorage.data.user._id,}));
+//       setProductForCart((prevValue) => ({...prevValue, quantity: count}))
+//       setProductForCart((prevValue) => ({...prevValue, idProduct: product._id}))};
+//   changeIds()
+// }, [])
 
 
   const selectImage = (img) => {
@@ -40,13 +40,19 @@ export default function ProductComponent(props) {
     } else {
     if (isUserLoged) {
       console.log(productForCart, "este es el producto seleccionado antes de añadir al carrito")
-      const changeIds = () =>{
+      // const changeIds = () =>{
       setProductForCart((prevValue) => ({...prevValue, idProduct: product._id}));
       setProductForCart((prevValue) => ({...prevValue, idUser: userLocalStorage.data.user._id,}));
       setProductForCart((prevValue) => ({...prevValue, quantity: count}))
-      setProductForCart((prevValue) => ({...prevValue, idProduct: product._id}))};
-      changeIds()
+      // setProductForCart((prevValue) => ({...prevValue, idProduct: product._id}))};
+      // changeIds()
+      console.log("ESTE SON LOS DATOS QUE SE ENVIAN AL BACK",userLocalStorage.data.user._id, JSON.stringify(productForCart) )
       const cart = await addNewProductToCart(userLocalStorage.data.user._id, JSON.stringify(productForCart))
+      if (cart.status == "succeded"){
+        alert("El producto ha sido añadido al carrito")
+      }
+      
+      console.log("este es el carrito si todo ha ido bien", cart)
       // const addToCartProduct = await addProductToCart(JSON.stringify(productForCart))
       
 

@@ -60,7 +60,18 @@ const addProductToCart = async (req, res) => {
     if (!cart) return res.status(404).send("Carrito no existe");
 
     if (idProduct && quantity) {
-      cart.cartProducts.push({ productId: idProduct, cartProductQuantity: quantity });
+      let productExist = false
+      cart.cartProducts.forEach(product => {
+        console.log("este es el console del foreach", product)
+        if(idProduct == product.productId) {
+          productExist = true
+          product.cartProductQuantity = product.cartProductQuantity + quantity
+          console.log("este es el console si existe el producto", product.cartProductQuantity)
+        }
+      });
+      if (productExist == false){
+         cart.cartProducts.push({ productId: idProduct, cartProductQuantity: quantity });
+      }
     }
     console.log(
       cart,
@@ -78,7 +89,7 @@ const addProductToCart = async (req, res) => {
     await cart.save();
     res.status(200).json({
       status: "succeded",
-      data: null,
+      data: cart,
       error: null,
     });
   } catch (error) {
