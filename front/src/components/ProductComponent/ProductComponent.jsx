@@ -23,23 +23,13 @@ export default function ProductComponent(props) {
     if (count == 0) {
       alert("Debe de seleccionar una cantidad")
     } else {
-    if (isUserLoged) {
-    
-
-      console.log("ESTE SON LOS DATOS QUE SE ENVIAN AL BACK",userLocalStorage.data.user._id, JSON.stringify({idUser:userLocalStorage.data.user._id, idProduct:product._id, quantity:count}))
+    if (isUserLoged) {      
       const cart = await addNewProductToCart(userLocalStorage.data.user._id, JSON.stringify({idUser:userLocalStorage.data.user._id, idProduct:product._id, quantity:count}))
-
       if (cart.status == "succeded"){
         alert("El producto ha sido añadido al carrito")
-      }
-      
-      console.log("este es el carrito si todo ha ido bien", cart)
-      // const addToCartProduct = await addProductToCart(JSON.stringify(productForCart))
-      
-
-      
+      }      
     } else {
-
+      alert("No se ha podido añadir el producto al carrito al carrito")
     }
     }
   };

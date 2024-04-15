@@ -3,9 +3,9 @@ const productModel = require("../models/productModel");
 
 const getCartById = async (req, res) => {
   try {
-    console.log(req.params.id, "este es el userId del back");
+    console.log(req.params.id, "este es el userId del back en el getCartbyId");
     let cart = await cartModel.findOne({ userId: req.params.id });
-    console.log(cart, "este es el cart despues de buscar por userId");
+    console.log(cart, "este es el cart despues de buscar por userId getCartbyId");
     if (cart) {
       res.status(200).json({
         status: "succeeded",
@@ -55,66 +55,73 @@ const addProductToCart = async (req, res) => {
     const userIdCart = req.params.id;
     const { idUser, idProduct, quantity } = req.body;
     let cart = await cartModel.findOne({ userId: req.params.id });
-
     if (!cart) return res.status(404).send("Carrito no existe");
-    let productExist = false    
-    let totalPrice = 0
+    let productExist = false;
+    let totalPrice = 0;
 
-    console.log(productExist, "productexist")
 
-    const calculateTotal = async() =>{
-    if (idProduct && quantity) {
-      cart.cartProducts.forEach(async(product) => {
-        const productUpdatePrice = await productModel.findById(product.productId);
-        if (productUpdatePrice) {
-          totalPrice = totalPrice + (product.cartProductQuantity * productUpdatePrice.productPrice)
+    const waitingForeach = async () => {
+      
+      const productCartExistcart = cart.cartProducts.find((product) => product.productId == idProduct)
+        if (productCartExistcart !== undefined) {
+          productExist = true;
         }
 
-        if(idProduct == product.productId) {
-          console.log("está entrando por aquí??")
-          productExist = true
-          // product.cartProductQuantity = quantity + product.cartProductQuantity
-          // totalPrice = totalPrice + (quantity * productUpdatePrice.productPrice)
-        }
-        cart.cartTotalPrice = totalPrice
-      });      
-    }
+    };
 
-  }; 
-  await calculateTotal()
 
-  console.log(productExist, "productexist")
-
-  const waitingForeach = async() =>{
-    cart.cartProducts.forEach(async(product) => {
-      if (product.productId == idProduct) {        
-        productExist = true
+    const calculateTotal = async () => {      
+      if (productExist) {
+        cart.cartProducts.forEach(async (product) => {
+          const productUpdatePrice = await productModel.findById(product.productId);
+       
+            if (product.productId == idProduct) {
+              totalPrice =
+                totalPrice +
+                (product.cartProductQuantity + quantity) *
+                  productUpdatePrice.productPrice;
+              product.cartProductQuantity =
+                product.cartProductQuantity + quantity;
+            } else {
+              totalPrice =
+                totalPrice +
+                product.cartProductQuantity * productUpdatePrice.productPrice;
+            }
+          });          
+      } else {
+        cart.cartProducts.push({
+          productId: idProduct,
+          cartProductQuantity: quantity,
+        });
+        cart.cartProducts.forEach(async (product) => {
+          const productUpdatePrice = await productModel.findById(product.productId);
+              totalPrice =
+                totalPrice +
+                (product.cartProductQuantity) *
+                  productUpdatePrice.productPrice;         
+          });
       }
-    }); }
-    await waitingForeach()
+    };
 
-    console.log(productExist, "productexist")
+    const waitingForSave = async () => {
+      cart.cartTotalPrice = totalPrice;
+      await cart.save()
+      res.status(200).json({
+        status: "succeded",
+        data: cart,
+        error: null,
+      });
+    };
 
-    if (productExist == false){
-      console.log("ha entrado por aquí porque el producto no existe supuestamente")
-      console.log(productExist, "productexist dentro del if")
-       cart.cartProducts.push({ productId: idProduct, cartProductQuantity: quantity });
-       const productUpdatePrice = await productModel.findById(idProduct);
-       totalPrice = totalPrice + (quantity * productUpdatePrice.productPrice)
-       cart.cartTotalPrice = totalPrice
+    async function executionProcess(waitingForeach, calculateTotal, waitingForSave){
+      await waitingForeach();
+      await calculateTotal()
+      setTimeout(() => {
+        waitingForSave();
+      }, 1000);
     }
-    
-    console.log(
-      cart,
-      "Este es el carrito del cartController con el producto nuevo añadido"
-    );
-  
-    await cart.save();
-    res.status(200).json({
-      status: "succeded",
-      data: cart,
-      error: null,
-    });
+    executionProcess(waitingForeach, calculateTotal, waitingForSave)
+
   } catch (error) {
     res
       .status(500)
