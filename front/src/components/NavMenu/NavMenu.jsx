@@ -176,14 +176,6 @@ export default function NavMenu() {
                 <li>
                   <Link
                     className={styles.subLink}
-                    href="/sobre-nosotros/voluntarios"
-                  >
-                    Voluntarios
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className={styles.subLink}
                     href="/sobre-nosotros/contacto"
                   >
                     Contacto

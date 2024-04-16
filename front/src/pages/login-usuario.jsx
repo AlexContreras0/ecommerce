@@ -36,6 +36,7 @@ export default function loginUser() {
           // setError={setError}
         />
       )}
+
       <FooterComponent />
     </div>
   );
