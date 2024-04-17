@@ -5,7 +5,10 @@ const getCartById = async (req, res) => {
   try {
     console.log(req.params.id, "este es el userId del back en el getCartbyId");
     let cart = await cartModel.findOne({ userId: req.params.id });
-    console.log(cart, "este es el cart despues de buscar por userId getCartbyId");
+    console.log(
+      cart,
+      "este es el cart despues de buscar por userId getCartbyId"
+    );
     if (cart) {
       res.status(200).json({
         status: "succeeded",
@@ -59,53 +62,43 @@ const addProductToCart = async (req, res) => {
     let productExist = false;
     let totalPrice = 0;
 
-
-    const waitingForeach = async () => {
-      
-      const productCartExistcart = cart.cartProducts.find((product) => product.productId == idProduct)
-        if (productCartExistcart !== undefined) {
-          productExist = true;
-        }
-
-    };
-
-
-    const calculateTotal = async () => {      
-      if (productExist) {
-        cart.cartProducts.forEach(async (product) => {
-          const productUpdatePrice = await productModel.findById(product.productId);
-       
-            if (product.productId == idProduct) {
-              totalPrice =
-                totalPrice +
-                (product.cartProductQuantity + quantity) *
-                  productUpdatePrice.productPrice;
-              product.cartProductQuantity =
-                product.cartProductQuantity + quantity;
-            } else {
-              totalPrice =
-                totalPrice +
-                product.cartProductQuantity * productUpdatePrice.productPrice;
-            }
-          });          
-      } else {
-        cart.cartProducts.push({
-          productId: idProduct,
-          cartProductQuantity: quantity,
-        });
-        cart.cartProducts.forEach(async (product) => {
-          const productUpdatePrice = await productModel.findById(product.productId);
-              totalPrice =
-                totalPrice +
-                (product.cartProductQuantity) *
-                  productUpdatePrice.productPrice;         
-          });
+    const findProductCart = async () => {
+      const productCartExistcart = cart.cartProducts.find(
+        (product) => product.productId == idProduct
+      );
+      if (productCartExistcart !== undefined) {
+        productExist = true;
       }
     };
 
-    const waitingForSave = async () => {
+    const addProductAndTotal = async () => {
+      if (productExist) {
+         const updatePromises = cart.cartProducts.map(async (product) => {
+           const productUpdatePrice = await productModel.findById(product.productId);
+           if (product.productId == idProduct) {
+             totalPrice += (product.cartProductQuantity + quantity) * productUpdatePrice.productPrice;
+             product.cartProductQuantity += quantity;
+           } else {
+             totalPrice += product.cartProductQuantity * productUpdatePrice.productPrice;
+           }
+         });
+         await Promise.all(updatePromises);
+      } else {
+         cart.cartProducts.push({
+           productId: idProduct,
+           cartProductQuantity: quantity,
+         });
+         const updatePromises = cart.cartProducts.map(async (product) => {
+           const productUpdatePrice = await productModel.findById(product.productId);
+           totalPrice += product.cartProductQuantity * productUpdatePrice.productPrice;
+         });
+         await Promise.all(updatePromises);
+      }
+     };
+
+    const SaveCart = async (result) => {
       cart.cartTotalPrice = totalPrice;
-      await cart.save()
+      await cart.save();
       res.status(200).json({
         status: "succeded",
         data: cart,
@@ -113,14 +106,17 @@ const addProductToCart = async (req, res) => {
       });
     };
 
-    async function executionProcess(waitingForeach, calculateTotal, waitingForSave){
-      await waitingForeach();
-      await calculateTotal()
-      setTimeout(() => {
-        waitingForSave();
-      }, 1000);
-    }
-    executionProcess(waitingForeach, calculateTotal, waitingForSave)
+    async function executionProcess() {
+      try {
+         await findProductCart(); // Asegúrate de que findProductCart actualiza correctamente productExist y totalPrice
+         await addProductAndTotal(); // Asegúrate de que addProductAndTotal actualiza correctamente totalPrice
+         await SaveCart(); // Asegúrate de que SaveCart guarda el carrito con el precio total correcto
+      } catch (error) {
+         console.log(error);
+      }
+     }
+
+    executionProcess();
 
   } catch (error) {
     res

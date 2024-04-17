@@ -9,6 +9,7 @@ export default function carrito() {
 
   const isUserLogedLocalStorage = JSON.parse(localStorage.getItem('isUserLogedLStorage'))
   const [isUserLoged, setIsUserLoged] = useState(true)
+  
 
   return (
     <div>
