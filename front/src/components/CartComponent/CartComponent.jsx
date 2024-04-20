@@ -49,7 +49,7 @@ export default function CartComponent() {
 
   return (
     <div>
-      <h2>Estos son los datos del carrito</h2>
+      <h2>Estos son los productos de tu carrito</h2>
       {cart.cartProducts && cartComplet && (
         <div>
           <span>Fecha creación del carrito: </span>
@@ -61,14 +61,25 @@ export default function CartComponent() {
                 <span>Id producto: </span>
                 {product.productId}
                 <br />
+                <span>Nombre:</span>
+                {product.productName}
+                <br />
+                <span>Descripción:</span>
+                {product.productDescription}
+                <br />
+                <span>Valoración:</span>
+                {product.productRating}
+                <br />
+                <span>Imagen:</span>
+                {product.productImage}
+                <br />
                 <span>Cantidad: </span>
                 {product.cartProductQuantity}
                 <br />
                 <span>Precio:</span>
                 {product.productPrice}
                 <br />
-                <span>Nombre:</span>
-                {product.productName}
+                <br />
               </div>
             );
           })}
