@@ -11,7 +11,10 @@ export default function ProductComponent(props) {
   const { product, isUserLoged, setIsUserLoged, token, setToken } = props;
   const [count, setCount] = useState(0);
   const [image, setImage] = useState();
-  const userLocalStorage = JSON.parse(localStorage.getItem('user'))
+  let userLocalStorage = JSON.parse(localStorage.getItem('user'))
+  let idUserLocalStorage = JSON.parse(localStorage.getItem('idUser'))
+  let tokenLocalStorage = JSON.parse(localStorage.getItem('token'))
+  let tokenRefreshLocalStorage = JSON.parse(localStorage.getItem('tokenRefresh'))
   console.log(userLocalStorage.data.user._id, product._id)
 
 

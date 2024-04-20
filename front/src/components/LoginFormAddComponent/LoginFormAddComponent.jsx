@@ -38,9 +38,13 @@ export default function LoginFormAddComponent(props) {
       try {
         const getUserLoged = async () => {
           const userData = await login(JSON.stringify(user));
+          console.log("Estos son los datos del userLoged", userData)
           if (userData.status == "Success") {
             localStorage.setItem('user', JSON.stringify(userData)) 
             localStorage.setItem('isUserLogedLStorage', JSON.stringify(true))
+            localStorage.setItem("idUser", JSON.stringify(userData.data.user._id));
+            localStorage.setItem("token", JSON.stringify(userData.data.token))
+            localStorage.setItem("tokenRefresh", JSON.stringify(userData.data.tokenRefresh))
             const isUserLogedLocalStorage = JSON.parse(localStorage.getItem('isUserLogedLStorage'))
             setIsUserLoged(true)
             router.back();

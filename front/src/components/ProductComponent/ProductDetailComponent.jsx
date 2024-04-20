@@ -12,6 +12,10 @@ export default function ProductDetailComponent(props) {
   // const [token, setToken] = useState(false);
   const [isUserLoged, setIsUserLoged] = useState(false);
 
+  let idUserLocalStorage = JSON.parse(localStorage.getItem('idUser'))
+  let tokenLocalStorage = JSON.parse(localStorage.getItem('token'))
+  let tokenRefreshLocalStorage = JSON.parse(localStorage.getItem('tokenRefresh'))
+
   const userLocalStorage = JSON.parse(localStorage.getItem('user'))
   const isUserLogedLocalStorage = JSON.parse(localStorage.getItem('isUserLogedLStorage'))
 

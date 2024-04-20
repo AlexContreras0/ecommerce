@@ -13,6 +13,12 @@ export const createUser = async (bodyParam) => {
     return
 }
 
+export const getUserById = async (id) => {
+    const response = await fetch("http://localhost:9000/users/" + id);
+    const user = await response.json();
+    return user;
+};
+
 export const login = async (bodyParam) => {
        
     const response = await fetch("http://localhost:9000/users/login/",

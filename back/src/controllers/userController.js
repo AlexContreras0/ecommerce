@@ -9,7 +9,7 @@ const { json } = require("express");
 const getUsers = async (req, res) => {
     try {
         const data = await userModel.find()
-        res.status(200).json({ status: "succeeded", data, error: null})
+        res.status(200).json({ status: "succeeded", error: null})
     } catch (error) {
         res
         .status(500)
@@ -22,7 +22,13 @@ const getUserById = async (req, res) => {
     try {
         const userId = req.params.id
         const user = await userModel.findById(userId)
-        res.status(200).json({ status: "succeeded", user, error: null})
+        const userData = {
+          _id: user._id,
+          userName: user.userName,
+          userPhone: user.userPhone,
+          userAddress: user.userAddress
+        }
+        res.status(200).json({ status: "succeeded", userData, error: null})
     } catch (error) {
         res
         .status(500)
@@ -68,9 +74,16 @@ const modifyById = async (req, res) => {
      
         await userAux.save()
 
+        const userAuxData= {
+          _id: userAux._id,
+          userName: userAux.userName,
+          userPhone: userAux.userPhone,
+          userAddress: userAux.userAddress
+        }
+
         res.status(200).json({
             status: 'succeeded',
-            data: userAux,
+            data: userAuxData,
             error: null
         })
     } catch (error) {

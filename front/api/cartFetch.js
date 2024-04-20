@@ -12,6 +12,14 @@ export const addProductToCart = async (bodyParam) => {
   return;
 };
 
+export const getCartById = async (id) => {
+  const response = await fetch("http://localhost:9000/carts/" + id);
+  const cart = await response.json();
+  if (cart.status == "failed") {
+    return;
+  }
+  return cart
+};
 
 // Hay que arreglar el token y refresh token para que se pasen por parámetros de la forma correcta
 // También hay que quitar del userlocalstorage los datos sensibles del cliente y dejar solo el id, token y refresh

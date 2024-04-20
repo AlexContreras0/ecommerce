@@ -29,6 +29,9 @@ export default function LoginForm() {
           setUserData(userLoged);
           localStorage.setItem("user", JSON.stringify(userLoged));
           localStorage.setItem("isUserLogedLStorage", JSON.stringify(true));
+          localStorage.setItem("idUser", JSON.stringify(userLoged.data.user._id));
+          localStorage.setItem("token", JSON.stringify(userLoged.data.token))
+          localStorage.setItem("tokenRefresh", JSON.stringify(userLoged.data.tokenRefresh))
           alert("Usuario logado correctamente");
           const isUserLogedLocalStorage = JSON.parse(
             localStorage.getItem("isUserLogedLStorage")

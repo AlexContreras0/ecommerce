@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "./ClienteComponent.module.css";
-import { updateUser } from "../../../api/userFetch";
+import { getUserById, updateUser } from "../../../api/userFetch";
 import { useRouter } from "next/router";
 
 export default function ClienteComponent() {
@@ -16,8 +16,15 @@ export default function ClienteComponent() {
   useEffect(() => {
     localStorage.setItem("user", JSON.stringify(userData));
     userLocalStorage = JSON.parse(localStorage.getItem('user'))
+    const loadUserData = async () => {
+      const userAux = await getUserById(userLocalStorage.data.user._id);
+      setNombre(userAux.userData.userName);
+      setTelefono(userAux.userData.userPhone);
+      setDireccion(userAux.userData.userAddress);
+    };
+    loadUserData();
     setUserData(userLocalStorage)
-    setId(userData.data.user._id)
+    setId(userLocalStorage.data.user._id)
   }, []);
 
 
@@ -76,14 +83,14 @@ const handlerEditUser = () => {
                 <>
                   <p className={styles.name}>
                     <span>Nombre: </span>
-                    {userData.data.user.userName}
+                    {nombre}
                   </p>
                   <p className={styles.phone}>
                     <span>Teléfono:</span>
-                    {userData.data.user.userPhone}
+                    {telefono}
                   </p>
                   <p className={styles.address}>
-                    <span>Dirección:</span> {userData.data.user.userAddress}
+                    <span>Dirección:</span> {direccion}
                   </p>
                 </>
               )}
@@ -95,16 +102,15 @@ const handlerEditUser = () => {
                   <p className={styles.name}>
                     <span>Nombre: </span>
                   </p>
-                    <input type="text" placeholder={userData.data.user.userName} value={nombre} onChange={handlerOnChangeNombre}/>
+                    <input type="text" placeholder={nombre} value={nombre} onChange={handlerOnChangeNombre}/>
                   <p className={styles.phone}>
-                    <span>Teléfono:</span>
-                    
+                    <span>Teléfono:</span>                    
                   </p>
-                  <input type="number" placeholder={userData.data.user.userPhone} value={telefono} onChange={handlerOnChangeTelefono}/>
+                  <input type="number" placeholder={telefono} value={telefono} onChange={handlerOnChangeTelefono}/>
                   <p className={styles.address}>
-                    <span>Dirección:</span> {userData.data.user.userAddress}
+                    <span>Dirección:</span> 
                   </p>
-                  <input type="text" placeholder={userData.data.user.userAddress} value={direccion} onChange={handlerOnChangeDireccion}/>
+                  <input type="text" placeholder={direccion} value={direccion} onChange={handlerOnChangeDireccion}/>
                   <button onClick={saveUser}>Guardar los cambios</button>
                 </>
               )}
