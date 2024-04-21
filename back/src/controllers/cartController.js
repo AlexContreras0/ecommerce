@@ -3,12 +3,9 @@ const productModel = require("../models/productModel");
 
 const getCartById = async (req, res) => {
   try {
-    console.log(req.params.id, "este es el userId del back en el getCartbyId");
+    
     let cart = await cartModel.findOne({ userId: req.params.id });
-    console.log(
-      cart,
-      "este es el cart despues de buscar por userId getCartbyId"
-    );
+
     if (cart) {
       res.status(200).json({
         status: "succeeded",
@@ -125,4 +122,59 @@ const addProductToCart = async (req, res) => {
   }
 };
 
-module.exports = { getCartById, addProductToCart, createCart };
+const deleteCartProduct = async (req, res) => {
+try {
+  const idCart = req.params.id
+  const { idProduct } = req.body
+  const cart = await cartModel.findById(idCart)
+
+  const buildingNewArray = async () => {
+  let totalPrice = 0;
+  const cartProductAux = []
+  const productCartDeleted = cart.cartProducts.map(async (product) => {
+    if (product.productId != idProduct){
+      cartProductAux.push(product)
+      const productUpdatePrice = await productModel.findById(product.productId);
+      totalPrice += product.cartProductQuantity * productUpdatePrice.productPrice;
+    }
+  });
+  await Promise.all(productCartDeleted);
+  cart.cartProducts = cartProductAux
+  cart.cartTotalPrice = totalPrice;
+}
+
+
+const SaveCart = async (result) => {
+  
+    await cart.save()
+
+  res.status(200).json({
+    status:'succeeded',
+    data: null,
+    error: null
+  })
+}
+
+async function executionProcess(){
+  try {
+
+    await buildingNewArray()
+    await SaveCart()
+    
+  } catch (error) {
+    console.log(error)
+  }
+
+}
+
+executionProcess()
+  
+} catch (error) {
+  
+  res.status(500)
+  .json({ status: "failed", data: null, error: error.message})
+}
+
+}
+
+module.exports = { getCartById, addProductToCart, createCart, deleteCartProduct };

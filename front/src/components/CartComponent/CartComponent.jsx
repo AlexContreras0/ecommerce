@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { getCartById } from "../../../api/cartFetch";
+import { deleteCartProduct, getCartById } from "../../../api/cartFetch";
 import { getProduct } from "../../../api/productFetch";
+import { useRouter } from "next/router";
+import DeleteCartComponent from "../DeleteCartComponent/DeleteCartComponent";
+
 
 export default function CartComponent() {
   const userLocalStorage = JSON.parse(localStorage.getItem("user"));
   const [cart, setCart] = useState([]);
   const [productsCart, setProductsCart] = useState({})
   const [cartComplet, setCartComplet] = useState(false)
+  const router = useRouter();
 
   useEffect(() => {
     let cartAux = {};
@@ -27,7 +31,7 @@ export default function CartComponent() {
             product.productImage = productData.data.productImage[0]
             product.productDescription = productData.data.productDescription
             product.productRating = productData.data.productRating
-            console.log(product, productData, "ESTE ES EL PRODUCT CON TODOS LOS DATOS");
+            
             
           }
         );
@@ -39,13 +43,13 @@ export default function CartComponent() {
       const cartSeted = async () => {
       setCart(cartAux.data);
       setCartComplet(true)
-      console.log("ESTE ES EL CART", cart)
       }
-      await cartSeted()
+      setTimeout(() => {cartSeted()}, 300); 
+
+
     };
     loadData();
   }, []);
-
 
   return (
     <div>
@@ -79,6 +83,7 @@ export default function CartComponent() {
                 <span>Precio:</span>
                 {product.productPrice}
                 <br />
+                <DeleteCartComponent idUser = {userLocalStorage.data.user._id} idProduct={product.productId}/>
                 <br />
               </div>
             );

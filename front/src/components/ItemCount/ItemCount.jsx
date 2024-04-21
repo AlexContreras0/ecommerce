@@ -7,7 +7,6 @@ export default function ItemCount(props) {
 
   useEffect( () => {
     setCount(counter)
-    console.log("este es el count y el counter", count, counter)
   }, [counter])
 
   
@@ -17,7 +16,6 @@ export default function ItemCount(props) {
     if (count < product.productStock) {
       counter = count + 1
       setCount(counter);
-      // updateQuantity(count + 1);
     } else {
       alert(
         "Lo sentimos mucho, no hay mas unidades disponibles de este producto."
@@ -29,7 +27,6 @@ export default function ItemCount(props) {
     if (count > 0) {
       counter = count - 1
       setCount(counter);
-      // updateQuantity(count - 1);
     }
   };
 
