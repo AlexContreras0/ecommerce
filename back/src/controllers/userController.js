@@ -115,11 +115,17 @@ const createUser = async (req, res) => {
     // const subject = `Alta registro usuario ${userName} con email ${userEmail}`
     // const html = `Gracias ${userName} por darte de alta en nuestra empresa se ha creado un nuevo usuario con email ${userEmail}`
     // await emailService.sendEmail(to, subject, html)
+
+    const userToFront = {      
+      userName: req.body.name,
+      userPhone: Number(req.body.phone),
+      userAddress: req.body.address,
+    }
     
     res.status(201).json({
       status: "Succeeded",
       message: "Usuario creado exitosamente",
-      data: newUser,
+      data: userToFront,
       error: null
     });
   } catch (error) {
@@ -166,11 +172,18 @@ const login = async (req, res) => {
           role: user.userRole,
         });
 
+        const userToFront = {
+          _id: user.id,      
+          // userName: user.userName,
+          // userPhone: user.userPhone,
+          // userAddress: user.userAddress,
+        }
+
         return res.status(201).json({
           status: "Success",
           message: "Usuario logueado correctamente",
           data: {
-            user: user,
+            user: userToFront,
             token: token,
             tokenRefresh: tokenRefresh,
           },

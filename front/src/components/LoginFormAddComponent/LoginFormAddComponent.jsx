@@ -32,6 +32,7 @@ export default function LoginFormAddComponent(props) {
   } = props;
 
 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (validateForm()) {
@@ -67,11 +68,16 @@ export default function LoginFormAddComponent(props) {
   };
 
   const validateForm = () => {
+    if (user.password == "" || user.email == "") {
+      alert("El usuario y/o contraseña deben estar rellenos")
+    } else {
     if (user.password.length < 8 || user.email.length < 8) {
       setError("Email o contraseña incorrectos");
       return false;
     }
+
     return true;
+  }
   };
 
   return (
