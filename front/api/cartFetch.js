@@ -27,15 +27,22 @@ export const getCartById = async (id) => {
 // Hay que añadir el Verifytoken cuando funcione a todos los router que lo necesiten
 
 export const addNewProductToCart = async (id, bodyParam) => {
-  const response = await fetch("http://localhost:9000/carts/" + id);
+  const response = await fetch("http://localhost:9000/carts/" + id, {
+    method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "auth-token": localStorage.getItem("tokenRefresh"),
+        "auth-token-refresh": localStorage.getItem("tokenRefresh"),
+      }
+  });
   const cartExisted = await response.json();
   if (cartExisted.status == "failed") {
     const responseAdd = await fetch("http://localhost:9000/carts/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        // "auth-token": localStorage.getItem("Token"),
-        // "auth-token-refresh": localStorage.getItem("Refresh_Token"),
+        "auth-token": localStorage.getItem("token"),
+        "auth-token-refresh": localStorage.getItem("tokenRefresh"),
       },
       body: bodyParam,
     });

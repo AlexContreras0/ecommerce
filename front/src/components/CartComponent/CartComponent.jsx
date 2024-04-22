@@ -4,48 +4,44 @@ import { getProduct } from "../../../api/productFetch";
 import { useRouter } from "next/router";
 import DeleteCartComponent from "../DeleteCartComponent/DeleteCartComponent";
 
-
 export default function CartComponent() {
   const userLocalStorage = JSON.parse(localStorage.getItem("user"));
   const [cart, setCart] = useState([]);
-  const [productsCart, setProductsCart] = useState({})
-  const [cartComplet, setCartComplet] = useState(false)
+  const [productsCart, setProductsCart] = useState({});
+  const [cartComplet, setCartComplet] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
     let cartAux = {};
     let productData = {};
-    let cartProductWithPriceAndImage = []
+    let cartProductWithPriceAndImage = [];
     const loadData = async () => {
       const loadCart = async () => {
         cartAux = await getCartById(userLocalStorage.data.user._id);
-        
       };
       await loadCart();
       const loadCartWithPrice = async () => {
         cartProductWithPriceAndImage = cartAux.data.cartProducts.map(
           async (product) => {
             productData = await getProduct(product.productId);
-            product.productName = productData.data.productName
-            product.productPrice = productData.data.productPrice
-            product.productImage = productData.data.productImage[0]
-            product.productDescription = productData.data.productDescription
-            product.productRating = productData.data.productRating
-            
-            
+            product.productName = productData.data.productName;
+            product.productPrice = productData.data.productPrice;
+            product.productImage = productData.data.productImage[0];
+            product.productDescription = productData.data.productDescription;
+            product.productRating = productData.data.productRating;
           }
         );
-        cartAux.cartProducts = productData.data
-        
+        await Promise.all(cartProductWithPriceAndImage)
+        cartAux.cartProducts = productData.data;
       };
       await loadCartWithPrice();
 
       const cartSeted = async () => {
-      setCart(cartAux.data);
-      setCartComplet(true)
-      }
-      setTimeout(() => {cartSeted()}, 300); 
-
+        setCart(cartAux.data);
+        setCartComplet(true);
+      };
+      
+        await cartSeted();
 
     };
     loadData();
@@ -83,7 +79,10 @@ export default function CartComponent() {
                 <span>Precio:</span>
                 {product.productPrice}
                 <br />
-                <DeleteCartComponent idUser = {userLocalStorage.data.user._id} idProduct={product.productId}/>
+                <DeleteCartComponent
+                  idUser={userLocalStorage.data.user._id}
+                  idProduct={product.productId}
+                />
                 <br />
               </div>
             );

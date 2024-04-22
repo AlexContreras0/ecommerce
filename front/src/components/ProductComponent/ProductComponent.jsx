@@ -26,7 +26,10 @@ export default function ProductComponent(props) {
     if (count == 0) {
       alert("Debe de seleccionar una cantidad")
     } else {
-    if (isUserLoged) {      
+    if (isUserLoged) {
+      const token = localStorage.getItem("token")
+      const tokenRefresh = localStorage.getItem("tokenRefresh")
+      console.log("este es el Token y el tokenRefresh", token, tokenRefresh)
       const cart = await addNewProductToCart(userLocalStorage.data.user._id, JSON.stringify({idUser:userLocalStorage.data.user._id, idProduct:product._id, quantity:count}))
       if (cart.status == "succeded"){
         alert("El producto ha sido añadido al carrito")
