@@ -9,7 +9,7 @@ export default function page() {
   return (
     <div>
       <NavMenu />
-      <div className={`${styles.container} ${styles.box}`}>
+      <div className={styles.container}>
         <div className={styles.leftContainer}>
           <div>
             <h1 className={styles.title}>Queremos escucharte</h1>

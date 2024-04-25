@@ -42,19 +42,12 @@
   color: blanco;
 }
 
-@media screen and (max-width: 550px) {
+@media all and (max-width: 768px) {
   .container {
-    padding: 0.5rem;
-    width: 150px;
-    height: 250px;
-    border: 1px solid grisClaro;
-    border-radius: 5px;
-    overflow: hidden;
-    gap: 0.5rem;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centra verticalmente los elementos */
-    align-items: center; /* Centra horizontalmente los elementos */
+    justify-content: center;
+    align-items: center;
   }
 
   .rating {
@@ -64,9 +57,7 @@
   }
 
   .image {
-    width: 60%;
-    height: 50%;
+    width: 70%;
     object-fit: contain;
-    border-radius: 5px;
   }
 }

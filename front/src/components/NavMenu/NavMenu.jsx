@@ -83,40 +83,10 @@ export default function NavMenu() {
                   </Link>
                 </li>
                 <li>
-                  <Link className={styles.link} href="/blog">
-                    Blog
-                    <svg
-                      className={styles.arrow}
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"></path>
-                    </svg>
-                  </Link>
-                  <ul>
-                    <li>
-                      <Link className={styles.subLink} href="/blog/novedades">
-                        Novedades
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        className={styles.subLink}
-                        href="/blog/actualizaciones"
-                      >
-                        Actualizaciones
-                      </Link>
-                    </li>
-                  </ul>
-                </li>
-                <li>
                   <Link className={styles.link} href="/login-usuario">
                     Login
                   </Link>
                 </li>
-
               </ul>
             </nav>
           </div>
@@ -180,32 +150,7 @@ export default function NavMenu() {
                 Tienda
               </Link>
             </li>
-            <li>
-              <Link className={styles.link} href="/blog">
-                Blog
-                <svg
-                  className={styles.arrow}
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"></path>
-                </svg>
-              </Link>
-              <ul>
-                <li>
-                  <Link className={styles.subLink} href="/blog/novedades">
-                    Novedades
-                  </Link>
-                </li>
-                <li>
-                  <Link className={styles.subLink} href="/blog/actualizaciones">
-                    Actualizaciones
-                  </Link>
-                </li>
-              </ul>
-            </li>
+
             <li>
               <Link className={styles.link} href="/login-usuario">
                 Login

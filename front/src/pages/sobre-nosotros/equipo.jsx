@@ -6,9 +6,12 @@ import TeamGalleryComponent from "@/components/TeamGalleryComponent/TeamGalleryC
 
 export default function page() {
   return (
-    <div className={styles.container}>
+    <div className={styles.box}>
       <NavMenu />
-      <TeamGalleryComponent />
+      <div className={styles.container}>
+        <h1 className={styles.title}>Conoce a nuestro equipo</h1>
+        <TeamGalleryComponent />
+      </div>
       <FooterComponent />
     </div>
   );

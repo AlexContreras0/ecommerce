@@ -1,6 +1,18 @@
 @value colors: './colors.module.css';
-@value azul from colors;
+@value azul, blanco from colors;
+
+.box {
+  background-color: azul;
+}
 
 .container {
-  background: azul;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.title {
+  composes: title from "mixins.module.css";
+  color: blanco;
 }

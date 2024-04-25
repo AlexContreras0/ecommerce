@@ -9,27 +9,29 @@ export default function page() {
     <div>
       <NavMenu />
       <section className={`${styles.container} ${styles.box}`}>
-        <section className={styles.cabeceraContainer}>
-          <h1 className={styles.tituloCabecera}>Sobre nosotros</h1>
-          <p className={styles.parrafoCabecera}>
-            Somos líderes en la venta de placas de coches personalizadas y
-            estándar, ofreciendo una amplia gama de opciones para satisfacer las
-            necesidades de nuestros clientes.
-            <br /> <br />
-            Ya sea que busques darle un toque único a tu vehículo con una placa
-            personalizada o necesites reemplazar una placa estándar, estamos
-            aquí para brindarte un servicio rápido y confiable.
-            <br />
-            <br />
-            Con años de experiencia en la industria, podemos asesorarte para
-            encontrar la placa perfecta que se ajuste a tus preferencias y
-            requisitos específicos. Confía en nosotros para obtener tus placas
-            de coches con facilidad y profesionalismo.
-          </p>
-          <Link className={styles.linkCabecera} href="/tienda">
-            Descubrir más
-          </Link>
-        </section>
+        <div className={styles.backCabecera}>
+          <section className={styles.cabeceraContainer}>
+            <h1 className={styles.tituloCabecera}>Sobre nosotros</h1>
+            <p className={styles.parrafoCabecera}>
+              Somos líderes en la venta de placas de coches personalizadas y
+              estándar, ofreciendo una amplia gama de opciones para satisfacer
+              las necesidades de nuestros clientes.
+              <br /> <br />
+              Ya sea que busques darle un toque único a tu vehículo con una
+              placa personalizada o necesites reemplazar una placa estándar,
+              estamos aquí para brindarte un servicio rápido y confiable.
+              <br />
+              <br />
+              Con años de experiencia en la industria, podemos asesorarte para
+              encontrar la placa perfecta que se ajuste a tus preferencias y
+              requisitos específicos. Confía en nosotros para obtener tus placas
+              de coches con facilidad y profesionalismo.
+            </p>
+            <Link className={styles.linkCabecera} href="/tienda">
+              Descubrir más
+            </Link>
+          </section>
+        </div>
 
         <div className={styles.backMisionContainer}>
           <section className={styles.misionContainer}>
@@ -108,12 +110,6 @@ export default function page() {
             <Link className={styles.linkProveedor} href="#">
               Enlace
             </Link>
-            <img
-              className={styles.imgProveedorMobile}
-              src="https://images.pexels.com/photos/712618/pexels-photo-712618.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-              alt="Foto De Campo azul Cerca De Las Montañas
-              "
-            />
           </div>
         </section>
 

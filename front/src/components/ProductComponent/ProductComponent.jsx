@@ -7,36 +7,44 @@ import LoginFormAddComponent from "../LoginFormAddComponent/LoginFormAddComponen
 import { addNewProductToCart, addProductToCart } from "../../../api/cartFetch";
 
 export default function ProductComponent(props) {
-
   const { product, isUserLoged, setIsUserLoged, token, setToken } = props;
-  const [count, setCount] = useState(0);
-  const [image, setImage] = useState();
-  let userLocalStorage = JSON.parse(localStorage.getItem('user'))
-  let idUserLocalStorage = JSON.parse(localStorage.getItem('idUser'))
-  let tokenLocalStorage = JSON.parse(localStorage.getItem('token'))
-  let tokenRefreshLocalStorage = JSON.parse(localStorage.getItem('tokenRefresh'))
-  console.log(userLocalStorage.data.user._id, product._id)
+  const [count, setCount] = useState(1);
+  const [imageIndex, setImageIndex] = useState(0);
 
+  let userLocalStorage = JSON.parse(localStorage.getItem("user"));
+  let idUserLocalStorage = JSON.parse(localStorage.getItem("idUser"));
+  let tokenLocalStorage = JSON.parse(localStorage.getItem("token"));
+  let tokenRefreshLocalStorage = JSON.parse(
+    localStorage.getItem("tokenRefresh")
+  );
+  console.log(userLocalStorage.data.user._id, product._id);
 
-  const selectImage = (img) => {
-    setImage(img);
+  const selectImage = (index) => {
+    setImageIndex(index);
   };
 
-  const addToCart = async() => {
+  const addToCart = async () => {
     if (count == 0) {
-      alert("Debe de seleccionar una cantidad")
+      alert("Debe de seleccionar una cantidad");
     } else {
-    if (isUserLoged) {
-      const token = localStorage.getItem("token")
-      const tokenRefresh = localStorage.getItem("tokenRefresh")
-      console.log("este es el Token y el tokenRefresh", token, tokenRefresh)
-      const cart = await addNewProductToCart(userLocalStorage.data.user._id, JSON.stringify({idUser:userLocalStorage.data.user._id, idProduct:product._id, quantity:count}))
-      if (cart.status == "succeded"){
-        alert("El producto ha sido añadido al carrito")
-      }      
-    } else {
-      alert("No se ha podido añadir el producto al carrito al carrito")
-    }
+      if (isUserLoged) {
+        const token = localStorage.getItem("token");
+        const tokenRefresh = localStorage.getItem("tokenRefresh");
+        console.log("este es el Token y el tokenRefresh", token, tokenRefresh);
+        const cart = await addNewProductToCart(
+          userLocalStorage.data.user._id,
+          JSON.stringify({
+            idUser: userLocalStorage.data.user._id,
+            idProduct: product._id,
+            quantity: count,
+          })
+        );
+        if (cart.status == "succeded") {
+          alert("El producto ha sido añadido al carrito");
+        }
+      } else {
+        alert("No se ha podido añadir el producto al carrito al carrito");
+      }
     }
   };
 
@@ -48,77 +56,61 @@ export default function ProductComponent(props) {
     <div className={styles.body}>
       <section className={styles.container}>
         <div className={styles.imageContainer}>
-          <div className={styles.imageDetailsContainer}>
-            {product.productImage ? (
+          {product.productImage && product.productImage.length > 0 ? (
+            <>
+              <div className={styles.imageDetailsContainer}>
+                {product.productImage.map((img, index) => (
+                  <img
+                    key={index}
+                    className={styles.imageDetails}
+                    onClick={() => selectImage(index)}
+                    alt="imagen producto"
+                    src={img}
+                  />
+                ))}
+              </div>
               <img
-                className={styles.imageDetails}
-                onClick={() => selectImage(product.productImage[0])}
+                className={styles.image}
+                src={product.productImage[imageIndex]}
                 alt="imagen producto"
-                src={product.productImage[0]}
               />
-            ) : (
-              <p>Imagen no disponible</p>
-            )}
-            {product.productImage ? (
-              <img
-                className={styles.imageDetails}
-                onClick={() => selectImage(product.productImage[1])}
-                alt="imagen producto"
-                src={product.productImage[1]}
-              />
-            ) : (
-              <p>Imagen no disponible</p>
-            )}
-            {product.productImage ? (
-              <img
-                className={styles.imageDetails}
-                onClick={() => selectImage(product.productImage[0])}
-                alt="imagen producto"
-                src={product.productImage[0]}
-              />
-            ) : (
-              <p>Imagen no disponible</p>
-            )}
-            {product.productImage ? (
-              <img
-                className={styles.imageDetails}
-                onClick={() => selectImage(product.productImage[1])}
-                alt="imagen producto"
-                src={product.productImage[1]}
-              />
-            ) : (
-              <p>Imagen no disponible</p>
-            )}
-          </div>
-          {product.productImage && image ? (
-            <img className={styles.image} src={image} alt="imagen producto" />
+            </>
           ) : (
-            <p>Selecciona una imagen</p>
-            // <img
-            //   className={styles.imageDetails}
-            //   onClick={() => selectImage(product.productImage[1])}
-            //   alt="imagen producto"
-            //   src={product.productImage[1]}
-            // />
+            <p>No hay imágenes disponibles</p>
           )}
         </div>
         <div className={styles.infoContainer}>
           <h1 className={styles.title}>{product.productName}</h1>
-          <p className={styles.price}>
-            {product.productPrice}
-            <svg
-              className={styles.euroIcon}
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 16 16"
-            >
-              <path d="M4 9.42h1.063C5.4 12.323 7.317 14 10.34 14c.622 0 1.167-.068 1.659-.185v-1.3c-.484.119-1.045.17-1.659.17-2.1 0-3.455-1.198-3.775-3.264h4.017v-.928H6.497v-.936q-.002-.165.008-.329h4.078v-.927H6.618c.388-1.898 1.719-2.985 3.723-2.985.614 0 1.175.05 1.659.177V2.194A6.6 6.6 0 0 0 10.341 2c-2.928 0-4.82 1.569-5.244 4.3H4v.928h1.01v1.265H4v.928z" />
-            </svg>
+          <p className={styles.price}>{product.productPrice}€</p>
+          <div className={styles.imageContainerMobile}>
+            {product.productImage && product.productImage.length > 0 ? (
+              <>
+                <img
+                  className={styles.imageMobile}
+                  src={product.productImage[imageIndex]}
+                  alt="imagen producto"
+                />
+                <div className={styles.imageDetailsContainerMobile}>
+                  {product.productImage.map((img, index) => (
+                    <img
+                      key={index}
+                      className={styles.imageDetailsMobile}
+                      onClick={() => selectImage(index)}
+                      alt="imagen producto"
+                      src={img}
+                    />
+                  ))}
+                </div>
+              </>
+            ) : (
+              <p>No hay imágenes disponibles</p>
+            )}
+          </div>
+          <p className={styles.cantidad}>
+            Elige la cantidad:{" "}
+            <ItemCount product={product} count={count} setCount={setCount} />
           </p>
-          <ItemCount 
-          product={product}
-          count={count}
-          setCount={setCount}
-          />
+
           <button className={styles.cartButton} onClick={addToCart}>
             Añadir al carrito
             <svg
@@ -204,8 +196,6 @@ export default function ProductComponent(props) {
           </section>
         </div>
       </section>
-      <p className={styles.relatedProducts}>Productos relacionados</p>
-      
     </div>
   );
 }

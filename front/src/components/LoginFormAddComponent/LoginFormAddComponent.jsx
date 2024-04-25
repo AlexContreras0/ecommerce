@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 
 export default function LoginFormAddComponent(props) {
   const router = useRouter();
+  const [showPassword, setShowPassword] = useState(false);
 
   // const isUserLogedLocalStorage = JSON.parse(localStorage.getItem('isUserLogedLStorage'))
   // const userLocalStorage = JSON.parse(localStorage.getItem('user'))
@@ -15,7 +16,6 @@ export default function LoginFormAddComponent(props) {
     email: "",
     password: "",
   });
-  
 
   const {
     product,
@@ -25,13 +25,9 @@ export default function LoginFormAddComponent(props) {
     setToken,
     userData,
     setUserData,
-    showPassword,
-    setShowPassword,
     error,
     setError,
   } = props;
-
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -39,21 +35,31 @@ export default function LoginFormAddComponent(props) {
       try {
         const getUserLoged = async () => {
           const userData = await login(JSON.stringify(user));
-          console.log("Estos son los datos del userLoged", userData)
+          console.log("Estos son los datos del userLoged", userData);
           if (userData.status == "Success") {
-            localStorage.setItem('user', JSON.stringify(userData)) 
-            localStorage.setItem('isUserLogedLStorage', JSON.stringify(true))
-            localStorage.setItem("idUser", JSON.stringify(userData.data.user._id));
-            localStorage.setItem("token", JSON.stringify(userData.data.token))
-            localStorage.setItem("tokenRefresh", JSON.stringify(userData.data.tokenRefresh))
-            const isUserLogedLocalStorage = JSON.parse(localStorage.getItem('isUserLogedLStorage'))
-            setIsUserLoged(true)
+            localStorage.setItem("user", JSON.stringify(userData));
+            localStorage.setItem("isUserLogedLStorage", JSON.stringify(true));
+            localStorage.setItem(
+              "idUser",
+              JSON.stringify(userData.data.user._id)
+            );
+            localStorage.setItem("token", JSON.stringify(userData.data.token));
+            localStorage.setItem(
+              "tokenRefresh",
+              JSON.stringify(userData.data.tokenRefresh)
+            );
+            const isUserLogedLocalStorage = JSON.parse(
+              localStorage.getItem("isUserLogedLStorage")
+            );
+            setIsUserLoged(true);
             router.back();
-            } else {
-              alert("Usuario y contraseña erróneos");
-              localStorage.setItem('isUserLogedLStorage', JSON.stringify(false))
-              const isUserLogedLocalStorage = JSON.parse(localStorage.getItem('isUserLogedLStorage'))
-            } 
+          } else {
+            alert("Usuario y contraseña erróneos");
+            localStorage.setItem("isUserLogedLStorage", JSON.stringify(false));
+            const isUserLogedLocalStorage = JSON.parse(
+              localStorage.getItem("isUserLogedLStorage")
+            );
+          }
         };
         getUserLoged();
       } catch (error) {
@@ -69,15 +75,15 @@ export default function LoginFormAddComponent(props) {
 
   const validateForm = () => {
     if (user.password == "" || user.email == "") {
-      alert("El usuario y/o contraseña deben estar rellenos")
+      alert("El usuario y/o contraseña deben estar rellenos");
     } else {
-    if (user.password.length < 8 || user.email.length < 8) {
-      setError("Email o contraseña incorrectos");
-      return false;
-    }
+      if (user.password.length < 8 || user.email.length < 8) {
+        setError("Email o contraseña incorrectos");
+        return false;
+      }
 
-    return true;
-  }
+      return true;
+    }
   };
 
   return (

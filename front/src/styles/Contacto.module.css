@@ -1,14 +1,10 @@
 @value colors: './colors.module.css';
 @value azul, blanco from colors;
 
-.box {
-  composes: box from "mixins.module.css";
-}
 .container {
   display: flex;
   justify-content: space-around;
   margin: 2rem auto;
-  height: 100%;
   width: 70%;
   background-color: azul;
   border-radius: 10px;
@@ -64,7 +60,8 @@
 .SocialNavMenuComponentMobile {
   display: none;
 }
-@media screen and (max-width: 550px) {
+
+@media screen and (max-width: 1024px) {
   .container {
     flex-direction: column;
     display: flex;

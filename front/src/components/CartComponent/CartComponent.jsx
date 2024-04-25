@@ -31,7 +31,7 @@ export default function CartComponent() {
             product.productRating = productData.data.productRating;
           }
         );
-        await Promise.all(cartProductWithPriceAndImage)
+        await Promise.all(cartProductWithPriceAndImage);
         cartAux.cartProducts = productData.data;
       };
       await loadCartWithPrice();
@@ -40,9 +40,8 @@ export default function CartComponent() {
         setCart(cartAux.data);
         setCartComplet(true);
       };
-      
-        await cartSeted();
 
+      await cartSeted();
     };
     loadData();
   }, []);

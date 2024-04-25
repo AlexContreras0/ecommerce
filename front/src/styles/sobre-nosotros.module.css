@@ -8,31 +8,34 @@
 
 /* CABECERA */
 
+.backCabecera {
+  background-position: center;
+  background-size: cover;
+  background-image: url("../../public/assets/fondo-cabecera-sobre-nosotros.jpg");
+}
+
 .cabeceraContainer {
   composes: box from "mixins.module.css";
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
-  gap: 2rem;
-  padding-inline: 2rem;
-  padding-block: 4rem;
-  height: auto;
-  box-sizing: border-box;
-  color: azul;
+  gap: 4rem;
+  padding: 4rem 0;
 }
 
 .tituloCabecera {
   composes: title from "mixins.module.css";
-  color: naranja;
+  color: blanco;
 }
 
 .parrafoCabecera {
-  composes: subtitle from "mixins.module.css";
+  composes: paragraph from "mixins.module.css";
+  max-width: 640px;
+  color: blanco;
 }
 
 .linkCabecera {
   composes: botonazul from "mixins.module.css";
+  max-width: 20%;
 }
 
 .linkCabecera:hover {
@@ -68,7 +71,7 @@
 .parrafoMision {
   composes: paragraph from "mixins.module.css";
   color: blanco;
-  max-width: 6400px;
+  max-width: 640px;
 }
 
 .linkMision {
@@ -111,6 +114,7 @@
 
 .parrafoProveedor {
   composes: paragraph from "mixins.module.css";
+  max-width: 640px;
 }
 
 .linkProveedor {
@@ -125,10 +129,6 @@
   border-radius: 10px;
   width: 640px;
   height: 360px;
-}
-
-.imgProveedorMobile {
-  display: none;
 }
 
 /* PILL PROVEEDOR */
@@ -180,7 +180,6 @@
 }
 
 .valueContainer {
-  composes: box from "mixins.module.css";
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -274,55 +273,60 @@
   color: blanco;
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (min-width: 768px) and (max-width: 1280px) {
   /* CABECERA */
 
-  .tituloCabecera {
-    margin-top: 2rem;
-  }
-
-  .parrafoCabecera {
-    width: 100%;
+  .cabeceraContainer {
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
   }
 
   /* MISION */
 
   .misionContainer {
     flex-direction: column;
-    padding: 2rem;
-    height: 100%;
+    text-align: center;
+    padding-block: 1rem;
+    gap: 2rem;
+  }
+
+  .misionTextContainer {
+    align-items: center;
   }
 
   .imgMision {
     border-radius: 10px;
     max-width: 100%;
-    max-height: 200px;
+    max-height: auto;
+    margin-bottom: 1rem;
   }
 
   /* PROVEEDOR */
 
   .proveedorContainer {
     flex-direction: column;
-    padding: 2rem;
-    height: 100%;
+    text-align: center;
+    padding-block: 2rem;
+    margin-bottom: 0;
+    gap: 2rem;
+  }
+
+  .proveedorTextContainer {
+    align-items: center;
   }
 
   .imgProveedor {
-    display: none;
-  }
-
-  .imgProveedorMobile {
-    display: block;
     border-radius: 10px;
-    margin-top: 1rem;
+    max-width: 100%;
+    max-height: auto;
   }
 
   /* PILL PROVEEDOR */
 
   .proveedorPillContainer {
     flex-direction: column;
-    text-align: center;
-    margin-inline: 2rem;
+    margin-inline: 10%;
     padding: 2rem 0;
   }
 
@@ -339,6 +343,96 @@
   .valueContainer {
     text-align: center;
   }
+
+  .valueParrafo {
+    width: 80%;
+    padding-inline: 2rem;
+  }
+
+  .colContainer {
+    flex-direction: column;
+    margin-inline: 2rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* CABECERA */
+
+  .cabeceraContainer {
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+    width: 90%;
+  }
+
+  .tituloCabecera {
+    margin-top: 0;
+  }
+
+  .linkCabecera {
+    composes: botonazul from "mixins.module.css";
+    max-width: 100%;
+  }
+
+  /* MISION */
+
+  .misionContainer {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 2rem;
+    gap: 2rem;
+    width: 90%;
+  }
+
+  .misionTextContainer {
+    align-items: center;
+    width: 100%;
+  }
+
+  .imgMision {
+    border-radius: 10px;
+    height: 80%;
+  }
+
+  /* PROVEEDOR */
+
+  .proveedorContainer {
+    flex-direction: column;
+    text-align: center;
+    padding-block: 2rem;
+    width: 90%;
+    gap: 2rem;
+    margin-bottom: 0;
+  }
+
+  .proveedorTextContainer {
+    align-items: center;
+    width: 100%;
+  }
+
+  .imgProveedor {
+    border-radius: 10px;
+    width: 100%;
+    height: auto;
+  }
+
+  /* PILL PROVEEDOR */
+
+  .proveedorPillContainer {
+    flex-direction: column;
+    margin-inline: 10%;
+    padding: 2rem 0;
+  }
+
+  .proveedorPillTextContainer {
+    flex-direction: column;
+  }
+
+  .proveedorPillLink {
+    margin-top: 1rem;
+  }
+
+  /* PROEPUESTA VALOR */
 
   .valueParrafo {
     width: 100%;
