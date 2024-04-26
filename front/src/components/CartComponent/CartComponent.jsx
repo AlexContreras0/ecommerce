@@ -3,6 +3,7 @@ import { deleteCartProduct, getCartById } from "../../../api/cartFetch";
 import { getProduct } from "../../../api/productFetch";
 import { useRouter } from "next/router";
 import DeleteCartComponent from "../DeleteCartComponent/DeleteCartComponent";
+import styles from "./CartComponent.module.css";
 
 export default function CartComponent() {
   const userLocalStorage = JSON.parse(localStorage.getItem("user"));
@@ -47,51 +48,73 @@ export default function CartComponent() {
   }, []);
 
   return (
-    <div>
-      <h2>Estos son los productos de tu carrito</h2>
+    <div className={styles.container}>
+      <div className={styles.cartContainer}>
+        <h2 className={styles.titleCart}>
+          Estos son los productos de tu carrito
+        </h2>
+        <div className={styles.data}>
+          <p>Fecha: </p>
+          {new Date(cart.cartDate).toLocaleString()}
+        </div>
+
+        <div className={styles.cartDataContainer}>
+          <div className={styles.cartData}>
+            <p>Estado:</p>
+            {cart.cartStatus}
+          </div>
+          <div className={styles.cartData}>
+            <p>Precio total:</p>
+            {cart.cartTotalPrice}€
+          </div>
+        </div>
+      </div>
+
       {cart.cartProducts && cartComplet && (
-        <div>
-          <span>Fecha creación del carrito: </span>
-          {cart.cartDate}
-          <br />
+        <div className={styles.productDataContainer}>
           {cart.cartProducts.map((product, index) => {
             return (
-              <div key={index}>
-                <span>Id producto: </span>
-                {product.productId}
-                <br />
-                <span>Nombre:</span>
-                {product.productName}
-                <br />
-                <span>Descripción:</span>
-                {product.productDescription}
-                <br />
-                <span>Valoración:</span>
-                {product.productRating}
-                <br />
-                <span>Imagen:</span>
-                {product.productImage}
-                <br />
-                <span>Cantidad: </span>
-                {product.cartProductQuantity}
-                <br />
-                <span>Precio:</span>
-                {product.productPrice}
-                <br />
-                <DeleteCartComponent
-                  idUser={userLocalStorage.data.user._id}
-                  idProduct={product.productId}
-                />
-                <br />
+              <div className={styles.infoContainer} key={index}>
+                <div className={styles.productInfoContainer}>
+                  <div className={styles.data}>
+                    <p>Id producto: </p>
+                    {product.productId}
+                  </div>
+                  <div className={styles.data}>
+                    <p>Nombre: </p>
+                    {product.productName}
+                  </div>
+                  <div className={styles.data}>
+                    <p>Descripción:</p>
+                    {product.productDescription}
+                  </div>
+                  <div className={styles.data}>
+                    <p>Valoración:</p>
+                    {product.productRating}
+                  </div>
+                  <div className={styles.data}>
+                    <p>Cantidad:</p>
+                    {product.cartProductQuantity}
+                  </div>
+                  <div className={styles.data}>
+                    <p>Precio:</p>
+                    {product.productPrice}€
+                  </div>
+                  <DeleteCartComponent
+                    idUser={userLocalStorage.data.user._id}
+                    idProduct={product.productId}
+                  />
+                </div>
+                <div>
+                  <img
+                    className={styles.productImage}
+                    src={product.productImage}
+                    alt={product.productName}
+                  />
+                </div>
               </div>
             );
           })}
-          <br />
-          <span>Estado del carrito: </span>
-          {cart.cartStatus}
-          <br />
-          <span>Precio total del carrito: </span>
-          {cart.cartTotalPrice}
         </div>
       )}
     </div>

@@ -1,0 +1,77 @@
+@value colors: '../../styles/colors.module.css';
+@value azul, naranja, beige, blanco, grisClaro from colors;
+
+.container {
+  composes: box from "../../styles/mixins.module.css";
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.cartContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.titleCart {
+  composes: title from "../../styles/mixins.module.css";
+  color: azul;
+}
+
+.cartDataContainer {
+  display: flex;
+  gap: 2rem;
+}
+
+.cartData {
+  display: flex;
+  gap: 0.5rem;
+  background: beige;
+  color: azul;
+  font-size: 1.2rem;
+  padding-inline: 1rem;
+  padding-block: 0.5rem;
+  border-radius: 5px;
+}
+
+.cartData p {
+  font-weight: bold;
+}
+
+.productDataContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.infoContainer {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  background: beige;
+  border-radius: 5px;
+  padding: 2rem;
+  max-width: 60%;
+}
+
+.productInfoContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.data {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.data p {
+  font-weight: bold;
+}
+
+.productImage {
+  height: 250px;
+  width: auto;
+}
