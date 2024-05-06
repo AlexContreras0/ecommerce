@@ -72,20 +72,16 @@
 
 @media screen and (max-width: 768px) {
   .container {
-    flex-direction: column;
-    align-items: center;
-    padding: 3rem 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
   }
 
   .column {
-    display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 0.3rem;
-    text-align: center;
   }
-  .oficinas {
-    margin-top: 1.5rem;
+
+  .linkLogoAutoPlak {
+    display: none;
   }
 }

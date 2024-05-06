@@ -16,3 +16,9 @@
   composes: title from "mixins.module.css";
   color: blanco;
 }
+
+@media all and (max-width: 768px) {
+  .container {
+    margin-inline: 2rem;
+  }
+}

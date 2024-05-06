@@ -15,7 +15,6 @@
   align-items: center;
   justify-content: center;
   gap: 2rem;
-  width: 70%;
   max-width: 25%;
   padding: 2rem;
   border-radius: 10px;
@@ -120,4 +119,16 @@
   align-items: center;
   justify-content: center;
   width: 100%;
+}
+
+@media screen and (max-width: 1280px) {
+  .container {
+    max-width: 40%;
+  }
+  .title,
+  .passwordLink,
+  .signUp,
+  .link {
+    text-align: center;
+  }
 }

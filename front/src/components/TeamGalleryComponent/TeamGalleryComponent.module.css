@@ -3,7 +3,7 @@
 
 .box {
   composes: box from "../../styles/mixins.module.css";
-  margin-block: 5rem;
+  margin-block: 2rem;
   display: flex;
   justify-content: center;
 }
@@ -52,9 +52,8 @@
   opacity: 1;
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 5768px) {
   .box {
-    margin-block: 0;
-    padding: 2rem;
+    margin-inline: 2rem;
   }
 }

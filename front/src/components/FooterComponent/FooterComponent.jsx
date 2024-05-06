@@ -7,7 +7,7 @@ export default function FooterComponent() {
   return (
     <div className={styles.backContainer}>
       <div className={styles.container}>
-        <Link className={styles.link} href="/tienda">
+        <Link className={styles.linkLogoAutoPlak} href="/tienda">
           <svg
             className={styles.logoAutoPlak}
             xmlns="http://www.w3.org/2000/svg"
@@ -20,7 +20,7 @@ export default function FooterComponent() {
         </Link>
         <div className={styles.column}>
           <h2 className={styles.subTitle}>Compañía</h2>
-          <span className={styles.line}></span>
+
           <Link className={styles.subLink} href="/sobre-nosotros">
             Nosotros
           </Link>
@@ -36,7 +36,7 @@ export default function FooterComponent() {
         </div>
         <div className={styles.column}>
           <h2 className={styles.subTitle}>Ayuda</h2>
-          <span className={styles.line}></span>
+
           <Link className={styles.subLink} href="/sobre-nosotros/contacto">
             Contacto
           </Link>
@@ -49,7 +49,7 @@ export default function FooterComponent() {
         </div>
         <div className={styles.column}>
           <h2 className={styles.subTitle}>Tienda</h2>
-          <span className={styles.line}></span>
+
           <Link className={styles.subLink} href="/tienda">
             Tienda
           </Link>
@@ -59,14 +59,8 @@ export default function FooterComponent() {
         </div>
         <div className={styles.column}>
           <h2 className={styles.subTitle}>Síguenos</h2>
-          <span className={styles.line}></span>
 
           <SocialNavMenuComponent />
-          <h2 className={`${styles.subTitle} ${styles.oficinas}`}>Oficinas</h2>
-          <p>
-            C. de Marie Curie, 8, Edificio B (PTA), Málaga. <br></br>
-            Oficinas MC24.1 y MC24.2.
-          </p>
         </div>
       </div>
     </div>

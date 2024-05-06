@@ -1,5 +1,5 @@
 @value colors: 'colors.module.css';
-@value verde, naranja, beige, blanco from colors;
+@value verde, naranja, beige, azul, blanco from colors;
 
 .root {
   background-color: blanco;
@@ -7,6 +7,11 @@
 
 .box {
   composes: box from "mixins.module.css";
+}
+
+.title {
+  composes: title from "mixins.module.css";
+  color: azul;
 }
 
 .container {

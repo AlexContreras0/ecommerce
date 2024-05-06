@@ -77,10 +77,6 @@ export default function CartComponent() {
               <div className={styles.infoContainer} key={index}>
                 <div className={styles.productInfoContainer}>
                   <div className={styles.data}>
-                    <p>Id producto: </p>
-                    {product.productId}
-                  </div>
-                  <div className={styles.data}>
                     <p>Nombre: </p>
                     {product.productName}
                   </div>
@@ -105,12 +101,13 @@ export default function CartComponent() {
                     idProduct={product.productId}
                   />
                 </div>
-                <div>
+                <div className={styles.imageContainer}>
                   <img
                     className={styles.productImage}
                     src={product.productImage}
                     alt={product.productName}
                   />
+                  <div className={styles.idProduct}>{product.productId}</div>
                 </div>
               </div>
             );

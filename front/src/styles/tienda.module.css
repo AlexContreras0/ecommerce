@@ -8,7 +8,6 @@
 .container {
   display: flex;
   flex-direction: column;
-  align-items: start;
   gap: 2rem;
   border-radius: 10px;
   margin-top: 3rem;
@@ -17,7 +16,7 @@
 .filterContainer {
   display: flex;
   flex-direction: column;
-  justify-content: end;
+  justify-content: flex-end;
   gap: 1rem;
   border-radius: 10px;
   width: 30%;
@@ -72,6 +71,7 @@
 
 .productContainer {
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
   gap: 1rem;
 }

@@ -51,7 +51,7 @@ export default function page() {
                     width="16"
                     height="16"
                     fill="currentColor"
-                    class="bi bi-bag-heart"
+                    className="bi bi-bag-heart"
                     viewBox="0 0 16 16"
                   >
                     <path
@@ -84,7 +84,7 @@ export default function page() {
                     width="16"
                     height="16"
                     fill="currentColor"
-                    class="bi bi-bag-heart"
+                    className="bi bi-bag-heart"
                     viewBox="0 0 16 16"
                   >
                     <path
@@ -117,7 +117,7 @@ export default function page() {
                     width="16"
                     height="16"
                     fill="currentColor"
-                    class="bi bi-bag-heart"
+                    className="bi bi-bag-heart"
                     viewBox="0 0 16 16"
                   >
                     <path
@@ -150,7 +150,7 @@ export default function page() {
                     width="16"
                     height="16"
                     fill="currentColor"
-                    class="bi bi-bag-heart"
+                    className="bi bi-bag-heart"
                     viewBox="0 0 16 16"
                   >
                     <path
@@ -183,7 +183,7 @@ export default function page() {
                     width="16"
                     height="16"
                     fill="currentColor"
-                    class="bi bi-bag-heart"
+                    className="bi bi-bag-heart"
                     viewBox="0 0 16 16"
                   >
                     <path

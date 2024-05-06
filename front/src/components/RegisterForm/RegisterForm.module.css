@@ -5,9 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 90vh;
-  width: 100%;
-  background-color: blanco;
+  margin-block: 2rem;
 }
 
 .container {
@@ -16,8 +14,6 @@
   align-items: center;
   justify-content: center;
   gap: 2rem;
-  height: 80%;
-  width: 100%;
   max-width: 40%;
   padding: 2rem;
   border-radius: 10px;
@@ -137,4 +133,13 @@
   padding: 0.5rem 1rem;
   font-size: 1rem;
   font-weight: 600;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    max-width: 100%;
+  }
+  .formContainer {
+    flex-direction: column;
+  }
 }

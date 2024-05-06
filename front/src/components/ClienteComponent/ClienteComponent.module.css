@@ -80,4 +80,10 @@
   border: 1px solid naranja;
 }
 
+@media all and (max-width: 1280px) {
+  .container {
+    padding-inline: 2rem;
+  }
+}
+
 /* MIS PEDIDOS */

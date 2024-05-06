@@ -6,27 +6,31 @@ import React, { useEffect, useState } from "react";
 import CartComponent from "@/components/CartComponent/CartComponent";
 
 export default function carrito() {
-
-  const isUserLogedLocalStorage = JSON.parse(localStorage.getItem('isUserLogedLStorage'))
-  const [isUserLoged, setIsUserLoged] = useState(true)
-  
+  const isUserLogedLocalStorage = JSON.parse(
+    localStorage.getItem("isUserLogedLStorage")
+  );
+  const [isUserLoged, setIsUserLoged] = useState(true);
 
   return (
     <div>
       <NavMenu />
-      {isUserLoged ? (<ClienteComponent/>): (
+      {isUserLoged ? (
+        <ClienteComponent />
+      ) : (
         <LoginFormAddComponent
           isUserLoged={isUserLoged}
           setIsUserLoged={setIsUserLoged}
         />
-      ) }
-      {isUserLoged ? (<CartComponent/>): (
+      )}
+      {isUserLoged ? (
+        <CartComponent />
+      ) : (
         <LoginFormAddComponent
           isUserLoged={isUserLoged}
           setIsUserLoged={setIsUserLoged}
         />
-      ) }
-      
+      )}
+
       <FooterComponent />
     </div>
   );
