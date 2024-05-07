@@ -22,7 +22,7 @@ export default function StarRatingComponent() {
             <FaStar
               className={styles.star}
               size={20}
-              color={ratingValue <= (hover || rating) ? "#379237" : "#95a3ba"}
+              color={ratingValue <= (hover || rating) ? "#004e98" : "#95a3ba"}
               onMouseEnter={() => setHover(ratingValue)}
               onMouseLeave={() => setHover(null)}
             />

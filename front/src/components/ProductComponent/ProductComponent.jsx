@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import styles from "./ProductComponent.module.css";
 import ItemCount from "../ItemCount/ItemCount";
 import StarRatingComponent from "../StarRatingComponent/StarRatingComponent";
-import LoginForm from "../LoginForm/LoginForm";
 import LoginFormAddComponent from "../LoginFormAddComponent/LoginFormAddComponent";
 import { addNewProductToCart, addProductToCart } from "../../../api/cartFetch";
 

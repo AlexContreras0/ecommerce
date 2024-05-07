@@ -11,6 +11,7 @@ export default function tienda() {
   const [firstElementPage, setFirstElementPage] = useState(0);
   const [elementForPage, setElementForPage] = useState(12);
   const [inputSearched, setInputSearched] = useState("");
+  const [inputPrice, setInputPrice] = useState("");
 
   useEffect(() => {
     if (inputSearched == "") {
@@ -111,11 +112,7 @@ export default function tienda() {
                   type="button"
                   onClick={refreshProductsHandler}
                 >
-                  <svg
-                    className={styles.iconDelete}
-                    className="bi bi-x-circle-fill"
-                    viewBox="0 0 16 16"
-                  >
+                  <svg className={styles.iconDelete} viewBox="0 0 16 16">
                     <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z" />
                   </svg>
                 </button>
