@@ -1,0 +1,11 @@
+@value colors: '../../styles/colors.module.css';
+@value azul, naranja, beige, blanco, grisClaro from colors;
+
+.deleteButton {
+  composes: botonnaranja from "../../styles/mixins.module.css";
+}
+
+.deleteButton:hover {
+  background-color: azul;
+  color: blanco;
+}

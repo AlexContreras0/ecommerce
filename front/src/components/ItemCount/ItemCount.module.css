@@ -1,0 +1,21 @@
+@value colors: '../../styles/colors.module.css';
+@value azul, naranja, negro, beige, blanco, azulClaro from colors;
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.button {
+  background-color: transparent;
+  border: none;
+  font-weight: light;
+  font-size: 2rem;
+}
+
+.count {
+  font-size: 1.5rem;
+  font-weight: bold;
+}

@@ -1,86 +1,190 @@
-.list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  height: 100%;
-  padding-block: 1rem;
-  background-color: #2d3748;
+@value colors: '../../styles/colors.module.css';
+@value azul, naranja, beige, blanco, rojo from colors;
+
+.backBody {
+  background-color: azul;
 }
 
-.menu {
+.body {
+  z-index: 10;
+  position: sticky;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 0;
+  background-color: azul;
+  composes: box from "../../styles/mixins.module.css";
+}
+
+.navRight {
+  display: flex;
+  gap: 5rem;
+}
+
+.navList {
+  list-style-type: none;
   display: flex;
   align-items: center;
   gap: 2rem;
 }
 
-.link {
-  display: block;
-  color: #fff;
-  text-decoration: none;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  fill: #fff;
-}
-
-.nav ul li {
+.navRight li {
   position: relative;
   float: left;
   margin: 0;
   padding: 0;
 }
 
-.link:hover {
-  color: #379237;
-  fill: #379237;
+.link {
+  display: block;
+  color: blanco;
+  text-decoration: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  fill: blanco;
 }
 
-.logoAgrooe {
-  width: 10rem;
-  height: auto;
+.link:hover {
+  color: naranja;
+  fill: naranja;
+}
+
+.logoAutoPlak {
+  width: auto;
+  height: 5rem;
 }
 
 .cartIcon {
-  stroke: #fff;
+  width: 30px;
+  height: 30px;
+  fill: blanco;
 }
 
 .cartIcon:hover {
-  stroke: #379237;
+  fill: naranja;
+}
+
+.mobileCart {
+  visibility: hidden;
+}
+
+.toggleButton {
+  display: none;
+}
+
+.iconMobileMenu {
+  fill: blanco;
+  color: blanco;
 }
 
 /* Menu desplegable */
 
-.nav ul ul {
+.navList ul {
+  z-index: 10;
   display: none;
   position: absolute;
   top: 100%;
   left: 0;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  background-color: #2d3748;
+  background-color: azul;
   border-radius: 5px;
 }
 
-.nav ul ul li {
+.navList ul li {
   float: none;
   width: 150px;
   border-radius: 3px;
 }
 
 .subLink:hover {
-  color: #379237;
+  color: naranja;
 }
 
-.nav ul ul a {
+.subLink {
   line-height: 120%;
   padding: 10px 15px;
   text-decoration: none;
-  color: #fff;
+  color: blanco;
 }
 
-.nav ul li:hover > ul {
+.navList li:hover > ul {
   display: block;
+}
+
+@media all and (min-width: 768px) and (max-width: 1280px) {
+  .body {
+    padding-inline: 2rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .body {
+    padding: 2rem;
+  }
+  .toggleButton {
+    display: block;
+    border: 0;
+    font-size: 1.25rem;
+    background-color: transparent;
+    cursor: pointer;
+    color: blanco;
+    position: relative;
+  }
+
+  .navRight {
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    position: absolute;
+  }
+
+  .mobileCart {
+    visibility: visible;
+  }
+
+  .navVisible {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .navList {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    position: absolute;
+    background-color: azul;
+    left: 0;
+    margin-top: 2rem;
+    padding: 1rem;
+    border-end-end-radius: 10px;
+  }
+
+  .navVisible li {
+    position: relative;
+    float: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .navList ul {
+    position: static;
+    display: none;
+    background-color: azul;
+    gap: 0.5rem;
+  }
+
+  .navList ul li {
+    width: 100%;
+  }
+
+  .navList li:hover > ul {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: 100%;
+  }
 }

@@ -1,0 +1,453 @@
+@value colors: 'colors.module.css';
+@value azul, naranja, beige, blanco, negro from colors;
+
+.container {
+  background-color: blanco;
+  color: naranja;
+}
+
+/* CABECERA */
+
+.backCabecera {
+  background-position: center;
+  background-size: cover;
+  background-image: url("../../public/assets/fondo-cabecera-sobre-nosotros.jpg");
+}
+
+.cabeceraContainer {
+  composes: box from "mixins.module.css";
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  padding: 4rem 0;
+}
+
+.tituloCabecera {
+  composes: title from "mixins.module.css";
+  color: blanco;
+}
+
+.parrafoCabecera {
+  composes: paragraph from "mixins.module.css";
+  max-width: 640px;
+  color: blanco;
+}
+
+.linkCabecera {
+  composes: botonazul from "mixins.module.css";
+  max-width: 20%;
+}
+
+.linkCabecera:hover {
+  background-color: naranja;
+  color: blanco;
+}
+
+/* MISION */
+
+.backMisionContainer {
+  background-color: azul;
+}
+
+.misionContainer {
+  composes: box from "mixins.module.css";
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  padding: 4rem 0;
+}
+
+.misionTextContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.tituloMision {
+  composes: title from "mixins.module.css";
+  color: naranja;
+}
+
+.parrafoMision {
+  composes: paragraph from "mixins.module.css";
+  color: blanco;
+  max-width: 640px;
+}
+
+.linkMision {
+  composes: linknaranja from "mixins.module.css";
+}
+
+.linkMision:hover {
+  color: blanco;
+}
+
+.imgMision {
+  border-radius: 10px;
+  width: 640px;
+  height: 360px;
+}
+
+/* PROVEEDOR */
+
+.proveedorContainer {
+  composes: box from "mixins.module.css";
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+  padding: 4rem 0;
+  background-color: blanco;
+  margin-bottom: 2rem;
+  color: negro;
+}
+
+.proveedorTextContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.tituloProveedor {
+  composes: title from "mixins.module.css";
+  color: azul;
+}
+
+.parrafoProveedor {
+  composes: paragraph from "mixins.module.css";
+  max-width: 640px;
+}
+
+.linkProveedor {
+  composes: linkazul from "mixins.module.css";
+}
+
+.linkProveedor:hover {
+  color: naranja;
+}
+
+.imgProveedor {
+  border-radius: 10px;
+  width: 640px;
+  height: 360px;
+}
+
+/* PILL PROVEEDOR */
+
+.backProveedorPillContainer {
+  background-color: azul;
+  padding-top: 4rem;
+}
+
+.proveedorPillContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: naranja;
+  color: blanco;
+  border-radius: 10px;
+  margin-inline: 20%;
+  padding: 2rem 5rem;
+}
+
+.proveedorPillTextContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.proveedorPillTitulo {
+  composes: title from "mixins.module.css";
+}
+
+.proveedorPillParrafo {
+  composes: paragraph from "mixins.module.css";
+}
+
+.proveedorPillLink {
+  composes: botonBlanco from "mixins.module.css";
+  font-size: 1.5rem;
+}
+
+.proveedorPillLink:hover {
+  background-color: azul;
+  color: blanco;
+}
+
+/* PROEPUESTA VALOR */
+
+.backValueContainer {
+  background-color: azul;
+}
+
+.valueContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 4rem 0;
+}
+
+.valueTitulo {
+  composes: title from "mixins.module.css";
+  color: blanco;
+}
+
+.valueParrafo {
+  composes: subtitle from "mixins.module.css";
+  margin-bottom: 1rem;
+  color: blanco;
+}
+
+.colContainer {
+  display: flex;
+  gap: 2rem;
+}
+
+.valueCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 400px;
+  width: 350px;
+  text-align: center;
+  padding-block: 2rem;
+  padding-inline: 3rem;
+  box-shadow: #2d374810 5px 5px 10px 5px;
+  border-radius: 10px;
+  background-color: blanco;
+  transition: all 0.2s ease-in-out;
+}
+
+.valueCol:hover {
+  box-shadow: #2d37483e 5px 5px 10px 5px;
+  transform: scale(1.02);
+}
+
+.tituloValueCol {
+  composes: title from "mixins.module.css";
+  color: naranja;
+  font-size: 1.5rem;
+}
+
+.parrafoValueCol {
+  composes: paragraph from "mixins.module.css";
+  color: azul;
+}
+
+.linkValueCol {
+  composes: linkazul from "mixins.module.css";
+}
+
+.linkValueCol:hover {
+  color: naranja;
+}
+
+/* CONTACTO */
+
+.contactoContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 4rem 0;
+  color: azul;
+}
+
+.contactoTitulo {
+  composes: title from "mixins.module.css";
+}
+
+.contactoParrafo {
+  composes: subtitle from "mixins.module.css";
+}
+
+.contactoLink {
+  composes: botonnaranja from "mixins.module.css";
+}
+
+.contactoLink:hover {
+  background-color: azul;
+  color: blanco;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1280px) {
+  /* CABECERA */
+
+  .cabeceraContainer {
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  /* MISION */
+
+  .misionContainer {
+    flex-direction: column;
+    text-align: center;
+    padding-block: 1rem;
+    gap: 2rem;
+  }
+
+  .misionTextContainer {
+    align-items: center;
+  }
+
+  .imgMision {
+    border-radius: 10px;
+    max-width: 100%;
+    max-height: auto;
+    margin-bottom: 1rem;
+  }
+
+  /* PROVEEDOR */
+
+  .proveedorContainer {
+    flex-direction: column;
+    text-align: center;
+    padding-block: 2rem;
+    margin-bottom: 0;
+    gap: 2rem;
+  }
+
+  .proveedorTextContainer {
+    align-items: center;
+  }
+
+  .imgProveedor {
+    border-radius: 10px;
+    max-width: 100%;
+    max-height: auto;
+  }
+
+  /* PILL PROVEEDOR */
+
+  .proveedorPillContainer {
+    flex-direction: column;
+    margin-inline: 10%;
+    padding: 2rem 0;
+  }
+
+  .proveedorPillTextContainer {
+    flex-direction: column;
+  }
+
+  .proveedorPillLink {
+    margin-top: 1rem;
+  }
+
+  /* PROEPUESTA VALOR */
+
+  .valueContainer {
+    text-align: center;
+  }
+
+  .valueParrafo {
+    width: 80%;
+    padding-inline: 2rem;
+  }
+
+  .colContainer {
+    flex-direction: column;
+    margin-inline: 2rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* CABECERA */
+
+  .cabeceraContainer {
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+    width: 90%;
+  }
+
+  .tituloCabecera {
+    margin-top: 0;
+  }
+
+  .linkCabecera {
+    composes: botonazul from "mixins.module.css";
+    max-width: 100%;
+  }
+
+  /* MISION */
+
+  .misionContainer {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 2rem;
+    gap: 2rem;
+    width: 90%;
+  }
+
+  .misionTextContainer {
+    align-items: center;
+    width: 100%;
+  }
+
+  .imgMision {
+    border-radius: 10px;
+    height: 80%;
+  }
+
+  /* PROVEEDOR */
+
+  .proveedorContainer {
+    flex-direction: column;
+    text-align: center;
+    padding-block: 2rem;
+    width: 90%;
+    gap: 2rem;
+    margin-bottom: 0;
+  }
+
+  .proveedorTextContainer {
+    align-items: center;
+    width: 100%;
+  }
+
+  .imgProveedor {
+    border-radius: 10px;
+    width: 100%;
+    height: auto;
+  }
+
+  /* PILL PROVEEDOR */
+
+  .proveedorPillContainer {
+    flex-direction: column;
+    margin-inline: 10%;
+    padding: 2rem 0;
+  }
+
+  .proveedorPillTextContainer {
+    flex-direction: column;
+  }
+
+  .proveedorPillLink {
+    margin-top: 1rem;
+  }
+
+  /* PROEPUESTA VALOR */
+
+  .valueParrafo {
+    width: 100%;
+    padding-inline: 2rem;
+  }
+
+  .colContainer {
+    flex-direction: column;
+    margin-inline: 2rem;
+  }
+
+  /* CONTACTO */
+
+  .contactoParrafo {
+    width: 100%;
+    padding-inline: 2rem;
+  }
+}

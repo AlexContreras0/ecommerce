@@ -1,0 +1,29 @@
+@value colors: '../../styles/colors.module.css';
+@value azul, blanco, beige from colors;
+
+.socialNav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.socialIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: beige;
+  transition: fill 0.3s;
+}
+
+.socialIcon:hover {
+  scale: (1.1);
+}
+
+.subLink {
+  color: blanco;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.subLink:hover {
+  color: azul;
+}

@@ -1,0 +1,95 @@
+@value colors: './colors.module.css';
+@value azul, blanco from colors;
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  margin: 2rem auto;
+  width: 70%;
+  background-color: azul;
+  border-radius: 10px;
+  position: relative;
+}
+
+.leftContainer {
+  width: 50%;
+  color: blanco;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.title {
+  composes: title from "mixins.module.css";
+  margin-bottom: 1rem;
+}
+
+.infoContainer {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.info {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.socialLink {
+  color: blanco;
+  text-decoration: none;
+}
+
+.infoIcon {
+  width: 2rem;
+  height: 2rem;
+}
+
+.SocialNavMenuComponent {
+  position: absolute;
+  bottom: 10%;
+}
+
+.infoContainerMobile {
+  display: none;
+}
+
+.SocialNavMenuComponentMobile {
+  display: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    width: 90%;
+    height: 100%;
+    position: inherit;
+  }
+  .leftContainer {
+    width: 100%;
+    margin-top: 0;
+    gap: 0;
+    margin-bottom: 2rem;
+  }
+  .infoContainer {
+    display: none;
+  }
+  .info {
+    gap: 0.5rem;
+  }
+  .SocialNavMenuComponent {
+    display: none;
+  }
+  .SocialNavMenuComponentMobile {
+    display: block;
+    padding-top: 2rem;
+  }
+}

@@ -1,0 +1,134 @@
+@value colors: '../../styles/colors.module.css';
+@value azul, gris, naranja, negro, beige, blanco, rojo from colors;
+
+.body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-block: 5rem;
+  background-color: blanco;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 25%;
+  padding: 2rem;
+  border-radius: 10px;
+  background-color: azul;
+  color: blanco;
+}
+.title {
+  composes: title from "../../styles/mixins.module.css";
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  align-items: center;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  border: none;
+  background-color: beige;
+  padding: 1rem 1rem;
+  color: negro;
+  border-radius: 5px;
+  outline: none;
+  position: relative;
+}
+.field:focus {
+  outline-color: azul;
+}
+
+.passwordContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  border: none;
+  background-color: beige;
+  color: #000;
+  border-radius: 5px;
+  position: relative;
+}
+
+.passwordIcon {
+  position: relative;
+  width: 1.5rem;
+  height: auto;
+  right: 50%;
+  stroke: azul;
+}
+
+.submitButton {
+  composes: botonBlanco from "../../styles/mixins.module.css";
+}
+
+.submitButton:hover {
+  background-color: naranja;
+  color: blanco;
+}
+
+.passwordLink {
+  color: gris;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.8rem;
+}
+
+.signUp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: blanco;
+}
+
+.link {
+  color: naranja;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.error {
+  color: rojo;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.errorUl {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+@media screen and (max-width: 1280px) {
+  .container {
+    max-width: 40%;
+  }
+  .title,
+  .passwordLink,
+  .signUp,
+  .link {
+    text-align: center;
+  }
+}

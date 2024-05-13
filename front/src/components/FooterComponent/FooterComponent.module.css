@@ -1,0 +1,87 @@
+@value colors: '../../styles/colors.module.css';
+@value azul, naranja, beige, blanco from colors;
+
+.backContainer {
+  background-color: azul;
+}
+
+.container {
+  composes: box from "../../styles/mixins.module.css";
+  display: flex;
+  justify-content: space-between;
+  padding: 3rem 0;
+  background-color: azul;
+  color: blanco;
+  text-decoration: none;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.subTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.subLink {
+  color: blanco;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.subLink:hover {
+  color: naranja;
+}
+
+.logoAutoPlak {
+  width: auto;
+  height: 5rem;
+  fill: blanco;
+}
+
+.logoAutoPlak:hover {
+  fill: naranja;
+}
+
+.socialNav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.socialIcon {
+  width: 2rem;
+  height: 2rem;
+  fill: blanco;
+  transition: fill 0.3s;
+}
+
+.socialIcon:hover {
+  fill: azul;
+}
+
+@media all and (min-width: 768px) and (max-width: 1280px) {
+  .container {
+    padding-inline: 2rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .column {
+    align-items: center;
+  }
+
+  .linkLogoAutoPlak {
+    display: none;
+  }
+}

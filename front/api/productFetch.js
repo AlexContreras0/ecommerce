@@ -34,7 +34,7 @@ export const updateProduct = async (id, bodyParam) => {
         console.log(productUpdated.error);
         return;
     }
-    console.log(productUpdated);
+
     return;
 };
 
@@ -48,6 +48,6 @@ export const createProduct = async (bodyParam) => {
     if (productCreated.error) {
         return productCreated.error;
     }
-    console.log(productCreated);
+
     return;
 };

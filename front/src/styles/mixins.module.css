@@ -1,0 +1,127 @@
+@value colors: 'colors.module.css';
+@value azul, naranja, beige, blanco from colors;
+
+/* CAJA */
+
+.box {
+  max-inline-size: 1160px;
+  margin-inline: auto;
+}
+
+/* TEXTOS */
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.subtitle {
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+  width: 60%;
+}
+
+.paragraph {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+/* BOTONES Y ENLACES */
+
+.botonazul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: azul;
+  color: blanco;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s all ease-in-out;
+}
+
+.botonazulHover {
+  background-color: naranja;
+  color: blanco;
+}
+
+.botonBlanco {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: blanco;
+  color: azul;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s all ease-in-out;
+}
+
+.botonBlancoHover {
+  background-color: naranja;
+  color: blanco;
+}
+
+.botonnaranja {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: naranja;
+  color: blanco;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s all ease-in-out;
+}
+
+.botonnaranjaHover {
+  background-color: azul;
+  color: blanco;
+}
+
+.linkazul {
+  display: flex;
+  align-items: center;
+  color: azul;
+  text-decoration: underline;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s all ease-in-out;
+}
+
+.linkMisionHover {
+  color: naranja;
+}
+
+.linknaranja {
+  display: flex;
+  align-items: center;
+  color: naranja;
+  text-decoration: underline;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s all ease-in-out;
+}
+
+.linkMisionHover {
+  color: blanco;
+}

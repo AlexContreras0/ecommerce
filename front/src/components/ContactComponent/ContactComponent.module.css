@@ -1,0 +1,95 @@
+@value colors: '../../styles/colors.module.css';
+@value azul, naranja, beige, blanco from colors;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: blanco;
+  padding: 2rem;
+  border-radius: 10px;
+  margin: 2rem;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.input {
+  height: 2rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  background-color: #d1e3f3;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.input::placeholder {
+  color: azul;
+}
+
+.messageInput {
+  height: 10rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  background-color: #d1e3f3;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.messageInput::placeholder {
+  color: azul;
+}
+
+.checkboxContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.checkbox {
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+  border: none;
+  background-color: naranja;
+}
+
+.checkboxLabel {
+  font-size: 1rem;
+  color: naranja;
+}
+
+.submitButton {
+  composes: botonazul from "../../styles/mixins.module.css";
+}
+
+.submitButton:hover {
+  background-color: naranja;
+  color: blanco;
+}
+
+@media screen and (max-width: 550px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: blanco;
+    padding: 2rem;
+    border-radius: 10px;
+    margin: 0;
+  }
+  .checkboxContainer {
+    text-align: start;
+    width: 100%;
+  }
+}

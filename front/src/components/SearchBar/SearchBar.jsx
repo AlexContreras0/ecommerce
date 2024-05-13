@@ -1,54 +1,53 @@
-import React, { useState, useEffect, use } from "react";
+import React, { useState, useEffect } from "react";
 
-export default function SearchBar() {
+const SearchComponent = () => {
+  //setear los hooks useState
+  const [products, setProducts] = useState([]);
   const [search, setSearch] = useState("");
-  const [results, setResults] = useState([]);
 
-  // funcion para traer los datos
-  const getResults = async () => {
-    const response = await fetch(
-      `http://localhost:3000/api/products?name=${search}`
-    );
+  //función para traer los datos de la API
+  const URL = "http://localhost:9000/products/";
+
+  const showData = async () => {
+    const response = await fetch(URL);
     const data = await response.json();
-    setResults(data);
+    setProducts(data);
   };
 
-  // Funcion de busqueda
-  const handleSearch = (e) => {
+  //función de búsqueda
+  const searcher = (e) => {
     setSearch(e.target.value);
-    console.log(e.target.value);
   };
 
-  // Metodo de filtrado 1
-  if (!search) {
-    return results;
-  } else {
-    results.filter((product) => {
-      return product.productName.toLowerCase().includes(search.toLowerCase());
-    });
-  }
+  //metodo de filtrado
+  const results = !search
+    ? products
+    : products.filter((dato) =>
+        dato.name.toLowerCase().includes(search.toLocaleLowerCase())
+      );
 
   useEffect(() => {
-    getResults();
-  }, [search]);
+    showData();
+  }, []);
 
+  //renderizamos la vista
   return (
     <div>
       <input
         value={search}
-        onChange={handleSearch}
+        onChange={searcher}
         type="text"
-        placeholder="Buscar"
+        placeholder="Search"
+        className="form-control"
       />
-
-      {results.map((product) => {
-        return (
-          <div>
-            <h2>{product.productName}</h2>
-            <p>{product.productPrice}</p>
-          </div>
-        );
-      })}
+      <div>
+        {Object.keys(results).map((key) => (
+          <p key={results[key].id}>
+            <p>{results[key].productName}</p>
+          </p>
+        ))}
+      </div>
     </div>
   );
-}
+};
+export default SearchComponent;
