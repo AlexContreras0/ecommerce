@@ -1,5 +1,5 @@
 @value colors: 'colors.module.css';
-@value azul, naranja, beige, blanco from colors;
+@value verde, moradoClaro, moradoClaro, blanco from colors;
 
 /* CAJA */
 
@@ -29,24 +29,24 @@
 
 /* BOTONES Y ENLACES */
 
-.botonazul {
+.botonverde {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
   padding: 0.5rem 1rem;
-  background-color: azul;
+  background-color: verde;
   color: blanco;
   font-size: 1rem;
   font-weight: 600;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
   transition: 0.3s all ease-in-out;
 }
 
-.botonazulHover {
-  background-color: naranja;
+.botonverdeHover {
+  background-color: moradoClaro;
   color: blanco;
 }
 
@@ -57,67 +57,67 @@
   gap: 0.5rem;
   padding: 0.5rem 1rem;
   background-color: blanco;
-  color: azul;
+  color: verde;
   font-size: 1rem;
   font-weight: 600;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
   transition: 0.3s all ease-in-out;
 }
 
 .botonBlancoHover {
-  background-color: naranja;
+  background-color: moradoClaro;
   color: blanco;
 }
 
-.botonnaranja {
+.botonmoradoClaro {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
   padding: 0.5rem 1rem;
-  background-color: naranja;
+  background-color: moradoClaro;
   color: blanco;
   font-size: 1rem;
   font-weight: 600;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
   transition: 0.3s all ease-in-out;
 }
 
-.botonnaranjaHover {
-  background-color: azul;
+.botonmoradoClaroHover {
+  background-color: verde;
   color: blanco;
 }
 
-.linkazul {
+.linkverde {
   display: flex;
   align-items: center;
-  color: azul;
+  color: verde;
   text-decoration: underline;
   font-size: 1rem;
   font-weight: 600;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
   transition: 0.3s all ease-in-out;
 }
 
 .linkMisionHover {
-  color: naranja;
+  color: moradoClaro;
 }
 
-.linknaranja {
+.linkmoradoClaro {
   display: flex;
   align-items: center;
-  color: naranja;
+  color: moradoClaro;
   text-decoration: underline;
   font-size: 1rem;
   font-weight: 600;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
   transition: 0.3s all ease-in-out;
 }

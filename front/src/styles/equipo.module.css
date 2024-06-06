@@ -1,8 +1,8 @@
 @value colors: './colors.module.css';
-@value azul, blanco from colors;
+@value verde, blanco from colors;
 
 .box {
-  background-color: azul;
+  background-color: verde;
 }
 
 .container {

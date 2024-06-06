@@ -18,7 +18,7 @@ export const getCartById = async (id) => {
   if (cart.status == "failed") {
     return;
   }
-  return cart
+  return cart;
 };
 
 // Hay que arreglar el token y refresh token para que se pasen por parámetros de la forma correcta
@@ -29,11 +29,11 @@ export const getCartById = async (id) => {
 export const addNewProductToCart = async (id, bodyParam) => {
   const response = await fetch("http://localhost:9000/carts/" + id, {
     method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        "auth-token": localStorage.getItem("tokenRefresh"),
-        "auth-token-refresh": localStorage.getItem("tokenRefresh"),
-      }
+    headers: {
+      "Content-Type": "application/json",
+      "auth-token": localStorage.getItem("tokenRefresh"),
+      "auth-token-refresh": localStorage.getItem("tokenRefresh"),
+    },
   });
   const cartExisted = await response.json();
   if (cartExisted.status == "failed") {
@@ -68,19 +68,22 @@ export const deleteCartProduct = async (idUser, bodyParam) => {
   const responseIfUser = await fetch("http://localhost:9000/carts/" + idUser);
   const cartExisted = await responseIfUser.json();
   if (cartExisted.status == "succeeded") {
-    const idCart = cartExisted.data._id
-  const response = await fetch("http://localhost:9000/carts/deleteProduct/" + idCart, {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: bodyParam,
-  })
-  const productDelete = await response.json()
-  if(productDelete.error) {
-    console.log(productDelete.error)
-    alert("No se ha podido borrar el producto del carrito")
-    return
+    const idCart = cartExisted.data._id;
+    const response = await fetch(
+      "http://localhost:9000/carts/deleteProduct/" + idCart,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: bodyParam,
+      }
+    );
+    const productDelete = await response.json();
+    if (productDelete.error) {
+      console.log(productDelete.error);
+      toast.su("No se ha podido borrar el producto del carrito");
+      return;
+    }
+    alert("El producto ha sido borrado del carrito");
+    return;
   }
-  alert("El producto ha sido borrado del carrito")
-  return
-}
-}
+};

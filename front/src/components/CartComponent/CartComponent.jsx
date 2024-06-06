@@ -6,13 +6,18 @@ import DeleteCartComponent from "../DeleteCartComponent/DeleteCartComponent";
 import styles from "./CartComponent.module.css";
 
 export default function CartComponent() {
-  const userLocalStorage = JSON.parse(localStorage.getItem("user"));
+  const router = useRouter();
+  const userLocalStorage =
+    typeof window !== "undefined"
+      ? JSON.parse(localStorage.getItem("user"))
+      : null;
   const [cart, setCart] = useState([]);
   const [productsCart, setProductsCart] = useState({});
   const [cartComplet, setCartComplet] = useState(false);
-  const router = useRouter();
 
   useEffect(() => {
+    if (!userLocalStorage) return; // Ensure userLocalStorage is defined
+
     let cartAux = {};
     let productData = {};
     let cartProductWithPriceAndImage = [];
@@ -55,22 +60,24 @@ export default function CartComponent() {
         </h2>
         <div className={styles.data}>
           <p>Fecha: </p>
-          {new Date(cart.cartDate).toLocaleString()}
+          {cart && cart.cartDate
+            ? new Date(cart.cartDate).toLocaleString()
+            : ""}
         </div>
 
         <div className={styles.cartDataContainer}>
           <div className={styles.cartData}>
             <p>Estado:</p>
-            {cart.cartStatus}
+            {cart && cart.cartStatus ? cart.cartStatus : ""}
           </div>
           <div className={styles.cartData}>
             <p>Precio total:</p>
-            {cart.cartTotalPrice}€
+            {cart && cart.cartTotalPrice ? `${cart.cartTotalPrice}€` : ""}
           </div>
         </div>
       </div>
 
-      {cart.cartProducts && cartComplet && (
+      {cart && cart.cartProducts && cartComplet && (
         <div className={styles.productDataContainer}>
           {cart.cartProducts.map((product, index) => {
             return (
@@ -86,7 +93,7 @@ export default function CartComponent() {
                   </div>
                   <div className={styles.data}>
                     <p>Valoración:</p>
-                    {product.productRating}
+                    {product.productRating} / 10
                   </div>
                   <div className={styles.data}>
                     <p>Cantidad:</p>

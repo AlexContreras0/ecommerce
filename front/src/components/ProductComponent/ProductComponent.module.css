@@ -1,5 +1,5 @@
 @value colors: '../../styles/colors.module.css';
-@value azul, naranja, negro, beige, blanco, azulClaro from colors;
+@value verde, moradoClaro, negro, moradoClaro, blanco, verdeClaro from colors;
 
 .body {
   padding-block: 2rem;
@@ -23,18 +23,25 @@
   gap: 1rem;
 }
 
+.principalImageContainer {
+  border: 1px solid verdeClaro;
+  border-radius: 8px;
+  height: 500px;
+  width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .image {
-  padding: 2rem;
-  border: 1px solid azulClaro;
-  border-radius: 10px;
-  width: auto;
-  height: 400px;
+  max-height: 470px;
+  max-width: 370px;
 }
 
 .imageDetailsContainer {
   display: flex;
   flex-direction: column;
-  height: 400px;
+  height: 500px;
   width: auto;
   gap: 1rem;
   overflow-y: scroll;
@@ -43,12 +50,12 @@
 
 .imageDetailsContainer::-webkit-scrollbar {
   width: 12px;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
 .imageDetailsContainer::-webkit-scrollbar-thumb {
-  background-color: azulClaro;
-  border-radius: 10px;
+  background-color: verdeClaro;
+  border-radius: 8px;
   border: 3px solid blanco;
 }
 
@@ -62,13 +69,13 @@
   height: 90px;
   transition: 0.5s;
   cursor: pointer;
-  border: 1px solid azulClaro;
-  border-radius: 10px;
+  border: 1px solid verdeClaro;
+  border-radius: 8px;
   padding: 0.5rem;
 }
 
 .imageDetails:hover {
-  border: 1px solid azul;
+  border: 1px solid verde;
 }
 
 .infoContainer {
@@ -102,7 +109,7 @@
 }
 
 .cartButton {
-  composes: botonazul from "../../styles/mixins.module.css";
+  composes: botonverde from "../../styles/mixins.module.css";
 
   gap: 1rem;
 }
@@ -113,7 +120,7 @@
 }
 
 .cartButton:hover {
-  background-color: naranja;
+  background-color: moradoClaro;
   color: blanco;
 }
 
@@ -121,9 +128,9 @@
   composes: botonBlanco from "../../styles/mixins.module.css";
 
   gap: 1rem;
-  stroke: naranja;
-  border: 1.5px solid naranja;
-  color: naranja;
+  stroke: moradoClaro;
+  border: 1.5px solid moradoClaro;
+  color: moradoClaro;
 }
 
 .wishIcon {
@@ -131,7 +138,7 @@
 }
 
 .wishButton:hover {
-  background-color: naranja;
+  background-color: moradoClaro;
   color: blanco;
   stroke: blanco;
 }
@@ -144,7 +151,7 @@
 
 .tagIcon {
   width: 20px;
-  stroke: naranja;
+  stroke: moradoClaro;
 }
 
 .descriptionTitle {
@@ -161,6 +168,18 @@
 
 .imageContainerMobile {
   display: none;
+}
+
+.backButton {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin-left: 80px;
+}
+
+.backButtonIcon {
+  width: 40px;
+  color: verde;
 }
 
 @media screen and (max-width: 768px) {
@@ -186,10 +205,18 @@
     gap: 1rem;
   }
 
+  .principalImageMobileContainer {
+    border: 1px solid verdeClaro;
+    border-radius: 8px;
+    height: 300px;
+    width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .imageMobile {
     padding: 1rem;
-    border: 1px solid azulClaro;
-    border-radius: 10px;
   }
 
   .imageDetailsContainerMobile {
@@ -207,13 +234,13 @@
     height: 90px;
     transition: 0.5s;
     cursor: pointer;
-    border: 1px solid azulClaro;
-    border-radius: 10px;
+    border-radius: 8px;
     padding: 0.5rem;
+    border: 1px solid verdeClaro;
   }
 
   .imageDetailsMobile:hover {
-    border: 1px solid azul;
+    border: 1px solid verde;
   }
 
   .infoContainer {

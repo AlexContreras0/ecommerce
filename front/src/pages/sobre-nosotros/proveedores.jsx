@@ -1,4 +1,3 @@
-import NavMenu from "@/components/NavMenu/NavMenu";
 import React, { useEffect } from "react";
 import styles from "../../styles/proveedores.module.css";
 import FooterComponent from "@/components/FooterComponent/FooterComponent";
@@ -32,7 +31,6 @@ export default function page() {
 
   return (
     <div className={styles.root}>
-      <NavMenu />
       <div className={`${styles.container} ${styles.box}`}>
         <h1 className={styles.title}>Conoce a nuestros proveedores</h1>
         <div className={styles.body}>

@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styles from "./ProductComponent.module.css";
 import ItemCount from "../ItemCount/ItemCount";
 import StarRatingComponent from "../StarRatingComponent/StarRatingComponent";
-import LoginFormAddComponent from "../LoginFormAddComponent/LoginFormAddComponent";
 import { addNewProductToCart, addProductToCart } from "../../../api/cartFetch";
+import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 
 export default function ProductComponent(props) {
   const { product, isUserLoged, setIsUserLoged, token, setToken } = props;
@@ -16,7 +18,7 @@ export default function ProductComponent(props) {
   let tokenRefreshLocalStorage = JSON.parse(
     localStorage.getItem("tokenRefresh")
   );
-  console.log(userLocalStorage.data.user._id, product._id);
+  console.log(userLocalStorage?.data?.user?._id, product._id);
 
   const selectImage = (index) => {
     setImageIndex(index);
@@ -24,7 +26,7 @@ export default function ProductComponent(props) {
 
   const addToCart = async () => {
     if (count == 0) {
-      alert("Debe de seleccionar una cantidad");
+      toast.warn("Debe de seleccionar una cantidad");
     } else {
       if (isUserLoged) {
         const token = localStorage.getItem("token");
@@ -39,10 +41,10 @@ export default function ProductComponent(props) {
           })
         );
         if (cart.status == "succeded") {
-          alert("El producto ha sido añadido al carrito");
+          toast.success("El producto ha sido añadido al carrito");
         }
       } else {
-        alert("No se ha podido añadir el producto al carrito al carrito");
+        toast.error("No se ha podido añadir el producto al carrito al carrito");
       }
     }
   };
@@ -51,8 +53,21 @@ export default function ProductComponent(props) {
     // Hacer logica para añadir a la lista de deseos
   };
 
+  const handleBack = () => {
+    window.history.back();
+  };
+
   return (
     <div className={styles.body}>
+      <ToastContainer />
+      <button className={styles.backButton} onClick={handleBack}>
+        <svg className={styles.backButtonIcon} viewBox="0 0 24 24">
+          <path
+            fill="currentColor"
+            d="m10 18l-6-6l6-6l1.4 1.45L7.85 11H20v2H7.85l3.55 3.55z"
+          />
+        </svg>
+      </button>
       <section className={styles.container}>
         <div className={styles.imageContainer}>
           {product.productImage && product.productImage.length > 0 ? (
@@ -68,11 +83,13 @@ export default function ProductComponent(props) {
                   />
                 ))}
               </div>
-              <img
-                className={styles.image}
-                src={product.productImage[imageIndex]}
-                alt="imagen producto"
-              />
+              <div className={styles.principalImageContainer}>
+                <img
+                  className={styles.image}
+                  src={product.productImage[imageIndex]}
+                  alt="imagen producto"
+                />
+              </div>
             </>
           ) : (
             <p>No hay imágenes disponibles</p>
@@ -84,11 +101,13 @@ export default function ProductComponent(props) {
           <div className={styles.imageContainerMobile}>
             {product.productImage && product.productImage.length > 0 ? (
               <>
-                <img
-                  className={styles.imageMobile}
-                  src={product.productImage[imageIndex]}
-                  alt="imagen producto"
-                />
+                <div className={styles.principalImageMobileContainer}>
+                  <img
+                    className={styles.imageMobile}
+                    src={product.productImage[imageIndex]}
+                    alt="imagen producto"
+                  />
+                </div>
                 <div className={styles.imageDetailsContainerMobile}>
                   {product.productImage.map((img, index) => (
                     <img

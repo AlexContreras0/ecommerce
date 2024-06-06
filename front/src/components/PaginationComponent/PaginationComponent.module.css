@@ -1,5 +1,5 @@
 @value colors: '../../styles/colors.module.css';
-@value naranja from colors;
+@value moradoClaro from colors;
 
 .container {
   display: flex;
@@ -13,17 +13,17 @@
   padding: 0.5rem 1rem;
   border: 1px solid #2d37482b;
   border-radius: 0.25rem;
-  color: naranja;
+  color: moradoClaro;
   cursor: pointer;
   transition: all 0.3s;
 }
 
 .paginationLink:hover {
-  border: 1px solid naranja;
+  border: 1px solid moradoClaro;
 }
 
 .svg {
   width: 1.5rem;
   height: 1.5rem;
-  fill: naranja;
+  fill: moradoClaro;
 }

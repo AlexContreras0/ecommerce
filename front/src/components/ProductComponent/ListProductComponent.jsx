@@ -18,10 +18,6 @@ export default function ListProductComponent(props) {
       <img className={styles.image} src={imagenParam[0]}></img>
       <h2 className={styles.name}>{nombreParam}</h2>
       <p className={styles.price}>{priceParam}€</p>
-      <p className={styles.rating}>
-        <span className={styles.span}>Puntuación: </span>
-        {ratingParam}/10
-      </p>
       <Link
         className={styles.link}
         href={{

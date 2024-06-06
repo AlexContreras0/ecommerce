@@ -1,8 +1,8 @@
 @value colors: '../../styles/colors.module.css';
-@value azul, naranja, beige, blanco, rojo from colors;
+@value verde, moradoClaro, blanco, morado from colors;
 
 .backBody {
-  background-color: azul;
+  background-color: verde;
 }
 
 .body {
@@ -13,7 +13,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 2rem 0;
-  background-color: azul;
+  background-color: verde;
   composes: box from "../../styles/mixins.module.css";
 }
 
@@ -47,11 +47,12 @@
 }
 
 .link:hover {
-  color: naranja;
-  fill: naranja;
+  transition: all 0.3s;
+  color: moradoClaro;
+  fill: moradoClaro;
 }
 
-.logoAutoPlak {
+.logo {
   width: auto;
   height: 5rem;
 }
@@ -63,7 +64,7 @@
 }
 
 .cartIcon:hover {
-  fill: naranja;
+  fill: moradoClaro;
 }
 
 .mobileCart {
@@ -89,8 +90,8 @@
   left: 0;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  background-color: azul;
-  border-radius: 5px;
+  background-color: verde;
+  border-radius: 8px;
 }
 
 .navList ul li {
@@ -100,7 +101,7 @@
 }
 
 .subLink:hover {
-  color: naranja;
+  color: moradoClaro;
 }
 
 .subLink {
@@ -155,7 +156,7 @@
     flex-direction: column;
     gap: 2rem;
     position: absolute;
-    background-color: azul;
+    background-color: verde;
     left: 0;
     margin-top: 2rem;
     padding: 1rem;
@@ -172,7 +173,7 @@
   .navList ul {
     position: static;
     display: none;
-    background-color: azul;
+    background-color: verde;
     gap: 0.5rem;
   }
 

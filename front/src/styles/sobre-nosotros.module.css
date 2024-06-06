@@ -1,9 +1,9 @@
 @value colors: 'colors.module.css';
-@value azul, naranja, beige, blanco, negro from colors;
+@value verde, moradoClaro, morado, blanco, negro from colors;
 
 .container {
   background-color: blanco;
-  color: naranja;
+  color: moradoClaro;
 }
 
 /* CABECERA */
@@ -18,35 +18,35 @@
   composes: box from "mixins.module.css";
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 3rem;
   padding: 4rem 0;
 }
 
 .tituloCabecera {
   composes: title from "mixins.module.css";
-  color: blanco;
+  color: moradoClaro;
 }
 
 .parrafoCabecera {
   composes: paragraph from "mixins.module.css";
   max-width: 640px;
-  color: blanco;
+  color: moradoClaro;
 }
 
 .linkCabecera {
-  composes: botonazul from "mixins.module.css";
+  composes: botonverde from "mixins.module.css";
   max-width: 20%;
 }
 
 .linkCabecera:hover {
-  background-color: naranja;
+  background-color: moradoClaro;
   color: blanco;
 }
 
 /* MISION */
 
 .backMisionContainer {
-  background-color: azul;
+  background-color: verde;
 }
 
 .misionContainer {
@@ -65,7 +65,7 @@
 
 .tituloMision {
   composes: title from "mixins.module.css";
-  color: naranja;
+  color: moradoClaro;
 }
 
 .parrafoMision {
@@ -75,7 +75,7 @@
 }
 
 .linkMision {
-  composes: linknaranja from "mixins.module.css";
+  composes: linkmoradoClaro from "mixins.module.css";
 }
 
 .linkMision:hover {
@@ -83,7 +83,7 @@
 }
 
 .imgMision {
-  border-radius: 10px;
+  border-radius: 8px;
   width: 640px;
   height: 360px;
 }
@@ -109,7 +109,7 @@
 
 .tituloProveedor {
   composes: title from "mixins.module.css";
-  color: azul;
+  color: verde;
 }
 
 .parrafoProveedor {
@@ -118,15 +118,15 @@
 }
 
 .linkProveedor {
-  composes: linkazul from "mixins.module.css";
+  composes: linkverde from "mixins.module.css";
 }
 
 .linkProveedor:hover {
-  color: naranja;
+  color: moradoClaro;
 }
 
 .imgProveedor {
-  border-radius: 10px;
+  border-radius: 8px;
   width: 640px;
   height: 360px;
 }
@@ -134,7 +134,7 @@
 /* PILL PROVEEDOR */
 
 .backProveedorPillContainer {
-  background-color: azul;
+  background-color: verde;
   padding-top: 4rem;
 }
 
@@ -142,9 +142,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: naranja;
+  background-color: moradoClaro;
   color: blanco;
-  border-radius: 10px;
+  border-radius: 8px;
   margin-inline: 20%;
   padding: 2rem 5rem;
 }
@@ -169,14 +169,14 @@
 }
 
 .proveedorPillLink:hover {
-  background-color: azul;
+  background-color: verde;
   color: blanco;
 }
 
 /* PROEPUESTA VALOR */
 
 .backValueContainer {
-  background-color: azul;
+  background-color: verde;
 }
 
 .valueContainer {
@@ -215,7 +215,7 @@
   padding-block: 2rem;
   padding-inline: 3rem;
   box-shadow: #2d374810 5px 5px 10px 5px;
-  border-radius: 10px;
+  border-radius: 8px;
   background-color: blanco;
   transition: all 0.2s ease-in-out;
 }
@@ -227,21 +227,21 @@
 
 .tituloValueCol {
   composes: title from "mixins.module.css";
-  color: naranja;
+  color: moradoClaro;
   font-size: 1.5rem;
 }
 
 .parrafoValueCol {
   composes: paragraph from "mixins.module.css";
-  color: azul;
+  color: verde;
 }
 
 .linkValueCol {
-  composes: linkazul from "mixins.module.css";
+  composes: linkverde from "mixins.module.css";
 }
 
 .linkValueCol:hover {
-  color: naranja;
+  color: moradoClaro;
 }
 
 /* CONTACTO */
@@ -253,7 +253,7 @@
   align-items: center;
   gap: 2rem;
   padding: 4rem 0;
-  color: azul;
+  color: verde;
 }
 
 .contactoTitulo {
@@ -265,11 +265,11 @@
 }
 
 .contactoLink {
-  composes: botonnaranja from "mixins.module.css";
+  composes: botonmoradoClaro from "mixins.module.css";
 }
 
 .contactoLink:hover {
-  background-color: azul;
+  background-color: verde;
   color: blanco;
 }
 
@@ -296,7 +296,7 @@
   }
 
   .imgMision {
-    border-radius: 10px;
+    border-radius: 8px;
     max-width: 100%;
     max-height: auto;
     margin-bottom: 1rem;
@@ -317,7 +317,7 @@
   }
 
   .imgProveedor {
-    border-radius: 10px;
+    border-radius: 8px;
     max-width: 100%;
     max-height: auto;
   }
@@ -370,7 +370,7 @@
   }
 
   .linkCabecera {
-    composes: botonazul from "mixins.module.css";
+    composes: botonverde from "mixins.module.css";
     max-width: 100%;
   }
 
@@ -390,7 +390,7 @@
   }
 
   .imgMision {
-    border-radius: 10px;
+    border-radius: 8px;
     height: 80%;
   }
 
@@ -411,7 +411,7 @@
   }
 
   .imgProveedor {
-    border-radius: 10px;
+    border-radius: 8px;
     width: 100%;
     height: auto;
   }

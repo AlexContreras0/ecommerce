@@ -10,8 +10,6 @@ export default function page() {
 
   return (
     <div>
-      <NavMenu />
-
       <FooterComponent />
     </div>
   );

@@ -1,5 +1,5 @@
 @value colors: '../../styles/colors.module.css';
-@value azul, naranja, beige, blanco, grisClaro from colors;
+@value verde, morado, blanco, moradoClaro from colors;
 
 .box {
 }
@@ -27,16 +27,26 @@
 
 .title {
   composes: title from "../../styles/mixins.module.css";
-  color: azul;
+  color: verde;
   margin-bottom: 1rem;
 }
 
 .buttonEdit {
-  composes: botonazul from "../../styles/mixins.module.css";
+  composes: botonverde from "../../styles/mixins.module.css";
 }
 
 .buttonEdit:hover {
-  background-color: naranja;
+  background-color: moradoClaro;
+  color: blanco;
+}
+
+.buttonLogout {
+  composes: botonverde from "../../styles/mixins.module.css";
+  background-color: moradoClaro;
+}
+
+.buttonLogout:hover {
+  background-color: morado;
   color: blanco;
 }
 
@@ -60,7 +70,13 @@
 }
 
 .data {
+  border: 1px solid verde;
+  border-radius: 5px;
+  padding: 10px 10px;
+  width: fit-content;
+  max-width: 500px;
   display: flex;
+  flex-wrap: wrap;
   gap: 0.2rem;
 }
 
@@ -69,16 +85,19 @@
 }
 
 .inputEdit {
-  padding-inline: 10px;
-  padding-block: 5px;
+  border: 1px solid verde;
   border-radius: 5px;
-  border: 1px solid;
-  outline: none;
+  padding: 10px 10px;
+  width: fit-content;
+  max-width: 500px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem;
 }
 
 .inputEdit:focus {
   outline: none;
-  border: 1px solid naranja;
+  border: 1px solid moradoClaro;
 }
 
 @media all and (max-width: 1280px) {

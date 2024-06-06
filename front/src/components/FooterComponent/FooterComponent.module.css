@@ -1,8 +1,8 @@
 @value colors: '../../styles/colors.module.css';
-@value azul, naranja, beige, blanco from colors;
+@value verde, moradoClaro, moradoClaro, blanco from colors;
 
 .backContainer {
-  background-color: azul;
+  background-color: verde;
 }
 
 .container {
@@ -10,7 +10,7 @@
   display: flex;
   justify-content: space-between;
   padding: 3rem 0;
-  background-color: azul;
+  background-color: verde;
   color: blanco;
   text-decoration: none;
 }
@@ -34,17 +34,17 @@
 }
 
 .subLink:hover {
-  color: naranja;
+  color: moradoClaro;
 }
 
-.logoAutoPlak {
+.logo {
   width: auto;
   height: 5rem;
   fill: blanco;
 }
 
-.logoAutoPlak:hover {
-  fill: naranja;
+.logo:hover {
+  fill: moradoClaro;
 }
 
 .socialNav {
@@ -61,7 +61,7 @@
 }
 
 .socialIcon:hover {
-  fill: azul;
+  fill: verde;
 }
 
 @media all and (min-width: 768px) and (max-width: 1280px) {
@@ -81,7 +81,7 @@
     align-items: center;
   }
 
-  .linkLogoAutoPlak {
+  .linklogo {
     display: none;
   }
 }

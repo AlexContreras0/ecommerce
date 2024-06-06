@@ -1,7 +1,4 @@
 import React, { useEffect, useState } from "react";
-import styles from "./ProductComponent.module.css";
-import ItemCount from "../ItemCount/ItemCount";
-import StarRatingComponent from "../StarRatingComponent/StarRatingComponent";
 import LoginFormAddComponent from "../LoginFormAddComponent/LoginFormAddComponent";
 import ProductComponent from "./ProductComponent";
 
@@ -44,16 +41,12 @@ export default function ProductDetailComponent(props) {
           product={product}
           isUserLoged={isUserLoged}
           setIsUserLoged={setIsUserLoged}
-          // token={token}
-          // setToken={setToken}
         />
       ) : (
         <LoginFormAddComponent
           product={product}
           isUserLoged={isUserLoged}
           setIsUserLoged={setIsUserLoged}
-          // token={token}
-          // setToken={setToken}
           user={user}
           setUser={setUser}
           userData={userData}
