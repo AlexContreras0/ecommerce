@@ -1,5 +1,5 @@
 @value colors: '../../styles/colors.module.css';
-@value azul, gris, naranja, negro, beige, blanco, rojo from colors;
+@value verde, verdeClaro, negro, moradoClaro, blanco, morado from colors;
 
 .body {
   display: flex;
@@ -17,8 +17,8 @@
   gap: 2rem;
   max-width: 25%;
   padding: 2rem;
-  border-radius: 10px;
-  background-color: azul;
+  border-radius: 8px;
+  background-color: verde;
   color: blanco;
 }
 .title {
@@ -39,15 +39,15 @@
   gap: 0.5rem;
   width: 100%;
   border: none;
-  background-color: beige;
+  background-color: blanco;
   padding: 1rem 1rem;
   color: negro;
-  border-radius: 5px;
+  border-radius: 8px;
   outline: none;
   position: relative;
 }
 .field:focus {
-  outline-color: azul;
+  outline-color: verde;
 }
 
 .passwordContainer {
@@ -56,9 +56,9 @@
   gap: 0.5rem;
   width: 100%;
   border: none;
-  background-color: beige;
+  background-color: blanco;
   color: #000;
-  border-radius: 5px;
+  border-radius: 8px;
   position: relative;
 }
 
@@ -67,7 +67,7 @@
   width: 1.5rem;
   height: auto;
   right: 50%;
-  stroke: azul;
+  stroke: verde;
 }
 
 .submitButton {
@@ -75,12 +75,12 @@
 }
 
 .submitButton:hover {
-  background-color: naranja;
+  background-color: moradoClaro;
   color: blanco;
 }
 
 .passwordLink {
-  color: gris;
+  color: moradoClaro;
   font-weight: 600;
   text-decoration: none;
   font-size: 0.8rem;
@@ -98,13 +98,13 @@
 }
 
 .link {
-  color: naranja;
+  color: moradoClaro;
   font-weight: 600;
   text-decoration: none;
 }
 
 .error {
-  color: rojo;
+  color: morado;
   font-size: 0.8rem;
   font-weight: 600;
 }

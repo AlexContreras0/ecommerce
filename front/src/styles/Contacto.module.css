@@ -1,13 +1,13 @@
 @value colors: './colors.module.css';
-@value azul, blanco from colors;
+@value verde, blanco from colors;
 
 .container {
   display: flex;
   justify-content: space-around;
   margin: 2rem auto;
   width: 70%;
-  background-color: azul;
-  border-radius: 10px;
+  background-color: verde;
+  border-radius: 8px;
   position: relative;
 }
 

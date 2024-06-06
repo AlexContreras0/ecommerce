@@ -1,4 +1,3 @@
-import NavMenu from "@/components/NavMenu/NavMenu";
 import React from "react";
 import styles from "../../styles/contacto.module.css";
 import FooterComponent from "@/components/FooterComponent/FooterComponent";
@@ -8,7 +7,6 @@ import SocialNavMenuComponent from "@/components/SocialNavMenuComponent/SocialNa
 export default function page() {
   return (
     <div>
-      <NavMenu />
       <div className={styles.container}>
         <div className={styles.leftContainer}>
           <div>

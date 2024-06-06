@@ -1,0 +1,167 @@
+[
+  {
+    "id": 1,
+    "idSupplier": 1,
+    "nombre": "Ficus Robusta",
+    "precio": 25,
+    "description": "La planta perfecta para quienes quieren disfrutar de las plantas sin demasiados cuidados",
+    "imagen": [
+      "https://aquaplant.es/wp-content/uploads/2021/03/4FIRO3T07-1.png",
+      "https://aquaplant.es/wp-content/uploads/2021/03/1FIER3T05-1.png",
+      "https://www.flowerland.mt/wp-content/uploads/2020/05/PhotoRoom-20220830_113608.png"
+    ],
+    "category": "Planta interior",
+    "stock": 3,
+    "rating": 8.5
+  },
+  {
+    "id": 2,
+    "idSupplier": 1,
+    "nombre": "Monstera Deliciosa",
+    "precio": 30,
+    "description": "Ideal para interiores con luz indirecta, aporta un toque tropical a cualquier habitación",
+    "imagen": [
+      "https://chelseagardencenter.com/cdn/shop/products/monstera_sm_10_eva_latte_grande.png?v=1714077566",
+      "https://example.com/monstera2.png",
+      "https://example.com/monstera3.png"
+    ],
+    "category": "Planta interior",
+    "stock": 5,
+    "rating": 9.0
+  },
+  {
+    "id": 3,
+    "idSupplier": 2,
+    "nombre": "Aloe Vera",
+    "precio": 20,
+    "description": "Conocida por sus propiedades medicinales, fácil de cuidar y muy resistente",
+    "imagen": [
+      "https://example.com/aloe1.png",
+      "https://example.com/aloe2.png",
+      "https://example.com/aloe3.png"
+    ],
+    "category": "Planta medicinal",
+    "stock": 10,
+    "rating": 8.8
+  },
+  {
+    "id": 4,
+    "idSupplier": 3,
+    "nombre": "Sansevieria Trifasciata",
+    "precio": 15,
+    "description": "Perfecta para purificar el aire y decorar cualquier espacio con su estructura vertical",
+    "imagen": [
+      "https://example.com/sansevieria1.png",
+      "https://example.com/sansevieria2.png",
+      "https://example.com/sansevieria3.png"
+    ],
+    "category": "Planta interior",
+    "stock": 7,
+    "rating": 8.3
+  },
+  {
+    "id": 5,
+    "idSupplier": 2,
+    "nombre": "Pothos",
+    "precio": 18,
+    "description": "Ideal para principiantes, fácil de cuidar y excelente para colgar o enredar",
+    "imagen": [
+      "https://example.com/pothos1.png",
+      "https://example.com/pothos2.png",
+      "https://example.com/pothos3.png"
+    ],
+    "category": "Planta interior",
+    "stock": 12,
+    "rating": 8.7
+  },
+  {
+    "id": 6,
+    "idSupplier": 1,
+    "nombre": "Cactus Saguaro",
+    "precio": 40,
+    "description": "Emblemático cactus del desierto, perfecto para interiores soleados o exteriores secos",
+    "imagen": [
+      "https://example.com/saguaro1.png",
+      "https://example.com/saguaro2.png",
+      "https://example.com/saguaro3.png"
+    ],
+    "category": "Planta exterior",
+    "stock": 2,
+    "rating": 9.2
+  },
+  {
+    "id": 7,
+    "idSupplier": 3,
+    "nombre": "Orquídea Phalaenopsis",
+    "precio": 35,
+    "description": "Elegante y exótica, ideal para decorar interiores con sus flores coloridas y duraderas",
+    "imagen": [
+      "https://example.com/orquidea1.png",
+      "https://example.com/orquidea2.png",
+      "https://example.com/orquidea3.png"
+    ],
+    "category": "Planta interior",
+    "stock": 4,
+    "rating": 8.9
+  },
+  {
+    "id": 8,
+    "idSupplier": 2,
+    "nombre": "Lavanda",
+    "precio": 22,
+    "description": "Aromática y relajante, perfecta para jardines y terrazas soleadas",
+    "imagen": [
+      "https://example.com/lavanda1.png",
+      "https://example.com/lavanda2.png",
+      "https://example.com/lavanda3.png"
+    ],
+    "category": "Planta exterior",
+    "stock": 8,
+    "rating": 9.1
+  },
+  {
+    "id": 9,
+    "idSupplier": 1,
+    "nombre": "Bonsái Ficus",
+    "precio": 45,
+    "description": "Pequeña obra de arte natural, perfecta para interiores y para quienes aman el cuidado meticuloso de las plantas",
+    "imagen": [
+      "https://example.com/bonsai1.png",
+      "https://example.com/bonsai2.png",
+      "https://example.com/bonsai3.png"
+    ],
+    "category": "Planta interior",
+    "stock": 3,
+    "rating": 9.0
+  },
+  {
+    "id": 10,
+    "idSupplier": 3,
+    "nombre": "Helecho Nephrolepis",
+    "precio": 28,
+    "description": "Frondoso y verde, ideal para interiores con alta humedad y luz indirecta",
+    "imagen": [
+      "https://example.com/helecho1.png",
+      "https://example.com/helecho2.png",
+      "https://example.com/helecho3.png"
+    ],
+    "category": "Planta interior",
+    "stock": 6,
+    "rating": 8.6
+  },
+  {
+    "id": 11,
+    "idSupplier": 2,
+    "nombre": "Suculenta Echeveria",
+    "precio": 12,
+    "description": "Planta de bajo mantenimiento, perfecta para interiores con buena iluminación",
+    "imagen": [
+      "https://example.com/echeveria1.png",
+      "https://example.com/echeveria2.png",
+      "https://example.com/echeveria3.png"
+    ],
+    "category": "Planta interior",
+    "stock": 15,
+    "rating": 8.4
+  }
+]

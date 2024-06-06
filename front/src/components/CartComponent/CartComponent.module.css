@@ -1,5 +1,5 @@
 @value colors: '../../styles/colors.module.css';
-@value azul, naranja, beige, blanco, grisClaro from colors;
+@value verde, moradoClaro, morado, blanco, verdeClaro from colors;
 
 .container {
   composes: box from "../../styles/mixins.module.css";
@@ -17,7 +17,7 @@
 
 .titleCart {
   composes: title from "../../styles/mixins.module.css";
-  color: azul;
+  color: verde;
 }
 
 .cartDataContainer {
@@ -28,12 +28,12 @@
 .cartData {
   display: flex;
   gap: 0.5rem;
-  background: beige;
-  color: azul;
+  background: verde;
+  color: blanco;
   font-size: 1.2rem;
   padding-inline: 1rem;
   padding-block: 0.5rem;
-  border-radius: 5px;
+  border-radius: 8px;
 }
 
 .cartData p {
@@ -49,9 +49,9 @@
 
 .infoContainer {
   display: flex;
-  justify-content: space-between;
-  background: beige;
-  border-radius: 5px;
+  background: transparent;
+  border-radius: 8px;
+  border: 1px solid verde;
   padding: 2rem;
 }
 
@@ -63,6 +63,7 @@
 
 .data {
   display: flex;
+  flex-direction: column;
   gap: 0.5rem;
 }
 
@@ -73,16 +74,17 @@
 .imageContainer {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
 }
 
 .productImage {
-  max-height: 200px;
-  width: auto;
+  height: auto;
+  width: 200px;
 }
 
 .idProduct {
+  margin-top: 1rem;
   opacity: 30%;
   font-size: small;
 }

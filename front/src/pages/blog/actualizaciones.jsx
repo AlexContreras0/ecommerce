@@ -5,7 +5,6 @@ import FooterComponent from "@/components/FooterComponent/FooterComponent";
 export default function page() {
   return (
     <div>
-      <NavMenu />
       <FooterComponent />
     </div>
   );

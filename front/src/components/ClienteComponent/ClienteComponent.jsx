@@ -5,27 +5,30 @@ import { useRouter } from "next/router";
 
 export default function ClienteComponent() {
   const router = useRouter();
-  let userLocalStorage = JSON.parse(localStorage.getItem("user"));
-  const [userData, setUserData] = useState(userLocalStorage);
+  const [userData, setUserData] = useState(null);
   const [id, setId] = useState();
   const [editingUser, setEditingUser] = useState(false);
   const [nombre, setNombre] = useState("");
-  const [telefono, setTelefono] = useState();
+  const [telefono, setTelefono] = useState("");
   const [direccion, setDireccion] = useState("");
   const [editing, setEditing] = useState(false);
 
   useEffect(() => {
-    localStorage.setItem("user", JSON.stringify(userData));
-    userLocalStorage = JSON.parse(localStorage.getItem("user"));
-    const loadUserData = async () => {
-      const userAux = await getUserById(userLocalStorage.data.user._id);
-      setNombre(userAux.userData.userName);
-      setTelefono(userAux.userData.userPhone);
-      setDireccion(userAux.userData.userAddress);
-    };
-    loadUserData();
+    const userLocalStorage =
+      typeof window !== "undefined"
+        ? JSON.parse(localStorage.getItem("user"))
+        : null;
     setUserData(userLocalStorage);
-    setId(userLocalStorage.data.user._id);
+    if (userLocalStorage) {
+      const loadUserData = async () => {
+        const userAux = await getUserById(userLocalStorage.data.user._id);
+        setNombre(userAux.userData.userName);
+        setTelefono(userAux.userData.userPhone);
+        setDireccion(userAux.userData.userAddress);
+      };
+      loadUserData();
+      setId(userLocalStorage.data.user._id);
+    }
   }, []);
 
   const handlerEditUser = () => {
@@ -82,7 +85,7 @@ export default function ClienteComponent() {
             {editing ? "Cancelar edición" : "Editar"}
           </button>
         </div>
-        {userData.status == "Success" && !editingUser && (
+        {userData && userData.status === "Success" && !editingUser && (
           <>
             <p className={styles.data}>
               <span>Nombre: </span>
@@ -98,7 +101,7 @@ export default function ClienteComponent() {
           </>
         )}
 
-        {userData.status == "Success" && editingUser && (
+        {userData && userData.status === "Success" && editingUser && (
           <div className={styles.editContainer}>
             <div className={styles.dataEdit}>
               <p className={styles.data}>

@@ -1,5 +1,5 @@
 @value colors: '../../styles/colors.module.css';
-@value azul, blanco, beige from colors;
+@value verde, blanco, morado, moradoClaro from colors;
 
 .socialNav {
   display: flex;
@@ -10,12 +10,13 @@
 .socialIcon {
   width: 1.5rem;
   height: 1.5rem;
-  fill: beige;
+  fill: blanco;
   transition: fill 0.3s;
 }
 
 .socialIcon:hover {
   scale: (1.1);
+  fill: morado;
 }
 
 .subLink {
@@ -25,5 +26,5 @@
 }
 
 .subLink:hover {
-  color: azul;
+  color: verde;
 }

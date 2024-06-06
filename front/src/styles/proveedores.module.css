@@ -1,5 +1,5 @@
 @value colors: 'colors.module.css';
-@value verde, naranja, beige, azul, blanco from colors;
+@value verde, moradoClaro, moradoClaro, verde, blanco from colors;
 
 .root {
   background-color: blanco;
@@ -11,7 +11,7 @@
 
 .title {
   composes: title from "mixins.module.css";
-  color: azul;
+  color: verde;
 }
 
 .container {
@@ -42,7 +42,7 @@
   overflow: hidden;
   min-width: 600px;
   max-width: 900px;
-  width: calc(100% - 100);
+  width: 100%;
   height: 400px;
 }
 
@@ -67,7 +67,7 @@
 }
 
 .image.active .label {
-  background: naranja;
+  background: moradoClaro;
   padding: 10px;
   border-radius: 50px;
   bottom: 15px;
@@ -103,7 +103,7 @@
   background: blanco;
   height: 40px;
   border-radius: 50%;
-  color: naranja;
+  color: moradoClaro;
 }
 
 .info {

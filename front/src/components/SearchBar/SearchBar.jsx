@@ -1,53 +1,45 @@
-import React, { useState, useEffect } from "react";
+// SearchBar.jsx
+import React from "react";
+import styles from "./SearchBar.module.css";
 
-const SearchComponent = () => {
-  //setear los hooks useState
-  const [products, setProducts] = useState([]);
-  const [search, setSearch] = useState("");
-
-  //función para traer los datos de la API
-  const URL = "http://localhost:9000/products/";
-
-  const showData = async () => {
-    const response = await fetch(URL);
-    const data = await response.json();
-    setProducts(data);
-  };
-
-  //función de búsqueda
-  const searcher = (e) => {
-    setSearch(e.target.value);
-  };
-
-  //metodo de filtrado
-  const results = !search
-    ? products
-    : products.filter((dato) =>
-        dato.name.toLowerCase().includes(search.toLocaleLowerCase())
-      );
-
-  useEffect(() => {
-    showData();
-  }, []);
-
-  //renderizamos la vista
+const SearchBar = ({
+  inputSearched,
+  setInputSearched,
+  refreshProductsHandler,
+  searchedHandler,
+}) => {
   return (
-    <div>
-      <input
-        value={search}
-        onChange={searcher}
-        type="text"
-        placeholder="Search"
-        className="form-control"
-      />
-      <div>
-        {Object.keys(results).map((key) => (
-          <p key={results[key].id}>
-            <p>{results[key].productName}</p>
-          </p>
-        ))}
-      </div>
+    <div className={styles.filterContainer}>
+      <form className={styles.formFilter} onSubmit={searchedHandler}>
+        <div className={styles.inputContainer}>
+          <input
+            className={styles.inputFilter}
+            type="text"
+            name="inputSearched"
+            placeholder="Buscar"
+            value={inputSearched}
+            onChange={(e) => setInputSearched(e.target.value)}
+          />
+          <button
+            className={styles.buttonFilter}
+            type="button"
+            onClick={refreshProductsHandler}
+          >
+            <svg className={styles.iconDelete} viewBox="0 0 17 17">
+              <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z" />
+            </svg>
+          </button>
+        </div>
+        <button
+          name="inputSearched"
+          className={styles.buttonRefresh}
+          type="submit"
+        >
+          Buscar
+        </button>
+      </form>
     </div>
   );
 };
-export default SearchComponent;
+
+export default SearchBar;

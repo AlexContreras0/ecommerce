@@ -10,7 +10,7 @@ export default function DeleteCartComponent(props) {
 
   const handleDeleteCartProduct = async () => {
     await deleteCartProduct(idUser, JSON.stringify({ idProduct }));
-    router.back();
+    router.push("/");
   };
 
   return (

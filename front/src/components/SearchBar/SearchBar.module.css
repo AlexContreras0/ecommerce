@@ -1,0 +1,57 @@
+@value colors: '../../styles/colors.module.css';
+@value blanco, moradoClaro, moradoClaro, verde, verdeClaro, moradoClaro, moradoClaro from colors;
+
+.filterContainer {
+  display: flex;
+  justify-content: flex-start;
+  gap: 2rem;
+  border-radius: 8px;
+}
+
+.formFilter {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.inputContainer {
+  border: 1px solid verde;
+  border-radius: 8px;
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.inputFilter {
+  padding: 0.5rem 1rem;
+  border: none;
+}
+
+.inputFilter::placeholder {
+  color: verde;
+}
+
+.inputFilter:focus {
+  outline: none;
+}
+
+.buttonFilter {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.iconDelete {
+  fill: moradoClaro;
+  width: 1.2rem;
+  margin-top: 5px;
+}
+
+.buttonRefresh {
+  composes: botonverde from "../../styles/mixins.module.css";
+}
+
+.buttonRefresh:hover {
+  background-color: moradoClaro;
+}

@@ -1,5 +1,5 @@
 @value colors: '../../styles/colors.module.css';
-@value azul, naranja, beige, blanco from colors;
+@value verde, moradoClaro, moradoClaro, blanco from colors;
 
 .box {
   composes: box from "../../styles/mixins.module.css";
